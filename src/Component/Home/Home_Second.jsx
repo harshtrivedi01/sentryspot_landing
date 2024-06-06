@@ -5,7 +5,7 @@ function Home_Second() {
   return (
     <>
       <div className=' py-5'>
-        <div className=' font-bold text-4xl flex py-6  justify-center'>
+        <div className=' font-bold text-4xl flex py-6 px-6  justify-center'>
         Make a resume in 4 simple steps
         </div>
         <div className=' flex flex-col md:flex-row gap-2 md:gap-7 py-5 px-5 justify-center'>
