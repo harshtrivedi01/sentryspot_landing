@@ -1,4 +1,6 @@
 import React from 'react'
+import Home_Card from './Home_Card'
+import './Home.css'
 
 function Home_Fourth() {
   return (
@@ -67,13 +69,14 @@ function Home_Fourth() {
       </div>
 
 
-      {/* <div>
-        <div>
-          <h1 className=' text-center text-4xl font-bold'>
+      <div>
+        <div className=' py-6' >
+          <h1 className=' text-center text-4xl font-bold py-6'>
           Real customer reviews of our Resume Maker
           </h1>
+          <Home_Card/>
         </div>
-      </div> */}
+      </div>
     </>
   )
 }
