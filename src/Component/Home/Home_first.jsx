@@ -15,7 +15,7 @@ function Home_first() {
                         <button className='  px-6 py-2 rounded-full bg-yellow-400 font-bold hover:bg-yellow-200'> Import Your Resume</button>
                         <button className='  px-6 py-2 rounded-full bg-blue-700 font-bold hover:bg-blue-800'> Build your Resume</button>
                     </div>
-                    <div>EXCELLENT trustpilot star rating 9212 reviews ontrustpilot logo</div>
+                    <div className=' flex flex-wrap'>EXCELLENT <img src='https://www.resume-now.com/sapp/themes/resumenow/img/stars-4.5.svg' className=' h-6 w-16'/> rating 9212 reviews on <img src='https://www.resume-now.com/sapp/themes/resumenow/img/trustpilot-black.png' className=' h-6 w-16'/></div>
                 </div>
             </div>
             <div className='  px-6 py-3' id='bghome'>
