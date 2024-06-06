@@ -1,5 +1,6 @@
 import React from 'react'
 import './Home.css'
+import Home_Fourth from './Home_Fourth'
 
 function Home_Third() {
   return (
@@ -42,7 +43,7 @@ function Home_Third() {
 </div>
 
 
-
+<Home_Fourth/>
 
 {/* Make your Resume component */}
 
