@@ -1,10 +1,11 @@
 import React from 'react'
 import Home_Third from './Home_Third'
+import './Home.css'
 
 function Home_Second() {
   return (
     <>
-      <div className=' py-5'>
+      <div className=' py-5 bg-gray-100'>
         <div className=' font-bold text-4xl flex py-6 px-6  justify-center'>
         Make a resume in 4 simple steps
         </div>
@@ -33,7 +34,7 @@ function Home_Second() {
             </div>
         </div>
         <div className=' flex justify-center'>
-            <button className=' px-5 py-3 rounded-full bg-blue-700 text-white font-bold'>
+            <button className=' px-5 py-3 rounded-full text-white font-bold hover:px-8 hover:shadow-2xl hover:shadow-slate-500' id='home_third'>
                 Create my Resume
             </button>
         </div>

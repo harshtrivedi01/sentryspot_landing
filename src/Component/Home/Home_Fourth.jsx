@@ -5,7 +5,7 @@ import './Home.css'
 function Home_Fourth() {
   return (
     <>
-      <div>
+      <div className=' bg-gray-100'>
       <h1 className=' text-center text-4xl font-bold py-6'>Why use our online Resume Builder?</h1>
         <div className=' flex flex-col mx-auto md:w-[80%] px-8 py-8'>
           <div className=' flex md:gap-8 items-center flex-col md:flex-row'>

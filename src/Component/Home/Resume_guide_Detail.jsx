@@ -14,12 +14,12 @@ const CourseDetail = ({ course }) => {
           <div key={index}>
             
             
-<div className="flex flex-col justify-center  md:w-[320px] h-[340px] border-2 px-2 py-2 rounded-xl border-white shadow-md shadow-slate-400 card-container" id="cardcourse">
+<div className="flex flex-col justify-center  md:w-[320px] h-[340px] border-2 px-2 py-2 rounded-xl border-white shadow-md shadow-slate-400 card-container" >
   <img src={card.img} className="w-[300px] h-auto card-image rounded-md" alt="Course" />
-  <h1 className="text-2xl font-bold text-blue-700">{card.title}</h1>
+  <h1 className="text-2xl font-bold " id='jobcard'>{card.title}</h1>
   <div className="flex gap-1 items-center">
     <img src={card.icon} alt="Icon" className=" rounded-full h-9 w-9" />
-    <p >{card.name}</p>
+    <p id='jobcard' >{card.name}</p>
   </div>
   
   

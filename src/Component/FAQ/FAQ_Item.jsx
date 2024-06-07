@@ -14,7 +14,7 @@ const FAQItem = ({ question, answer }) => {
         <span className=' text-xl font-semibold'>{isOpen ? '-' : '+'}</span>
       </button>
       {isOpen && (
-        <p className="mt-2 text-lg text-slate-400">
+        <p className="mt-2 text-lg text-gray-700">
           {answer}
         </p>
       )}

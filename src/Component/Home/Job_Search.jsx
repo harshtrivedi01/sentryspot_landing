@@ -7,7 +7,7 @@ function Course(props) {
     {
         img:"https://www.resume-now.com/sapp/uploads/2024/05/language-skills.png",icon:"https://www.resume-now.com/sapp/uploads/2023/02/don-sjoerdsma-150x150.jpeg",title:"How to List Language Skill Levels on your Resume",name:"By Don Sjoerdsma, CPRW"
     },
-    { img:"https://www.resume-now.com/sapp/uploads/2024/05/nursing-skills.png",icon:"https://www.resume-now.com/sapp/uploads/2023/02/don-sjoerdsma-150x150.jpeg",title:"Nursing Skills to put on a Resume [20+ Examples]",name:"By Don Sjoerdsma, CPRW"},
+    { img:"https://www.resume-now.com/sapp/uploads/2024/05/nursing-skills.png",icon:"https://www.resume-now.com/sapp/uploads/2023/02/don-sjoerdsma-150x150.jpeg",title:"Nursing Skills to put on a Resume",name:"By Don Sjoerdsma, CPRW"},
     { img:"https://www.resume-now.com/sapp/uploads/2024/05/Research-skills.png",icon:"https://www.resume-now.com/sapp/uploads/2023/05/BrophyPhoto-150x150.jpg",title:"How to Include Research Skills on a Resume", name:"By Hailey Brophy"},
     { img:"https://www.resume-now.com/sapp/uploads/2024/05/Conceptual-skills.png",icon:"https://www.resume-now.com/sapp/uploads/2023/05/BrophyPhoto-150x150.jpg",title:"What are Conceptual Skills?", name:"By Hailey Brophy"},
     { img:"https://www.resume-now.com/sapp/uploads/2024/05/Analytical-skills.png",icon:"https://www.resume-now.com/sapp/uploads/2023/05/BrophyPhoto-150x150.jpg",title:"How to List Analytical Skills on a Resume", name:"By Hailey Brophy"},

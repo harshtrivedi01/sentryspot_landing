@@ -2,8 +2,8 @@ import React from 'react';
 
 const Card = ({ image, title, name, description }) => {
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg m-4">
-        <div className=' flex justify-around'>
+    <div className="max-w-sm rounded overflow-hidden shadow-2xl bg-white m-4">
+        <div className=' flex justify-around py-4'>
         <div>
         <div className="font-bold text-xl">{title}
         </div>
@@ -15,7 +15,7 @@ const Card = ({ image, title, name, description }) => {
 
             <div className="px-6 py-4">
         
-        <p className="text-gray-700 text-base text-center">
+        <p className="text-gray-700 text-base text-left">
           {description}
         </p>
       </div>

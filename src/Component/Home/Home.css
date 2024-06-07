@@ -5,5 +5,13 @@
 
 }
 #home_third{
-    background-color: #022c60;
+    /* background-color: #022c60; */
+    background-color: #333456;
+    /* background-color: #F2931C; */
+}
+#home_fourth{
+    background-color: #F2931C;
+}
+#homecard{
+    color:#333456;
 }
