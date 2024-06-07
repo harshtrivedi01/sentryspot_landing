@@ -8,14 +8,14 @@ const CourseDetail = ({ course }) => {
     <div id="course">
     <h1 className=" text-5xl font-bold px-5 md:px-16 py-5 text-center">Browse our up-to-date resume guides</h1>
     <p className=" mx-auto text-base text-slate-700 md:w-[800px]">Explore our recently updated guides to help you refine and modernize your resume. Discover valuable tips and strategies for today’s job market.</p>
-      <div className="  md:w-[60%] px-5  py-5 bg-white text-black md:mx-auto gap-3 md:grid md:grid-cols-2 ">
+      <div className=" flex flex-col md:flex-row px-5 md:px-56  py-5 bg-white text-black md:mx-auto gap-3 ">
         
         {course.map((card, index) => (
           <div key={index}>
             
             
-<div className="flex flex-col justify-center  md:w-[320px] h-[340px] border-2 px-2 py-2 rounded-xl border-white shadow-md shadow-slate-400 card-container" >
-  <img src={card.img} className="w-[300px] h-auto card-image rounded-md" alt="Course" />
+<div className="flex flex-col justify-center h-[340px] border-2 px-2 py-2 rounded-xl border-white shadow-md shadow-slate-400 card-container" >
+  <img src={card.img} className="h-auto card-image rounded-md" alt="Course" />
   <h1 className="text-2xl font-bold " id='jobcard'>{card.title}</h1>
   <div className="flex gap-1 items-center">
     <img src={card.icon} alt="Icon" className=" rounded-full h-9 w-9" />

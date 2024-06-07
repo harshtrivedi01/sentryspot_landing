@@ -5,6 +5,7 @@ import './Home.css'
 function Home_Second() {
   return (
     <>
+    
       <div className=' py-5 bg-gray-100'>
         <div className=' font-bold text-4xl flex py-6 px-6  justify-center'>
         Make a resume in 4 simple steps
@@ -41,6 +42,7 @@ function Home_Second() {
       </div>
 
       <Home_Third/>
+      
     </>
   )
 }
