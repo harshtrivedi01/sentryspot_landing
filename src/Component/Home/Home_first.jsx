@@ -1,6 +1,7 @@
 import React from 'react'
 import './Home.css'
 import Home_Second from './Home_Second'
+import ImageSlider from './Image_slider'
 
 function Home_first() {
   return (
@@ -16,6 +17,7 @@ function Home_first() {
                         <button className=' text-white px-6 py-2 rounded-full  font-bold hover:px-8 hover:shadow-2xl hover:shadow-slate-500 ' id='home_third'> Build your Resume</button>
                     </div>
                     <div className=' flex flex-wrap'>EXCELLENT <img src='https://www.resume-now.com/sapp/themes/resumenow/img/stars-4.5.svg' className=' h-6 w-16'/> rating 9212 reviews on <img src='https://www.resume-now.com/sapp/themes/resumenow/img/trustpilot-black.png' className=' h-6 w-16'/></div>
+                    <img src='https://www.resume-now.com/sapp/themes/resumenow/img/exp/rs-brands-d.png' className=' h-7 md:h-10 rounded-xl'/>
                 </div>
             </div>
             <div className='  px-6 py-3' id='bghome'>
@@ -23,11 +25,15 @@ function Home_first() {
             </div>
         </div>
       </div>
-      <div className=' flex flex-col md:flex-row gap-2 md:gap-6 py-5 font-semibold items-center justify-center'>
+      {/* <div className=' flex flex-col md:flex-row gap-2 md:gap-6 py-5 font-semibold items-center justify-center'>
         <div>As seen in <sup>1</sup></div>
         <img src='https://www.resume-now.com/sapp/themes/resumenow/img/exp/rs-brands-d.png' className=' h-7 md:h-10 rounded-xl'/>
-      </div>
-
+      </div> */}
+ 
+ <div className='flex items-center justify-center bg-gray-100'>
+ <ImageSlider/>
+ </div>
+     
       <Home_Second/>
     </>
   )
