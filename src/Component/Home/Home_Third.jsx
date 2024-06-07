@@ -5,7 +5,7 @@ import Home_Fourth from './Home_Fourth'
 function Home_Third() {
   return (
     <>
-    <div className=' bg-gray-100 py-10'>
+    <div className=' bg-gray-100 py-10 mb-3'>
       <div className=' flex justify-center bg-gray-100'>
         <div className=' flex flex-col gap-5 md:w-[50%] md:flex-row  shadow-lg shadow-gray-400 text-white rounded-xl  px-5 py-9' id='home_third'>
           <div className=''>
@@ -20,10 +20,10 @@ function Home_Third() {
 
 {/* Start Building component */}
 
-      <div className='flex flex-col gap-5 border-2 my-4 rounded-xl bg-white justify-center px-7 py-10 shadow-md shadow-gray-600 md:mx-auto md:w-[70%]'>
+      <div className='flex flex-col gap-5 border-2 my-8 rounded-xl bg-white justify-center px-7 py-10 shadow-md shadow-gray-600 md:mx-auto md:w-[70%]'>
   <div className='flex flex-col items-center'>
     <h1 className='text-5xl font-bold text-center py-6'>Start building by picking a professional template</h1>
-    <p className=' text-lg text-center'>Choose one of the <span className='text-orange-700 font-semibold'>resume templates</span> below. Fill it in with expert-written text inspired by your work experience.</p>
+    <p className=' text-lg text-center'>Choose one of the <span className=' font-bold text-blue-500' >resume templates</span> below. Fill it in with expert-written text inspired by your work experience.</p>
     <br/>
     <p className=' text-lg text-center'>
       These professionally designed templates have been tested in the real world and proven to bypass HR screening software. Rest easy knowing your resume is more likely to land in human hands.
@@ -37,8 +37,8 @@ function Home_Third() {
     ].map((template, index) => (
       <div key={index} className='relative group'>
         <img src={template.src} alt={template.alt} className=' h-96 w-full rounded-xl hover:h-[400px]' />
-        <h1 className='font-bold text-orange-700 text-xl text-center mt-2'>{template.title}</h1>
-        <button className='absolute top-0 left-0 right-0 bottom-0 m-auto w-fit h-fit bg-orange-600 text-white font-bold py-2 px-4 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300'>Build Your Resume Now</button>
+        <h1 className='font-bold text-xl text-center mt-2' id='homecard'>{template.title}</h1>
+        <button className='absolute top-0 left-0 right-0 bottom-0 m-auto w-fit h-fit  text-white font-bold py-2 px-4 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300' id='home_third'>Build Your Resume Now</button>
       </div>
     ))}
   </div>
@@ -52,7 +52,7 @@ function Home_Third() {
 <div className='flex flex-col gap-5 px-9 py-7 shadow-xl shadow-gray-600 bg-white rounded-xl md:mx-auto md:w-[70%]'>
   <div className='flex flex-col items-center'>
     <h1 className='text-5xl font-bold text-center py-6'>Make your resume using real-world examples</h1>
-    <p>Browse <span className=' font-semibold text-blue-600'>350+ popular resume</span> examples covering all types of jobs, industries and levels of experience. Every example has been reviewed and approved by a Certified Professional Resume Writer (CPRW).
+    <p className=' text-xl'>Browse <span className=' font-semibold text-blue-600'>350+ popular resume</span> examples covering all types of jobs, industries and levels of experience. Every example has been reviewed and approved by a Certified Professional Resume Writer (CPRW).
     </p>
   </div>
   <div className='flex flex-col justify-center gap-5 items-center md:flex-row'>
@@ -74,10 +74,10 @@ function Home_Third() {
 
 {/* Looking for CV or Cover Letter */}
 
-<div className='flex flex-col gap-5 px-5 py-7 md:mx-auto md:w-[70%]'>
+<div className='flex flex-col gap-5 px-5 py-10 md:mx-auto md:w-[70%]'>
   <div className='flex flex-col items-center'>
     <h1 className='text-5xl font-bold text-center py-6'>Looking for CVs or cover letters?</h1>
-    <p>Explore our extensive collection of over 600 CV and cover letter examples to find your perfect fit for any industry or job level.
+    <p className=' text-lg'>Explore our extensive collection of over 600 CV and cover letter examples to find your perfect fit for any industry or job level.
     </p>
   </div>
   <div className='flex flex-col justify-center gap-5 items-center md:flex-row'>

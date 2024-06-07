@@ -7,7 +7,7 @@ const Card = ({ image, title, name, description }) => {
         <div>
         <div className="font-bold text-xl">{title}
         </div>
-        <div className=' text-gray-700 text-base'>{name}</div>
+        <div className=' text-gray-700 text-lg'>{name}</div>
         </div>
       
       <img className="w-10 h-10 rounded-full" src={image} alt={title} />
@@ -15,7 +15,7 @@ const Card = ({ image, title, name, description }) => {
 
             <div className="px-6 py-4">
         
-        <p className="text-gray-700 text-base text-left">
+        <p className="text-gray-700 text-lg text-left">
           {description}
         </p>
       </div>
