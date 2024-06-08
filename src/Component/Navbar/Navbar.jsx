@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import logo from './logo.png';
 import './Navbar.css';
+import '../Home/Home.css'
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,7 +10,7 @@ const Navbar = () => {
   return (
     <>
     <nav className="bg-white border-b border-gray-200" id='navbg'>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className=" mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex-shrink-0 flex items-center">
             <a href="/" className="">
@@ -18,14 +19,16 @@ const Navbar = () => {
           </div>
           <div className="flex items-center">
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-              <a href="/" className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">Resume</a>
-              <a href="/" className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">CV</a>
-              <a href="/" className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">Cover Letter</a>
-              <a href="/" className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">Advice</a>
-              <a href="/" className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">Contact Us</a>
-              <a href="/" className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">Login</a>
+              <a href="/" className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">Resume Score</a>
+              <a href="/" className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">AI Resume Builder</a>
+              <a href="/" className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">AI Parsing</a>
+              <a href="https://blog.abroadium.com/category/career-advice/salary-tool/" target='_blank' className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">Resources</a>
+              <a href="https://blog.abroadium.com/about-us/" target='_blank' className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">About Us</a>
+              <a href="/" className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">Blog</a>
+              <a href="/" className="text-white px-3 py-3 text-lg font-semibold  rounded-full " id='home_fourth'>Log in</a>
+              <a href="/" className="text-white hover:text-yellow-500 px-3 py-3  text-lg font-semibold border-2 rounded-full">Sign up</a>
             </div>
-            <div className="flex sm:hidden">
+             <div className="flex sm:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="text-gray-900 hover:text-gray-700 focus:outline-none px-3 py-2 rounded-md text-sm font-medium"
@@ -34,8 +37,8 @@ const Navbar = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
               </button>
-            </div>
-            <div className="hidden sm:flex items-center">
+            </div> 
+            {/* <div className="hidden sm:flex items-center">
               {!isSearchOpen ? (
                 <button
                   onClick={() => setIsSearchOpen(true)}
@@ -53,7 +56,7 @@ const Navbar = () => {
                   className="block w-full text-gray-900 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 />
               )}
-            </div>
+            </div> */}
           </div>
         </div>
         {isMenuOpen && (

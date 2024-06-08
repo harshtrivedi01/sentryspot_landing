@@ -3,6 +3,7 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './Home.css'
 import Home_Card from './Home_Card'
+import video from './Video.mp4'
 const ResumeBuilderFeatures = () => {
   return (
     <>
@@ -68,14 +69,27 @@ const ResumeBuilderFeatures = () => {
       </div>
     </div>
 
-    <div>
-        <div className=' py-6' >
-          <h1 className=' text-center text-4xl font-bold py-6'>
-          Real customer reviews of our Resume Maker
-          </h1>
-          <Home_Card/>
+    
+      
+        <div className='py-6 border-2 mb-3' >
+            <div className='flex gap-2 justify-center text-white py-4 text-lg md:text-4xl align-middle items-center font-bold' id='home_third'>
+                Certified by recruiters and admired by job seekers
+            </div>
+            <div className='flex justify-center items-center  py-6'>
+                <div className='relative w-[600px] h-[300px]   rounded-xl shadow-lg shadow-gray-600'>
+                    <iframe 
+                        className='absolute top-0 left-0 w-[320px] md:w-[600px] h-[300px] rounded-xl' 
+                        src={video}
+                        title="Embedded Video" 
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; loop" 
+                        allowFullScreen
+                    ></iframe>
+                </div>
+            </div>
         </div>
-      </div> 
+  
+
       </>
   );
 };

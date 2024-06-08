@@ -1,33 +1,73 @@
 import React from 'react'
 import './Home.css'
 import Home_Fourth from './Home_Fourth'
+import Home_Video from './Home_Video'
 
 function Home_Third() {
   return (
     <>
     <div className=' bg-gray-100 py-10 mb-3'>
       <div className=' flex justify-center bg-gray-100'>
-        <div className=' flex flex-col gap-5 md:w-[50%] md:flex-row  shadow-lg shadow-gray-400 text-white rounded-xl  px-5 py-9' id='home_third'>
+        <div className=' flex flex-col gap-5 md:w-[60%] md:flex-row  shadow-lg shadow-gray-400 text-white rounded-xl  px-5 py-9' id='home_third'>
           <div className=''>
-            <img src="https://www.resume-now.com/sapp/themes/resumenow/img/exp/resume-maker-video-thumbnails.png" alt="" className=' h-[200px] w-[800px] rounded-xl shadow-lg shadow-gray-600' />
+            
+            <img src="https://static.rfstat.com/renderforest/images/v2/landing-pics/resume-landing/rm-mobile-step-2-wb.webp" alt="" className=' h-[200px] w-[400px] rounded-xl shadow-lg shadow-gray-600 items-center align-middle' />
           </div>
-          <div className=' flex flex-col gap-3  justify-center'>
-            <h1 className=' font-bold text-3xl'> Ready to Create Your Resume</h1>
+          {/* <div className=' flex flex-col gap-3  justify-center'>
+            <h1 className=' font-bold text-3xl'> How AI Platform Works For You</h1>
             <p className=' text-lg'>See how easy it is with our professional Resume Maker. Get job-specific text and choose from a wide range of designs to build a mistake-free resume that helps you land the job.</p>
-          </div>
+          </div> */}
+          <div className='flex flex-col gap-4'>
+                    <h2 className='text-2xl font-bold'>How AI Platform Works For You</h2>
+                    <div className='flex items-center align-middle gap-2'>
+                        <span className='text-blue-500'>•</span>
+                        <div>
+                            <h3 className='font-semibold'>Build your Resume</h3>
+                            <p>on a mobile, tablet, or desktop device</p>
+                        </div>
+                    </div>
+                    <div className='flex items-start gap-2'>
+                        <span className='text-blue-500'>•</span>
+                        <div>
+                            <h3 className='font-semibold'>Customise your Resume</h3>
+                            <p>with pre-written summaries and responsibilities</p>
+                        </div>
+                    </div>
+                    <div className='flex items-start gap-2'>
+                        <span className='text-blue-500'>•</span>
+                        <div>
+                            <h3 className='font-semibold'>Preview your Resume</h3>
+                            <p>every step of the way</p>
+                        </div>
+                    </div>
+                    <div className='flex items-start gap-2'>
+                        <span className='text-blue-500'>•</span>
+                        <div>
+                            <h3 className='font-semibold'>Download your Resume</h3>
+                            <p>and apply to jobs anywhere</p>
+                        </div>
+                    </div>
+                </div>
         </div>
       </div>
+
+   {/* <Home_Video/> */}
 
 {/* Start Building component */}
 
       <div className='flex flex-col gap-5 border-2 my-8 rounded-xl bg-white justify-center px-7 py-10 shadow-md shadow-gray-600 md:mx-auto md:w-[70%]'>
   <div className='flex flex-col items-center'>
-    <h1 className='text-5xl font-bold text-center py-6'>Start building by picking a professional template</h1>
-    <p className=' text-lg text-center'>Choose one of the <span className=' font-bold text-blue-500' >resume templates</span> below. Fill it in with expert-written text inspired by your work experience.</p>
+    <h1 className='text-5xl font-bold text-center py-6'>Explore our wide range of trending templates that Recruiters loves to see
+    </h1>
+    <p className=' text-lg text-left'>Chosen & Crafted by Our Experts | Powered by our Robust AI </p>
+    {/* <p className=' text-lg text-left'>Powered by our Robust AI</p> */}
+    <p className=' text-lg text-left'>Backed by our Technology | Get it ready in less than 15 minutes </p>
+    {/* <p className=' text-lg text-left'>Get it ready in less than 15 minutes</p> */}
+    {/* <p className=' text-lg text-center'>Choose one of the <span className=' font-bold text-blue-500' >resume templates</span> below. Fill it in with expert-written text inspired by your work experience.</p>
     <br/>
     <p className=' text-lg text-center'>
       These professionally designed templates have been tested in the real world and proven to bypass HR screening software. Rest easy knowing your resume is more likely to land in human hands.
-    </p>
+    </p> */}
   </div>
   <div className='flex flex-col justify-center gap-5 items-center md:flex-row'>
     {[

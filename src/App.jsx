@@ -13,8 +13,8 @@ function App() {
     <Navbar/>
     <Home_first/>
     <Job_Search/>
-    <Resume_Guide/>
-     <FAQ/> 
+    {/* <Resume_Guide/> */}
+     {/* <FAQ/>  */}
      <Footer/>
     </>
   )
