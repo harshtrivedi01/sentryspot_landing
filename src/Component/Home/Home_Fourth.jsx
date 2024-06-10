@@ -9,7 +9,7 @@ const ResumeBuilderFeatures = () => {
     <>
     <div className='bg-gray-200 border-2'>
       <h1 className='text-center text-4xl font-bold py-6'>Why use our online Resume Builder?</h1>
-      <div className='flex flex-col gap-3 mx-auto md:w-[80%] px-8 py-2'>
+      <div className='flex flex-col gap-3 mx-auto md:w-[80%] px-5 py-2'>
         <Carousel showThumbs={false} infiniteLoop useKeyboardArrows autoPlay>
           <div className='flex md:gap-2 items-center flex-col md:flex-row shadow-lg  bg-white rounded-lg px-5'>
             <div>
@@ -71,14 +71,14 @@ const ResumeBuilderFeatures = () => {
 
     
       
-        <div className='py-6 border-2 mb-3' >
+        {/* <div className='py-6 border-2 mb-3' >
             <div className='flex gap-2 justify-center text-white py-4 text-lg md:text-4xl align-middle items-center font-bold' id='home_third'>
-                Certified by recruiters and admired by job seekers
+                Certified By Recruiters & Admired By Job Seekers
             </div>
-            <div className='flex justify-center items-center  py-6'>
-                <div className='relative w-[600px] h-[300px]   rounded-xl shadow-lg shadow-gray-600'>
+            <div className='flex justify-center items-center px-5  py-6'>
+                <div className='relative w-[80%] h-[300px]  rounded-xl shadow-lg shadow-gray-600'>
                     <iframe 
-                        className='absolute top-0 left-0 w-[320px] md:w-[600px] h-[300px] rounded-xl' 
+                        className='absolute top-0 left-0   md:w-full h-full rounded-xl' 
                         src={video}
                         title="Embedded Video" 
                         frameBorder="0"
@@ -87,8 +87,29 @@ const ResumeBuilderFeatures = () => {
                     ></iframe>
                 </div>
             </div>
-        </div>
+        </div> */}
   
+  <div className='py-6 border-2 mb-3'>
+    <div className='flex gap-2 justify-center text-white py-4 text-lg md:text-4xl align-middle items-center font-bold px-2' id='home_third'>
+        Certified By Recruiters & Admired By Job Seekers
+    </div>
+    <div className='flex justify-center items-center px-2 py-6'>
+        <div className='relative w-[320px] h-[300px] md:w-[80%] md:h-[680px] rounded-xl shadow-lg shadow-gray-600 overflow-hidden'>
+            <video 
+                className='absolute top-0 left-0 w-full h-full' 
+                src={video} 
+                title="Embedded Video" 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+                style={{objectFit: 'cover'}}
+            ></video>
+        </div>
+    </div>
+</div>
+
+
 
       </>
   );

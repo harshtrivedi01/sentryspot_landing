@@ -8,33 +8,35 @@ const CourseDetail = ({ course }) => {
     <div id="course">
     <h1 className=" text-5xl font-bold px-5  py-5 text-center">Newest strategies from our career search advisors</h1>
     <p className=" md:mx-auto px-2 text-lg text-slate-700 md:w-[800px]">You’re never alone in your job search. Whether you’re writing a cover letter, preparing for the interview or negotiating your salary, our resource center has articles that will help you take the next step in your career.</p>
+    
       <div className="px-5 md:px-52 py-9 bg-white text-black md:grid md:grid-cols-4 gap-2 ">
         
         {course.map((card, index) => (
           <div key={index}>
             
-            
+            <a href={card.link} target='_blank'>        
 <div className="flex flex-col justify-evenly h-[300px] px-2 py-2 rounded-xl border-white shadow-md shadow-gray-400 card-container" >
-  <a href='https://blog.abroadium.com/category/ai-resume/' target='_blank'>
+  
   <img src={card.img} className="w-[300px] h-auto card-image rounded-md" alt="Course" />
-  </a>
+  
   
   
   <h1 className="text-xl font-bold " id='jobcard'>{card.title}</h1>
-  <div className="flex gap-1 items-center">
-    <img src={card.icon} alt="Icon" className=" rounded-full h-9 w-9" />
+  {/* <div className="flex gap-1 items-center">
+    
     <p id='jobcard'>{card.name}</p>
-  </div>
+  </div> */}
   
   
 </div>
 
-
+</a>
           </div>
         ))}
         
         
       </div>
+      
       <div className=" flex justify-center py-5">
         <button className=" px-3 py-3  hover:bg-black font-semibold text-white border-2 rounded-xl text-center" id='home_third' >
             Get More Career Advice

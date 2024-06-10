@@ -55,7 +55,7 @@ function Home_Third() {
 
 {/* Start Building component */}
 
-      <div className='flex flex-col gap-5 border-2 my-8 rounded-xl bg-white justify-center px-7 py-10 shadow-md shadow-gray-600 md:mx-auto md:w-[70%]'>
+      <div className='flex flex-col gap-5 border-2 my-8 rounded-xl bg-white justify-center px-5 py-10 shadow-md shadow-gray-600 md:mx-auto md:w-[78%]'>
   <div className='flex flex-col items-center'>
     <h1 className='text-5xl font-bold text-center py-6'>Explore our wide range of trending templates that Recruiters loves to see
     </h1>

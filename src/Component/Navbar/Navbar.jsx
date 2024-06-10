@@ -25,8 +25,8 @@ const Navbar = () => {
               <a href="https://blog.abroadium.com/category/career-advice/salary-tool/" target='_blank' className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">Resources</a>
               <a href="https://blog.abroadium.com/about-us/" target='_blank' className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">About Us</a>
               <a href="/" className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">Blog</a>
-              <a href="/" className="text-white px-3 py-3 text-lg font-semibold  rounded-full " id='home_fourth'>Log in</a>
-              <a href="/" className="text-white hover:text-yellow-500 px-3 py-3  text-lg font-semibold border-2 rounded-full">Sign up</a>
+              <a href="/" className="text-white px-3 py-2 text-lg font-semibold  rounded-full " id='home_fourth'>Log in</a>
+              <a href="/" className="text-white hover:text-yellow-500 px-3 py-2  text-lg font-semibold border-2 rounded-full">Sign up</a>
             </div>
              <div className="flex sm:hidden">
               <button
