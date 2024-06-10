@@ -15,9 +15,9 @@ const CourseDetail = ({ course }) => {
           <div key={index}>
             
             <a href={card.link} target='_blank'>        
-<div className="flex flex-col justify-evenly h-[300px] px-2 py-2 rounded-xl border-white shadow-md shadow-gray-400 card-container" >
+<div className="flex flex-col justify-evenly h-[250px] w-[260px] px-2 py-2 rounded-xl border-white shadow-md shadow-gray-400 card-container" >
   
-  <img src={card.img} className="w-[300px] h-auto card-image rounded-md" alt="Course" />
+  <img src={card.img} className="w-[300px] border-2 h-auto card-image rounded-md" alt="Course" />
   
   
   
