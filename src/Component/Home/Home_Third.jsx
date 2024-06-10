@@ -2,53 +2,73 @@ import React from 'react'
 import './Home.css'
 import Home_Fourth from './Home_Fourth'
 import Home_Video from './Home_Video'
+import image from './video_image.png'
+import icon1 from './video_icon1.png'
+import icon2 from './video_icon2.gif'
+import icon3 from './video_icon3.gif'
+import icon4 from './video_icon4.gif'
 
 function Home_Third() {
   return (
     <>
     <div className=' bg-gray-100 py-10 mb-3'>
       <div className=' flex justify-center bg-gray-100'>
-        <div className=' flex flex-col gap-5 md:w-[60%] md:flex-row  shadow-lg shadow-gray-400 text-white rounded-xl  px-5 py-9' id='home_third'>
-          <div className=''>
+        <div className=' md:w-[78%] rounded-xl py-5 px-4' id='home_third'>
+          <h1 className=' text-center font-extrabold text-3xl py-3 text-white'>How Our AI Resume Works For You</h1>
+        <div className=' flex flex-col justify-center gap-5 md:flex-row  text-white rounded-xl  px-5 ' >
+          
+          <div >
             
-            <img src="https://static.rfstat.com/renderforest/images/v2/landing-pics/resume-landing/rm-mobile-step-2-wb.webp" alt="" className=' h-[200px] w-[400px] rounded-xl shadow-lg shadow-gray-600 items-center align-middle' />
+            <img src={image} alt="" className=' h-[200px] w-[400px] rounded-xl shadow-lg shadow-gray-600 items-center align-middle' />
           </div>
-          {/* <div className=' flex flex-col gap-3  justify-center'>
-            <h1 className=' font-bold text-3xl'> How AI Platform Works For You</h1>
-            <p className=' text-lg'>See how easy it is with our professional Resume Maker. Get job-specific text and choose from a wide range of designs to build a mistake-free resume that helps you land the job.</p>
-          </div> */}
-          <div className='flex flex-col gap-4'>
-                    <h2 className='text-2xl font-bold'>How AI Platform Works For You</h2>
+          <div className='flex flex-col items-center justify-center gap-4'>
+          
+                 <div>
                     <div className='flex items-center align-middle gap-2'>
-                        <span className='text-blue-500'>•</span>
                         <div>
-                            <h3 className='font-semibold'>Build your Resume</h3>
-                            <p>on a mobile, tablet, or desktop device</p>
+                          <img src={icon1} className=' h-16 w-16'/>
+                        </div>
+                        <div>
+                            
+                            <p>Check Resume Score,
+                            In few seconds with just couple of clicks</p>
                         </div>
                     </div>
                     <div className='flex items-start gap-2'>
-                        <span className='text-blue-500'>•</span>
                         <div>
-                            <h3 className='font-semibold'>Customise your Resume</h3>
-                            <p>with pre-written summaries and responsibilities</p>
+                          <img src={icon2} className=' h-16 w-16'/>
+                        </div>
+                        <div>
+                            
+                            <p>Our AI does deep checks on your resume & suggest you edits.</p>
                         </div>
                     </div>
-                    <div className='flex items-start gap-2'>
-                        <span className='text-blue-500'>•</span>
-                        <div>
-                            <h3 className='font-semibold'>Preview your Resume</h3>
-                            <p>every step of the way</p>
+                  </div>          
+          </div>
+
+
+                <div className='flex flex-col justify-center gap-4'>
+                     <div className='flex items-start gap-2'>
+                     <div>
+                          <img src={icon3} className=' h-16 w-16'/>
                         </div>
-                    </div>
-                    <div className='flex items-start gap-2'>
-                        <span className='text-blue-500'>•</span>
                         <div>
-                            <h3 className='font-semibold'>Download your Resume</h3>
-                            <p>and apply to jobs anywhere</p>
+                            
+                            <p>Land in Abroad Interviews with our AI technology. </p>
                         </div>
-                    </div>
+                     </div>
+                     <div className='flex items-start gap-2'>
+                     <div>
+                          <img src={icon4} className=' h-16 w-16'/>
+                        </div>
+                        <div>
+                            
+                            <p>Improve Resume with our robust AI, in just few clicks.</p>
+                        </div>
+                     </div>
                 </div>
         </div>
+      </div>
       </div>
 
    {/* <Home_Video/> */}
