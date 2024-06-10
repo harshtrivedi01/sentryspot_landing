@@ -109,7 +109,7 @@ function Home_Third() {
 
 {/* Make your Resume component */}
 
-<div className='flex flex-col gap-5 px-9 py-7 shadow-xl shadow-gray-600 bg-white rounded-xl md:mx-auto md:w-[70%]'>
+<div className='flex flex-col gap-5 px-9 py-7 shadow-xl shadow-gray-600 bg-white rounded-xl md:mx-auto md:w-[79%]'>
   <div className='flex flex-col items-center'>
     <h1 className='text-5xl font-bold text-center py-6'>Make your resume using real-world examples</h1>
     <p className=' text-xl'>Browse <span className=' font-semibold text-blue-600'>350+ popular resume</span> examples covering all types of jobs, industries and levels of experience. Every example has been reviewed and approved by a Certified Professional Resume Writer (CPRW).
