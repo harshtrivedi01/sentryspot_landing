@@ -19,9 +19,10 @@ function Home_first() {
                     </div>
                     {/* <div className=' flex flex-wrap'>EXCELLENT <img src='https://www.resume-now.com/sapp/themes/resumenow/img/stars-4.5.svg' className=' h-6 w-16'/> rating 9212 reviews on <img src='https://www.resume-now.com/sapp/themes/resumenow/img/trustpilot-black.png' className=' h-6 w-16'/></div> */}
                     <div className=' font-bold text-base'>
-                    5 <i className="fa-solid fa-star text-yellow-500"></i> Reviews Certified by Recruiters & Admired by Jobseekers
+                    <i className="fa-solid fa-star text-yellow-500"></i> <i className="fa-solid fa-star text-yellow-500"></i> <i className="fa-solid fa-star text-yellow-500"></i> <i className="fa-solid fa-star text-yellow-500"></i> <i className="fa-solid fa-star text-yellow-500"></i> Reviews Certified by Recruiters & Admired by Jobseekers
                     </div>
                     <div className=' flex '>
+                      <div className=' text-lg font-bold'>As Featured on</div>
                       <div><img src='https://png.pngtree.com/png-clipart/20190613/original/pngtree-linked-in-icon-png-image_3584856.jpg' className=' h-24 w-24'/></div>
                       <div><img src='https://logowik.com/content/uploads/images/usa-today.jpg' className=' h-24 w-24'/></div>
                       <div><img src='https://parspng.com/wp-content/uploads/2021/09/instagram-7.png' className=' h-24 w-28'/></div>

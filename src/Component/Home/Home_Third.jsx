@@ -14,59 +14,60 @@ function Home_Third() {
     <div className=' bg-gray-100 py-10 mb-3'>
       <div className=' flex justify-center bg-gray-100'>
         <div className=' md:w-[78%] rounded-xl py-5 px-4' id='home_third'>
-          <h1 className=' text-center font-extrabold text-3xl py-3 text-white'>How Our AI Resume Works For You</h1>
-        <div className=' flex flex-col justify-center gap-5 md:flex-row  text-white rounded-xl  px-5 ' >
+          
+        <div className=' flex flex-col justify-evenly md:flex-row  text-white rounded-xl  px-5 ' >
           
           <div >
             
-            <img src={image} alt="" className=' h-[200px] w-[400px] rounded-xl shadow-lg shadow-gray-600 items-center align-middle' />
+            <img src={image} alt="" className=' h-[400px] w-[500px] rounded-xl shadow-lg shadow-gray-600 ' />
           </div>
-          <div className='flex flex-col items-center justify-center gap-4'>
-          
+          <div className='flex flex-col font-semibold px-3 gap-5'>
+          <h1 className=' text-center font-bold text-4xl py-2  text-white'>How Our AI Resume Works For You</h1>
                  <div>
-                    <div className='flex items-center align-middle gap-2'>
+                    <div className='flex items-center hover:border-b-2 hover:border-slate-500 hover:rounded-lg  gap-2'>
                         <div>
                           <img src={icon1} className=' h-16 w-16'/>
                         </div>
-                        <div>
+                        <div className=' text-xl'>
                             
                             <p>Check Resume Score,
-                            In few seconds with just couple of clicks</p>
+                            In few seconds with just couple of clicks.</p>
                         </div>
                     </div>
-                    <div className='flex items-start gap-2'>
+                    <div className='flex items-center hover:border-b-2 hover:border-slate-500 hover:rounded-lg gap-2'>
                         <div>
                           <img src={icon2} className=' h-16 w-16'/>
                         </div>
-                        <div>
+                        <div className=' text-xl'>
                             
                             <p>Our AI does deep checks on your resume & suggest you edits.</p>
                         </div>
                     </div>
-                  </div>          
-          </div>
-
-
-                <div className='flex flex-col justify-center gap-4'>
-                     <div className='flex items-start gap-2'>
+                    
+                     <div className='flex items-center hover:border-b-2 hover:border-slate-500 hover:rounded-lg gap-2'>
                      <div>
                           <img src={icon3} className=' h-16 w-16'/>
                         </div>
-                        <div>
+                        <div className=' text-xl'>
                             
                             <p>Land in Abroad Interviews with our AI technology. </p>
                         </div>
                      </div>
-                     <div className='flex items-start gap-2'>
+                     <div className='flex items-center hover:border-b-2 hover:border-slate-500 hover:rounded-lg gap-2'>
                      <div>
                           <img src={icon4} className=' h-16 w-16'/>
                         </div>
-                        <div>
+                        <div className=' text-xl'>
                             
                             <p>Improve Resume with our robust AI, in just few clicks.</p>
                         </div>
                      </div>
-                </div>
+                
+                  </div>          
+          </div>
+
+
+                
         </div>
       </div>
       </div>
