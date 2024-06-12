@@ -3,6 +3,8 @@ import './Home.css'
 import Home_Second from './Home_Second'
 import ImageSlider from './Image_slider'
 import Home_Image from './Home_Image'
+// import Slider from './Slider'
+import Slider_details from './Slider_details'
 
 function Home_first() {
   return (
@@ -37,43 +39,7 @@ function Home_first() {
         </div>
       </div>
 
-      <div className=' py-8 bg-gray-100'>
-        <div className=' font-bold text-4xl flex py-6 px-6  justify-center'>
-        Services 
-        </div>
-        <div className=' flex flex-col md:flex-row gap-2 md:gap-7 py-5 px-5 justify-center'>
-        <div className=' flex flex-col'>
-                <div>
-                    <img src="https://static.jobscan.co/blog/uploads/533x340_01_new.png" alt="" className=' h-24 ' id='imageservice' />
-                </div>
-                <div className=' font-bold text-lg text-center py-4'>
-                    ATS Checker
-                </div>
-            </div>
-            <div className=' flex flex-col'>
-                <div>
-                    <img src="https://www.resumego.net/wp-content/uploads/resumechecker4.png" alt="" className=' h-24 ' id='imageservice' />
-                </div>
-                <div className=' font-bold text-lg text-center py-4'>ATS Score</div>
-            </div>
-            
-            <div className=' flex flex-col'>
-                <div><img src="https://www.myperfectresume.com/wp-content/uploads/2024/02/ats-resume-checker.png" alt="" className=' h-24 ' id='imageservice' /></div>
-                <div className=' font-bold text-lg text-center py-4'>Resume Strength</div>
-            </div>
-            <div className=' flex flex-col'>
-                <div><img src="https://profilesthatpop.com/wp-content/uploads/Resume-Worded-Pro-all-sections.webp" alt="" className=' h-24 ' id='imageservice'  /></div>
-                <div className=' font-bold text-lg text-center py-4'>Resume Writing Service</div>
-            </div>
-        </div>
-        
-      </div>
-
-
- 
- <div className='flex items-center py-6 justify-center bg-gray-100'>
- <ImageSlider/>
- </div>
+      <Slider_details/>
      
       <Home_Second/>
     </>

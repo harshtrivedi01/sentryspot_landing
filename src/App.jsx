@@ -10,12 +10,12 @@ function App() {
 
   return (
     <>
-    <Navbar/>
+   
     <Home_first/>
     <Job_Search/>
     {/* <Resume_Guide/> */}
      {/* <FAQ/>  */}
-     <Footer/>
+     
     </>
   )
 }
