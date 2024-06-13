@@ -15,16 +15,16 @@ function Home_Third() {
       <div className=' flex justify-center bg-gray-100'>
         <div className=' md:w-[78%] rounded-xl py-5 px-4' id='home_third'>
           
-        <div className=' flex flex-col justify-evenly md:flex-row  text-white rounded-xl  px-5 ' >
+        <div className=' flex flex-col gap-2 justify-evenly md:flex-row  text-white rounded-xl  px-5 ' >
           
           <div >
             
-            <img src={image} alt="" className=' h-[400px] w-[500px] rounded-xl shadow-lg shadow-gray-600 ' />
+            <img src={image} alt="" className=' h-[400px] w-[400px] rounded-xl shadow-lg shadow-gray-600 ' />
           </div>
           <div className='flex flex-col font-semibold px-3 gap-5'>
           <h1 className=' text-center font-bold text-4xl py-2  text-white'>How Our AI Resume Works For You</h1>
                  <div>
-                    <div className='flex items-center hover:border-b-2 hover:border-slate-500 hover:rounded-lg  gap-2'>
+                    <div className='flex items-center hover:border-b-2 shadow-lg rounded-2xl py-2 shadow-gray-600 px-3 hover:border-slate-500 hover:rounded-lg  gap-2'>
                         <div>
                           <img src={icon1} className=' h-16 w-16'/>
                         </div>
@@ -34,7 +34,7 @@ function Home_Third() {
                             In few seconds with just couple of clicks.</p>
                         </div>
                     </div>
-                    <div className='flex items-center hover:border-b-2 hover:border-slate-500 hover:rounded-lg gap-2'>
+                    <div className='flex items-center shadow-lg rounded-2xl px-3 hover:border-b-2 py-2 shadow-gray-600 hover:border-slate-500 hover:rounded-lg gap-2'>
                         <div>
                           <img src={icon2} className=' h-16 w-16'/>
                         </div>
@@ -44,7 +44,7 @@ function Home_Third() {
                         </div>
                     </div>
                     
-                     <div className='flex items-center hover:border-b-2 hover:border-slate-500 hover:rounded-lg gap-2'>
+                     <div className='flex items-center shadow-lg rounded-2xl px-3 hover:border-b-2 py-2 shadow-gray-600 hover:border-slate-500 hover:rounded-lg gap-2'>
                      <div>
                           <img src={icon3} className=' h-16 w-16'/>
                         </div>
@@ -53,7 +53,7 @@ function Home_Third() {
                             <p>Land in Abroad Interviews with our AI technology. </p>
                         </div>
                      </div>
-                     <div className='flex items-center hover:border-b-2 hover:border-slate-500 hover:rounded-lg gap-2'>
+                     <div className='flex items-center shadow-lg rounded-2xl px-3 hover:border-b-2 py-2 shadow-gray-600 hover:border-slate-500 hover:rounded-lg gap-2'>
                      <div>
                           <img src={icon4} className=' h-16 w-16'/>
                         </div>
@@ -78,7 +78,7 @@ function Home_Third() {
 
       <div className='flex flex-col gap-5 border-2 my-8 rounded-xl bg-white justify-center px-5 py-10 shadow-md shadow-gray-600 md:mx-auto md:w-[78%]'>
   <div className='flex flex-col items-center'>
-    <h1 className='text-5xl font-bold text-center py-6'>Explore our wide range of trending templates that Recruiters loves to see
+    <h1 className='text-5xl font-bold text-center py-6'>Explore Our Wide Range Of Trending Templates That Recruiters Loves To See
     </h1>
     <p className=' text-lg text-left'>Chosen & Crafted by Our Experts | Powered by our Robust AI </p>
     {/* <p className=' text-lg text-left'>Powered by our Robust AI</p> */}
@@ -112,7 +112,7 @@ function Home_Third() {
 
 <div className='flex flex-col gap-5 px-9 py-7 shadow-xl shadow-gray-600 bg-white rounded-xl md:mx-auto md:w-[79%]'>
   <div className='flex flex-col items-center'>
-    <h1 className='text-5xl font-bold text-center py-6'>Make your resume using real-world examples</h1>
+    <h1 className='text-5xl font-bold text-center py-6'>Make Your Resume Using Real-World Examples</h1>
     <p className=' text-xl'>Browse <span className=' font-semibold text-blue-600'>350+ popular resume</span> examples covering all types of jobs, industries and levels of experience. Every example has been reviewed and approved by a Certified Professional Resume Writer (CPRW).
     </p>
   </div>
@@ -137,7 +137,7 @@ function Home_Third() {
 
 <div className='flex flex-col gap-5 px-5 py-10 md:mx-auto md:w-[70%]'>
   <div className='flex flex-col items-center'>
-    <h1 className='text-5xl font-bold text-center py-6'>Looking for CVs or cover letters?</h1>
+    <h1 className='text-5xl font-bold text-center py-6'>Looking For CVs Or Cover Letters?</h1>
     <p className=' text-lg'>Explore our extensive collection of over 600 CV and cover letter examples to find your perfect fit for any industry or job level.
     </p>
   </div>

@@ -1,6 +1,11 @@
 import React from 'react'
 import Home_Third from './Home_Third'
 import './Home.css'
+import image1 from '../Home/images/1.png'
+import image2 from '../Home/images/2.png'
+import image3 from '../Home/images/3.png'
+import image4 from '../Home/images/4.png'
+import image5 from '../Home/images/5.png'
 
 function Home_Second() {
   return (
@@ -13,28 +18,32 @@ function Home_Second() {
         <div className=' flex flex-col md:flex-row gap-2 md:gap-7 py-5 px-5 justify-center'>
             <div className=' flex flex-col items-center'>
                 <div>
-                    <img src="https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_1000/v1708034921/catalog/1530670199369076736/tl6kfj1umn0gpas9dcev.webp" alt="" className=' h-24 hover:h-28 hover:shadow-xl hover:shadow-gray-500' />
+                    <img src={image1} alt="" className=' h-48 hover:h-52 hover:shadow-xl hover:shadow-gray-200' />
                 </div>
-                <div className=' font-bold text-lg text-center'>Upload Your Resume</div>
+                <div className=' font-bold text-lg text-center'>Upload Resume</div>
             </div>
             <div className=' flex flex-col items-center'>
                 <div>
-                    <img src="https://impactmedia.b-cdn.net/wp-content/uploads/2023/02/ai-generated-content-blog-header-image.jpg" alt="" className=' h-24 hover:h-28 hover:shadow-xl hover:shadow-gray-500'  />
+                    <img src={image2} alt="" className=' h-48 hover:h-52 hover:shadow-xl hover:shadow-gray-200'  />
                 </div>
                 <div className=' font-bold text-lg text-center'>
-                Let Our AI Improve It
+                AI Analysis
                 </div>
             </div>
             <div className=' flex flex-col items-center'>
-                <div><img src="https://cdn.papercheck.com/wp-content/uploads/2015/08/25040925/office-2010-resume-template-step-4.png" alt="" className=' h-24 hover:h-28 hover:shadow-xl hover:shadow-gray-500'  /></div>
-                <div className=' font-bold text-lg text-center'>Select A Template</div>
+                <div><img src={image3} alt="" className=' h-48 hover:h-52 hover:shadow-xl hover:shadow-gray-200'  /></div>
+                <div className=' font-bold text-lg text-center'>Select Design</div>
             </div>
             <div className=' flex flex-col items-center'>
-                <div><img src="https://www.resume-now.com/sapp/uploads/2024/01/download-template-icon.png" alt="" className=' h-24 hover:h-28 hover:shadow-xl hover:shadow-gray-500'  /></div>
-                <div className=' font-bold text-lg text-center'>Add Your Edit & Download</div>
+                <div><img src={image4} alt="" className=' h-48 hover:h-52 hover:shadow-xl hover:shadow-gray-200'  /></div>
+                <div className=' font-bold text-lg text-center'>Improve with AI</div>
+            </div>
+            <div className=' flex flex-col items-center'>
+                <div><img src={image5} alt="" className=' h-48 hover:h-52 hover:shadow-xl hover:shadow-gray-200'  /></div>
+                <div className=' font-bold text-lg text-center'>Download</div>
             </div>
         </div>
-        <div className=' flex justify-center'>
+        <div className=' flex justify-center mt-4'>
             <button className=' px-5 py-3 rounded-full text-lg text-white font-bold hover:px-8 hover:shadow-2xl hover:shadow-slate-500' id='home_third'>
                 Create my Resume
             </button>
