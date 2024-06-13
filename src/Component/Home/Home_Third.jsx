@@ -9,8 +9,8 @@ import icon3 from './video_icon3.gif'
 import icon4 from './video_icon4.gif'
 import image1 from './resume1.jpg'
 import image2 from './resume3.jpg'
-import image3 from './resume4.jpg'
-import cvimage1 from './resume2.jpg'
+import image3 from './resume5.jpg'
+import cvimage1 from './cv4.jpg'
 import cvimage2 from './cv2.jpg'
 import cvimage3 from './cv3.jpg'
 
@@ -86,20 +86,22 @@ function Home_Third() {
   <div className='flex flex-col items-center'>
     <h1 className='text-5xl font-bold text-center py-6'>Explore Our Wide Range Of Trending Templates That Recruiters Loves To See
     </h1>
-    <p className=' text-lg text-left'>Chosen & Crafted by Our Experts | Powered by our Robust AI </p>
-    {/* <p className=' text-lg text-left'>Powered by our Robust AI</p> */}
-    <p className=' text-lg text-left'>Backed by our Technology | Get it ready in less than 15 minutes </p>
-    {/* <p className=' text-lg text-left'>Get it ready in less than 15 minutes</p> */}
-    {/* <p className=' text-lg text-center'>Choose one of the <span className=' font-bold text-blue-500' >resume templates</span> below. Fill it in with expert-written text inspired by your work experience.</p>
-    <br/>
-    <p className=' text-lg text-center'>
-      These professionally designed templates have been tested in the real world and proven to bypass HR screening software. Rest easy knowing your resume is more likely to land in human hands.
-    </p> */}
+    <div className=' flex gap-2'>
+    <div className=' text-lg text-left flex flex-col'>
+      <div><i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-green-500 "></i>Chosen & Crafted by Our Experts</div>
+      <div><i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-green-500 "></i>Backed by our Technology</div>
+    </div>
+
+    <div className=' text-lg text-left flex flex-col '>      
+      <div><i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-green-500 "></i> Powered by our Robust AI </div>
+       <div><i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-green-500 "></i> Get it ready in less than 15 minutes</div>
+    </div>
+    </div>
   </div>
   <div className='flex flex-col justify-center gap-5 items-center md:flex-row'>
     {[
       { src: image1, alt: "Assistant Editor Resume Example", title: "Create Resume Template" },
-      { src: image2, alt: "Farmer Resume Template", title: "Simple Resume Template" },
+      { src: cvimage2, alt: "Farmer Resume Template", title: "Simple Resume Template" },
       { src: image3, alt: "Doctor Resume Template", title: "Modern Resume Template" }
     ].map((template, index) => (
       <div key={index} className='relative group'>
@@ -150,7 +152,7 @@ function Home_Third() {
   <div className='flex flex-col justify-center gap-5 items-center md:flex-row'>
     {[
       { src: cvimage1, alt: "Assistant Editor Resume Example", title: "Cover Letter Example" },
-      { src: cvimage2, alt: "Farmer Resume Template", title: "Cover Letter Examples" },
+      { src: image2, alt: "Farmer Resume Template", title: "Cover Letter Examples" },
       { src: cvimage3, alt: "Farmer Resume Template", title: "Cover Letter Examples" }
     ].map((template, index) => (
       <div key={index} className='relative group'>
