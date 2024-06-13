@@ -7,7 +7,7 @@ import video from './Video.mp4'
 const ResumeBuilderFeatures = () => {
   return (
     <>
-    <div className='bg-gray-200 border-2'>
+    {/* <div className='bg-gray-200 border-2'>
       <h1 className='text-center text-4xl font-bold py-6'>Why use our online Resume Builder?</h1>
       <div className='flex flex-col gap-3 mx-auto md:w-[80%] px-5 py-2'>
         <Carousel showThumbs={false} infiniteLoop useKeyboardArrows autoPlay>
@@ -67,7 +67,7 @@ const ResumeBuilderFeatures = () => {
           </div>
         </Carousel>
       </div>
-    </div>
+    </div> */}
 
     
       

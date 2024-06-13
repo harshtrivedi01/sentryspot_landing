@@ -6,7 +6,7 @@ function subscription() {
     <>
 
      <div>
-      <div>
+      <div className=' bg-slate-50'>
         <h1 className=' text-center font-bold text-3xl py-5'>Want To Supercharge Your Career Growth With Our AI Tool?</h1>
         <div className='  mx-auto md:w-[600px] py-3'>Get started at no cost to tap into Abroadium's premium features and power up your job search. Experience our amazing AI enabled easy to use dashboard.</div>
         <div className=' px-2 flex justify-center'>

@@ -7,6 +7,12 @@ import icon1 from './video_icon1.png'
 import icon2 from './video_icon2.gif'
 import icon3 from './video_icon3.gif'
 import icon4 from './video_icon4.gif'
+import image1 from './resume1.jpg'
+import image2 from './resume3.jpg'
+import image3 from './resume4.jpg'
+import cvimage1 from './resume2.jpg'
+import cvimage2 from './cv2.jpg'
+import cvimage3 from './cv3.jpg'
 
 function Home_Third() {
   return (
@@ -92,9 +98,9 @@ function Home_Third() {
   </div>
   <div className='flex flex-col justify-center gap-5 items-center md:flex-row'>
     {[
-      { src: "https://www.resume-now.com/sapp/uploads/2024/04/assistant-editor-resume-example.svg", alt: "Assistant Editor Resume Example", title: "Create Resume Template" },
-      { src: "https://www.resume-now.com/sapp/uploads/2023/11/resume-template-farmer.svg", alt: "Farmer Resume Template", title: "Simple Resume Template" },
-      { src: "https://www.resume-now.com/sapp/uploads/2023/11/resume-template-doctor.svg", alt: "Doctor Resume Template", title: "Modern Resume Template" }
+      { src: image1, alt: "Assistant Editor Resume Example", title: "Create Resume Template" },
+      { src: image2, alt: "Farmer Resume Template", title: "Simple Resume Template" },
+      { src: image3, alt: "Doctor Resume Template", title: "Modern Resume Template" }
     ].map((template, index) => (
       <div key={index} className='relative group'>
         <img src={template.src} alt={template.alt} className=' h-96 w-full rounded-xl hover:h-[400px]' />
@@ -110,7 +116,7 @@ function Home_Third() {
 
 {/* Make your Resume component */}
 
-<div className='flex flex-col gap-5 px-9 py-7 shadow-xl shadow-gray-600 bg-white rounded-xl md:mx-auto md:w-[79%]'>
+{/* <div className='flex flex-col gap-5 px-9 py-7 shadow-xl shadow-gray-600 bg-white rounded-xl md:mx-auto md:w-[79%]'>
   <div className='flex flex-col items-center'>
     <h1 className='text-5xl font-bold text-center py-6'>Make Your Resume Using Real-World Examples</h1>
     <p className=' text-xl'>Browse <span className=' font-semibold text-blue-600'>350+ popular resume</span> examples covering all types of jobs, industries and levels of experience. Every example has been reviewed and approved by a Certified Professional Resume Writer (CPRW).
@@ -130,21 +136,22 @@ function Home_Third() {
       </div>
     ))}
   </div>
-</div>
+</div> */}
 
 
 {/* Looking for CV or Cover Letter */}
 
 <div className='flex flex-col gap-5 px-5 py-10 md:mx-auto md:w-[70%]'>
   <div className='flex flex-col items-center'>
-    <h1 className='text-5xl font-bold text-center py-6'>Looking For CVs Or Cover Letters?</h1>
-    <p className=' text-lg'>Explore our extensive collection of over 600 CV and cover letter examples to find your perfect fit for any industry or job level.
+    <h1 className='text-5xl font-bold text-center py-6'>Looking For Impressive Cover Letters?</h1>
+    <p className=' text-lg'>Explore from our 25+ premium Cover Letters, Which are exclusively crafted by our Experts.
     </p>
   </div>
   <div className='flex flex-col justify-center gap-5 items-center md:flex-row'>
     {[
-      { src: "https://www.resume-now.com/sapp/uploads/2023/11/cover-letter-example-technical-project-manager.svg", alt: "Assistant Editor Resume Example", title: "Cover Letter Example" },
-      { src: "https://www.resume-now.com/sapp/uploads/2023/11/CV-example-college-part-1.svg", alt: "Farmer Resume Template", title: "CV Examples" }
+      { src: cvimage1, alt: "Assistant Editor Resume Example", title: "Cover Letter Example" },
+      { src: cvimage2, alt: "Farmer Resume Template", title: "Cover Letter Examples" },
+      { src: cvimage3, alt: "Farmer Resume Template", title: "Cover Letter Examples" }
     ].map((template, index) => (
       <div key={index} className='relative group'>
         <img src={template.src} alt={template.alt} className=' h-[400px] w-full border-2 rounded-lg shadow-xl shadow-gray-500' />
