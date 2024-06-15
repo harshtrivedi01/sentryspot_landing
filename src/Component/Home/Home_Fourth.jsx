@@ -94,7 +94,7 @@ const ResumeBuilderFeatures = () => {
         Certified By Recruiters & Admired By Job Seekers
     </div>
     <div className='flex justify-center items-center px-2 py-3'>
-        <div className='relative w-[320px] h-[300px] md:w-[80%] md:h-[680px] rounded-xl shadow-lg shadow-gray-600 overflow-hidden'>
+        <div className='relative w-[100%] h-[300px] md:w-[80%] md:h-[675px] rounded-xl shadow-lg shadow-gray-600 overflow-hidden'>
             <video 
                 className='absolute top-0 left-0 w-full h-full' 
                 src={video} 
@@ -103,7 +103,7 @@ const ResumeBuilderFeatures = () => {
                 loop 
                 muted 
                 playsInline
-                style={{objectFit: 'cover'}}
+                // style={{objectFit: 'cover'}}
             ></video>
         </div>
     </div>
