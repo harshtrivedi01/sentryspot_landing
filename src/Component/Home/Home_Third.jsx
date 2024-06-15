@@ -13,6 +13,7 @@ import image3 from './resume5.jpg'
 import cvimage1 from './cv4.jpg'
 import cvimage2 from './cv2.jpg'
 import cvimage3 from './cv3.jpg'
+import cvimage4 from './cv6.png'
 
 function Home_Third() {
   return (
@@ -23,9 +24,9 @@ function Home_Third() {
           
         <div className=' flex flex-col gap-2 justify-evenly md:flex-row  text-white rounded-xl  px-5 ' >
           
-          <div >
+          <div className=' flex align-middle items-center'>
             
-            <img src={image} alt="" className=' h-[400px] w-[400px] rounded-xl shadow-lg shadow-gray-600 ' />
+            <img src={image} alt="" className=' h-[350px] w-[380px] rounded-xl shadow-lg shadow-gray-600 ' />
           </div>
           <div className='flex flex-col font-semibold px-3 gap-5'>
           <h1 className=' text-center font-bold text-4xl py-2  text-white'>How Our AI Resume Works For You</h1>
@@ -87,12 +88,12 @@ function Home_Third() {
     <h1 className='text-5xl font-bold text-center py-6'>Explore Our Wide Range Of Trending Templates That Recruiters Loves To See
     </h1>
     <div className=' flex gap-2'>
-    <div className=' text-lg text-left flex flex-col'>
+    <div className=' text-lg text-left flex flex-col gap-1'>
       <div><i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-green-500 "></i>Chosen & Crafted by Our Experts</div>
       <div><i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-green-500 "></i>Backed by our Technology</div>
     </div>
 
-    <div className=' text-lg text-left flex flex-col '>      
+    <div className=' text-lg text-left flex flex-col gap-1 '>      
       <div><i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-green-500 "></i> Powered by our Robust AI </div>
        <div><i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-green-500 "></i> Get it ready in less than 15 minutes</div>
     </div>
@@ -101,7 +102,7 @@ function Home_Third() {
   <div className='flex flex-col justify-center gap-5 items-center md:flex-row'>
     {[
       { src: image1, alt: "Assistant Editor Resume Example", title: "Create Resume Template" },
-      { src: cvimage2, alt: "Farmer Resume Template", title: "Simple Resume Template" },
+      { src: cvimage3, alt: "Farmer Resume Template", title: "Simple Resume Template" },
       { src: image3, alt: "Doctor Resume Template", title: "Modern Resume Template" }
     ].map((template, index) => (
       <div key={index} className='relative group'>
@@ -153,7 +154,8 @@ function Home_Third() {
     {[
       { src: cvimage1, alt: "Assistant Editor Resume Example", title: "Cover Letter Example" },
       { src: image2, alt: "Farmer Resume Template", title: "Cover Letter Examples" },
-      { src: cvimage3, alt: "Farmer Resume Template", title: "Cover Letter Examples" }
+      { src: cvimage2, alt: "Farmer Resume Template", title: "Cover Letter Examples" },
+      { src: cvimage4, alt: "Farmer Resume Template", title: "Cover Letter Examples" }
     ].map((template, index) => (
       <div key={index} className='relative group'>
         <img src={template.src} alt={template.alt} className=' h-[400px] w-full border-2 rounded-lg shadow-xl shadow-gray-500' />

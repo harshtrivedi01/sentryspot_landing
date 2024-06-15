@@ -93,7 +93,7 @@ const ResumeBuilderFeatures = () => {
     <div className='flex gap-2 justify-center text-white py-4 text-lg md:text-4xl align-middle items-center font-bold px-2' id='home_third'>
         Certified By Recruiters & Admired By Job Seekers
     </div>
-    <div className='flex justify-center items-center px-2 py-6'>
+    <div className='flex justify-center items-center px-2 py-3'>
         <div className='relative w-[320px] h-[300px] md:w-[80%] md:h-[680px] rounded-xl shadow-lg shadow-gray-600 overflow-hidden'>
             <video 
                 className='absolute top-0 left-0 w-full h-full' 

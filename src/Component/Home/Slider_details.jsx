@@ -138,10 +138,10 @@
 
 import React, { useState, useEffect } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import image1 from '../assest/service1.jpg';
-import image2 from '../assest/service2.jpg';
-import image3 from '../assest/service3.jpg';
-import image4 from '../assest/service4.jpg';
+import image1 from '../images/image1.png';
+import image2 from '../images/image2.png';
+import image3 from '../images/image3.png';
+import image4 from '../images/image4.png';
 
 const images = [
   image1,
@@ -168,7 +168,7 @@ const ImageSlider = () => {
   useEffect(() => {
     const autoPlay = setInterval(() => {
       nextSlide();
-    }, 2000); // Change slide every 3 seconds
+    }, 3000); 
 
     return () => {
       clearInterval(autoPlay);
@@ -177,8 +177,8 @@ const ImageSlider = () => {
 
   return (
     <>
-      <h1 className="text-center text-4xl py-5 font-bold">Explore Our AI Enabled Resume Services</h1>
-      <div className="relative flex justify-center items-center w-full md:w-[100%] h-64 md:h-[800px] mx-auto">
+      <h1 className="text-center text-4xl py-3 font-bold">Explore Our AI Enabled Resume Services</h1>
+      <div className="relative flex justify-center items-center w-full md:w-[100%] h-64 md:h-[600px] mx-auto">
         <FaArrowLeft
           className="absolute top-1/2 left-2 md:left-28 transform -translate-y-1/2 text-blue-700 cursor-pointer z-10"
           onClick={prevSlide}
@@ -190,7 +190,7 @@ const ImageSlider = () => {
         {images.map((image, index) => (
           <div
             key={index}
-            className={`absolute w-[80%] transition-opacity duration-1000 ease-in-out ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`}
+            className={`absolute w-[60%] transition-opacity duration-1000 ease-in-out ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`}
           >
             {index === currentIndex && (
               <img src={image} alt={`Slide ${index}`} className="w-full h-full rounded-3xl object-cover" />
