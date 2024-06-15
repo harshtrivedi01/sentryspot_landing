@@ -190,7 +190,7 @@ const ImageSlider = () => {
         {images.map((image, index) => (
           <div
             key={index}
-            className={`absolute w-[60%] transition-opacity duration-1000 ease-in-out ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`}
+            className={`absolute w-[60%] transition-opacity duration-1000 ease-in-out ${index === currentIndex ? 'opacity-100' : 'opacity-2'}`}
           >
             {index === currentIndex && (
               <img src={image} alt={`Slide ${index}`} className="w-full h-full rounded-3xl object-cover" />
