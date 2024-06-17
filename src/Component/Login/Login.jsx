@@ -8,6 +8,9 @@ import Third_step from './Third_step'
 
 function Login() {
     const [isthirdstepOpen, setThirdstepOpen] = useState(false);
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+      };
   return (
     <>
     <div className="p-8 rounded-xl shadow-lg shadow-slate-700 w-full max-w-lg" >
@@ -19,7 +22,7 @@ function Login() {
       <p className="text-black text-base mb-6">
         People across the globe are joining us to upgrade their career with our Robust AI.
       </p>
-      <form>
+      <form onSubmit={handleFormSubmit}>
         <div className="mb-4">
           <label className="block text-black">Email ID</label>
           <input
@@ -51,6 +54,7 @@ function Login() {
         </button>
 
         <button
+        type='button'
           className="bg-yellow-500 text-white px-4 m-3 py-2 rounded-md"
           onClick={() => setThirdstepOpen(true)}
         >
