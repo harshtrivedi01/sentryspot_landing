@@ -6,6 +6,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Layout from './Layout.jsx'
 import Slider from './Component/Home/Slider.jsx'
 import Slider_details from './Component/Home/Slider_details.jsx'
+import Login from './Component/Login/Login.jsx'
 const route =createBrowserRouter([
   {
     path:"/",
@@ -18,6 +19,10 @@ const route =createBrowserRouter([
       {
         path:"slide/:id",
         element:<Slider_details/>
+      },
+      {
+        path:"login",
+        element:<Login/>
       }
     ]
   }
@@ -27,5 +32,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider router ={route}/>
     {/* <App /> */}
+    
   </React.StrictMode>,
 )

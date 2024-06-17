@@ -3,10 +3,15 @@ import logo from './logo.png';
 import './Navbar.css';
 import '../Home/Home.css'
 import { Link } from 'react-router-dom';
+import Modal from '../Login/Modal';
+import Login from '../Login/Login'
+import Signup from '../Login/Signup';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isLoginOpen, setLoginOpen] = useState(false);
+  const [issignupOpen, setsignupOpen] = useState(false);
 
   return (
     <>
@@ -26,8 +31,20 @@ const Navbar = () => {
               <Link to="/slide/3" className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">Resources</Link>
               <Link to="https://blog.abroadium.com/about-us/" target='_blank' className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">About Us</Link>
               <Link to="https://blog.abroadium.com/" target='_blank' className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">Blog</Link>
-              <Link to="/" className="text-white px-2 py-2 text-lg font-semibold  rounded-xl " id='home_fourth'>Log in</Link>
-              <Link to="/" className="text-white hover:text-yellow-500 px-2 py-2 text-lg font-semibold border-2 rounded-xl">Sign up</Link>
+              {/* <Link to="/login" className="text-white px-2 py-2 text-lg font-semibold  rounded-xl " id='home_fourth'>Log in</Link> */}
+              <button
+          className="bg-yellow-500 text-white px-4 py-2 rounded-md"
+          onClick={() => setLoginOpen(true)}
+        >
+          Login
+        </button>
+              {/* <Link to="/" className="text-white hover:text-yellow-500 px-2 py-2 text-lg font-semibold border-2 rounded-xl">Sign up</Link> */}
+              <button
+          className="bg-yellow-500 text-white px-4 py-2 rounded-md"
+          onClick={() => setsignupOpen(true)}
+        >
+          Signup
+        </button>
             </div>
              <div className="flex sm:hidden">
               <button
@@ -39,25 +56,7 @@ const Navbar = () => {
                 </svg>
               </button>
             </div> 
-            {/* <div className="hidden sm:flex items-center">
-              {!isSearchOpen ? (
-                <button
-                  onClick={() => setIsSearchOpen(true)}
-                  className="text-white hover:text-yellow-500 focus:outline-none px-3 py-2 rounded-md text-sm font-medium flex items-center"
-                >
-                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1112 4.5a7.5 7.5 0 014.35 12.15z"></path>
-                  </svg>
-                  Search
-                </button>
-              ) : (
-                <input
-                  type="text"
-                  placeholder="Search..."
-                  className="block w-full text-gray-900 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                />
-              )}
-            </div> */}
+            
           </div>
         </div>
         {isMenuOpen && (
@@ -74,6 +73,12 @@ const Navbar = () => {
         )}
       </div>
     </nav>
+    <Modal isOpen={isLoginOpen} onClose={() => setLoginOpen(false)}>
+        <Login />
+      </Modal>
+      <Modal isOpen={issignupOpen} onClose={() => setsignupOpen(false)}>
+        <Signup />
+      </Modal>
     </>
   );
 };
