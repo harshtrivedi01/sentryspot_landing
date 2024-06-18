@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.png'
+import logo from './Logo1.png'
 function Signup() {
 
   return (
@@ -7,14 +7,16 @@ function Signup() {
       <div className='min-h-screen flex justify-end  py-2'>
         
         <div className='p-8 rounded-xl shadow-lg shadow-slate-700 w-full max-w-lg' >
-        <div className=' flex bg-black '>
-        <div><img src={logo} className=' h-10 w-full'/></div>
-        <div className='text-2xl text-white font-bold'>Let's Get Started</div>
+        <div className=' flex '>
+        <div><img src={logo} className=' h-10 w-20'/></div>
+        
         </div>
+        <div className='text-2xl text-black text-center font-bold'>Let's Get Started</div>
           <h3 className='text-xl text-black font-semibold py-5 text-center'>People across Globe are joining us to upgrade their career with our Robust AI</h3>
           
 
           <form >
+            <div className=' flex justify-between gap-4'>
             <div className='mb-4'>
               <label className='block text-black'>First Name</label>
               <input
@@ -39,6 +41,9 @@ function Signup() {
                 maxLength={40}
               />
             </div>
+            </div>
+            
+            <div className=' flex justify-between gap-4'>
             <div className='mb-4'>
               <label className='block text-black'>Email ID</label>
               <input
@@ -47,15 +52,6 @@ function Signup() {
                 className='w-full px-3 py-2 border rounded-md'
                 placeholder='Enter your email ID'
                 required
-              />
-            </div>
-            <div className='mb-4'>
-              <label className='block text-black'>Phone</label>
-              <input
-                type='number'
-                name='phone'
-                className='w-full px-3 py-2 border rounded-md'
-                placeholder='Enter your phone number'
               />
             </div>
             <div className='mb-4'>
@@ -70,6 +66,19 @@ function Signup() {
                 maxLength={12}
               />
                 </div>
+            </div>
+            
+            <div className=' flex flex-col justify-between gap-2'>
+            <div className='mb-4'>
+              <label className='block text-black'>Phone</label>
+              <input
+                type='number'
+                name='phone'
+                className='w-full px-3 py-2 border rounded-md'
+                placeholder='Enter your number'
+              />
+            </div>
+            
             <div className='mb-4'>
               <label className='block text-black'>Country</label>
               <select
@@ -81,6 +90,7 @@ function Signup() {
                 
               </select>
               
+            </div>
             </div>
             {/* <div className='mb-4'>
               <label className='block text-black'>State</label>

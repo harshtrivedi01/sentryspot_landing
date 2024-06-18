@@ -7,6 +7,7 @@ import Layout from './Layout.jsx'
 import Slider from './Component/Home/Slider.jsx'
 import Slider_details from './Component/Home/Slider_details.jsx'
 import Login from './Component/Login/Login.jsx'
+import Signup from './Component/Login/Signup.jsx'
 const route =createBrowserRouter([
   {
     path:"/",
