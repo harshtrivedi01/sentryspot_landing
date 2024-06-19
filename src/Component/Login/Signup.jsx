@@ -4,7 +4,7 @@ function Signup() {
 
   return (
     <div >
-      <div className='min-h-screen flex justify-end  py-2'>
+      <div className=' flex justify-end  py-2'>
         
         <div className='p-8 rounded-xl shadow-lg shadow-slate-700 w-full max-w-lg' >
         <div className=' flex '>
@@ -136,8 +136,8 @@ function Signup() {
                 </select>
                 {errors.qualification_id && <p className="text-red-500 text-xs">{errors.qualification_id}</p>}
               </div> */}
-
-            <button type='submit' className='w-full py-2 px-4 bg-yellow-500 text-black font-semibold rounded-md'>
+            <p className=' text-base '>By registering, I am agreeing to theTerms and Conditions and Privacy Policy of this site.</p>
+            <button type='submit' className='w-full py-2 mt-2 px-4 bg-yellow-500 text-black font-semibold rounded-md'>
               Sign Up
             </button>
           </form>
