@@ -102,7 +102,7 @@ function Home_Third() {
   <div className='flex flex-col justify-center gap-5 items-center md:flex-row'>
     {[
       { src: image1, alt: "Assistant Editor Resume Example", title: "Create Resume Template" },
-      { src: cvimage3, alt: "Farmer Resume Template", title: "Simple Resume Template" },
+      { src: image2, alt: "Farmer Resume Template", title: "Simple Resume Template" },
       { src: image3, alt: "Doctor Resume Template", title: "Modern Resume Template" }
     ].map((template, index) => (
       <div key={index} className='relative group'>
@@ -153,7 +153,7 @@ function Home_Third() {
   <div className='flex flex-col justify-center gap-5 items-center md:flex-row'>
     {[
       { src: cvimage1, alt: "Assistant Editor Resume Example", title: "Cover Letter Example" },
-      { src: image2, alt: "Farmer Resume Template", title: "Cover Letter Examples" },
+      { src: cvimage3, alt: "Farmer Resume Template", title: "Cover Letter Examples" },
       { src: cvimage2, alt: "Farmer Resume Template", title: "Cover Letter Examples" },
       { src: cvimage4, alt: "Farmer Resume Template", title: "Cover Letter Examples" }
     ].map((template, index) => (

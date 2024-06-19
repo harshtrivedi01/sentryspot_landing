@@ -24,7 +24,7 @@ function subscription() {
             </div>
             
         </div>
-        <div className=' flex justify-center mt-6 mb-3'>
+        <div className=' flex justify-center mt-6 mb-8'>
         <button className=' px-3 py-3 rounded-2xl font-semibold text-white shadow-xl shadow-slate-800' id="home_third">Get Started For Free</button>
         </div>
         

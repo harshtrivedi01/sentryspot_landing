@@ -23,11 +23,11 @@ function Home_first() {
                     <div className=' font-bold text-base'>
                     <i className="fa-solid fa-star text-yellow-500"></i> <i className="fa-solid fa-star text-yellow-500"></i> <i className="fa-solid fa-star text-yellow-500"></i> <i className="fa-solid fa-star text-yellow-500"></i> <i className="fa-solid fa-star text-yellow-500"></i> Reviews Certified by Recruiters & Admired by Jobseekers
                     </div>
-                    <div className=' flex '>
+                    <div className=' flex items-center align-middle '>
                       <div className=' text-lg font-bold'>As Featured on</div>
                       <div><img src='https://png.pngtree.com/png-clipart/20190613/original/pngtree-linked-in-icon-png-image_3584856.jpg' className=' h-24 w-24'/></div>
-                      <div><img src='https://logowik.com/content/uploads/images/usa-today.jpg' className=' h-24 w-24'/></div>
-                      <div><img src='https://parspng.com/wp-content/uploads/2021/09/instagram-7.png' className=' h-24 w-28'/></div>
+                      {/* <div><img src='https://logowik.com/content/uploads/images/usa-today.jpg' className=' h-24 w-24'/></div> */}
+                      <div><img src='https://parspng.com/wp-content/uploads/2021/09/instagram-7.png' className=' h-16 w-full'/></div>
                     </div>
                     {/* <img src='https://www.resume-now.com/sapp/themes/resumenow/img/exp/rs-brands-d.png' className=' h-7 md:h-10 rounded-xl'/> */}
                 </div>
