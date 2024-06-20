@@ -159,7 +159,7 @@ function Signup() {
         console.log("error",err.response.data.message); 
       } 
       else {
-        toast.error(`Error: ${err.response.data.message}`);
+        toast.error(`${err.response.data.message}`);
       }
     }
   };

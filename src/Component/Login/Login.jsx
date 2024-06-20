@@ -50,7 +50,7 @@ function Login() {
           console.log("login Response", response);
         } catch (err) {
           console.log(err);
-          toast.error(`Error: ${err.response.data.message}`);
+          toast.error(` ${err.response.data.message}`);
         }
       }
     };
