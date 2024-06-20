@@ -13,7 +13,6 @@ import axios from "axios";
 
 function Login() {
     const [isthirdstepOpen, setThirdstepOpen] = useState(false);
-    const userId = useContext(mainContext);
     const [formData, setFormData] = useState({
       email: "",
       password: ""
@@ -25,7 +24,7 @@ function Login() {
     };
     const handleLogin = async (e) => {
       e.preventDefault();
-      const url = 'https://abroadium.com/api/jobseeker/auth/login';
+      const url = 'https://api.abroadium.com/api/jobseeker/auth/login';
       console.log(url);
       if (!formData.email || !formData.password) {
         toast.error("Email and Password are required");
