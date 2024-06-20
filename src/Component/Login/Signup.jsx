@@ -156,8 +156,10 @@ function Signup() {
         } else {
           toast.error(`Error: ${err.response.data.message}`);
         }
-      } else {
-        toast.error('An error occurred. Please try again.');
+        console.log("error",err.response.data.message); 
+      } 
+      else {
+        toast.error(`Error: ${err.response.data.message}`);
       }
     }
   };
