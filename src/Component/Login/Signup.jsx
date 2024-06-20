@@ -131,7 +131,7 @@ function Signup() {
     try {
       console.log('Request Body:', body);
       const response = await axios.post(
-        'https://abroadium.com/api/jobseeker/auth/signup',
+        'http://abroadium.com/api/jobseeker/auth/signup',
         body,
         {
           headers: {

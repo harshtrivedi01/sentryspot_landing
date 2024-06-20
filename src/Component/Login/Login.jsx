@@ -25,7 +25,7 @@ function Login() {
     };
     const handleLogin = async (e) => {
       e.preventDefault();
-      const url = 'https://abroadium.com/api/jobseeker/auth/login';
+      const url = 'http://abroadium.com/api/jobseeker/auth/login';
       console.log(url);
       if (!formData.email || !formData.password) {
         toast.error("Email and Password are required");
@@ -54,7 +54,7 @@ function Login() {
           id: response.data.data._id,
           name: response.data.data.first_name
         }));
-
+        
         // Update context
         userId.setID(response.data.token);
         userId.setname(response.data.data.first_name);
