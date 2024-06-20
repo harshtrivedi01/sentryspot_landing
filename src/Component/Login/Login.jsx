@@ -2,16 +2,68 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
 import logo from './Logo1.png';
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Modal from "./Modal";
 import Third_step from './Third_step'
 import Signup from "./Signup";
+import { useNavigate } from "react-router-dom";
+import toast from 'react-hot-toast';
+import axios from "axios";
+import { mainContext } from "../../Services/Context";
 
 function Login() {
     const [isthirdstepOpen, setThirdstepOpen] = useState(false);
-    const handleFormSubmit = (e) => {
-        e.preventDefault();
-      };
+    const userId = useContext(mainContext);
+    const [formData, setFormData] = useState({
+      email: "",
+      password: ""
+    });
+    const navigate = useNavigate();
+    const handleInputChange = (e) => {
+      const { name, value } = e.target;
+      setFormData({ ...formData, [name]: value });
+    };
+    const handleLogin = async (e) => {
+      e.preventDefault();
+      const url = 'http://abroadium.com/api/jobseeker/auth/login';
+      console.log(url);
+      if (!formData.email || !formData.password) {
+        toast.error("Email and Password are required");
+      } else {
+        try {
+          const response = await axios.post(
+            url,
+            
+            formData,
+            {
+              // withCredentials: true,
+              headers: {
+                'Content-Type': 'application/json',
+              },
+            }
+          );
+          if (response.status === 200) {
+            toast.success("Logged-in successfully!");
+            navigate('/');
+          } else {
+            toast.error("Failed to log in.");
+          }
+          console.log("login Response", response);
+          localStorage.setItem('token', JSON.stringify(response.data.token));
+        localStorage.setItem('userid', JSON.stringify({
+          id: response.data.data._id,
+          name: response.data.data.first_name
+        }));
+
+        // Update context
+        userId.setID(response.data.token);
+        userId.setname(response.data.data.first_name);
+        } catch (err) {
+          console.log(err);
+          toast.error("An error occurred. Please try again.");
+        }
+      }
+    };
   return (
     <>
     <div className="p-8 rounded-xl shadow-lg shadow-slate-700 w-full max-w-lg" >
@@ -22,12 +74,14 @@ function Login() {
       <p className="text-black text-base mb-6">
         People across the globe are joining us to upgrade their career with our Robust AI.
       </p>
-      <form onSubmit={handleFormSubmit}>
+      <form onSubmit={handleLogin}>
         <div className="mb-4">
           <label className="block text-black">Email ID</label>
           <input
             type="email"
             name="email"
+            value={formData.email}
+            onChange={handleInputChange}
             className="w-full px-3 py-2 border rounded-md"
             placeholder="Enter your email ID"
           />
@@ -37,6 +91,8 @@ function Login() {
           <input
             type="password"
             name="password"
+            value={formData.password}
+            onChange={handleInputChange}
             className="w-full px-3 py-2 border rounded-md"
             placeholder="Enter your password"
           />

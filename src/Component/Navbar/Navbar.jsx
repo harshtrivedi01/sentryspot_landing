@@ -1,17 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import logo from './logo.png';
 import './Navbar.css';
 import '../Home/Home.css'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Modal from '../Login/Modal';
 import Login from '../Login/Login'
 import Signup from '../Login/Signup';
+import toast from 'react-hot-toast';
+import { mainContext } from "../../Services/Context";
+
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isLoginOpen, setLoginOpen] = useState(false);
   const [issignupOpen, setsignupOpen] = useState(false);
+  const context = useContext(mainContext);
+  const [user, setUser] = useState(context);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem('userid');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, [context]);
+  
+  const navigate = useNavigate();
+  const token = localStorage.getItem('token');
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userid');
+    navigate('/');
+    toast.success("Logged out successfully!");
+    
+  };
 
   return (
     <>
@@ -33,19 +55,37 @@ const Navbar = () => {
               {/* <Link to="/dashboard" target='_blank' className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">Doashboard</Link> */}
               <Link to="https://blog.abroadium.com/" target='_blank' className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">Blog</Link>
               {/* <Link to="/login" className="text-white px-2 py-2 text-lg font-semibold  rounded-xl " id='home_fourth'>Log in</Link> */}
-              <button
+              {/* <button
           className="bg-yellow-500 text-white px-4 py-2 rounded-md"
           onClick={() => setLoginOpen(true)}
         >
           Login
         </button>
-              {/* <Link to="/" className="text-white hover:text-yellow-500 px-2 py-2 text-lg font-semibold border-2 rounded-xl">Sign up</Link> */}
+              
               <button
           className="bg-yellow-500 text-white px-4 py-2 rounded-md"
           onClick={() => setsignupOpen(true)}
         >
           Signup
-        </button>
+        </button> */}
+        {!token ? (
+              <div className=' flex gap-2'>
+                
+                  <button className="bg-yellow-500 text-white px-4 py-2 rounded-md" onClick={() => setLoginOpen(true)}>Log in</button>
+                  <button className="bg-yellow-500 text-white px-4 py-2 rounded-md"
+          onClick={() => setsignupOpen(true)}>Sign Up</button>
+                
+              </div>
+            ) : (
+              <div className="flex gap-2 justify-center items-center">
+                {/* <Link to={`/profile/${user.id}`} >
+                  <p className="text-white text-md">{user.name}</p>
+                </Link> */}
+                <button className="text-md py-1 px-2 bg-gray-500 rounded-md text-white" onClick={handleLogout}>
+                  LogOut
+                </button>
+              </div>
+            )}
             </div>
              <div className="flex sm:hidden">
               <button
