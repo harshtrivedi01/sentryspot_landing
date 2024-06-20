@@ -9,7 +9,7 @@ import Signup from "./Signup";
 import { useNavigate } from "react-router-dom";
 import toast from 'react-hot-toast';
 import axios from "axios";
-import { mainContext } from "../../Services/Context";
+
 
 function Login() {
     const [isthirdstepOpen, setThirdstepOpen] = useState(false);
@@ -49,15 +49,6 @@ function Login() {
             toast.error("Failed to log in.");
           }
           console.log("login Response", response);
-          localStorage.setItem('token', JSON.stringify(response.data.token));
-        localStorage.setItem('userid', JSON.stringify({
-          id: response.data.data._id,
-          name: response.data.data.first_name
-        }));
-        
-        // Update context
-        userId.setID(response.data.token);
-        userId.setname(response.data.data.first_name);
         } catch (err) {
           console.log(err);
           toast.error("An error occurred. Please try again.");
