@@ -48,6 +48,8 @@ function Login() {
             toast.error("Failed to log in.");
           }
           console.log("login Response", response);
+          const data = await response.json();
+    localStorage.setItem("token", data.token);
         } catch (err) {
           console.log(err);
           toast.error(` ${err.response.data.message}`);
