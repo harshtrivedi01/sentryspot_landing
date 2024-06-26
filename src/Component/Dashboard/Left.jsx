@@ -10,8 +10,9 @@ function Left() {
         <nav className=' '>
           <div className=' flex flex-col'>
           <Link to='/' className="mb-2  px-2 py-2 rounded-md bg-slate-600 text-white"><i className="fa-solid fa-upload p-3 text-purple-500"></i>Upload Resume</Link>
-          <Link to='/resume' className="mb-2  px-2 py-2 rounded-md bg-slate-600 text-white"><i className="fa-solid fa-file p-3 text-purple-500"></i>Ai Resume Builder</Link>
+          <Link to='/resume' className="mb-2  px-2 py-2 rounded-md bg-slate-600 text-white"><i className="fa-solid fa-file p-3 text-purple-500"></i>AI Resume Builder</Link>
           <Link to='https://blog.abroadium.com/category/candidate-resources/' className="mb-2  px-2 py-2 rounded-md bg-slate-600 text-white"><i className="fa-solid fa-paper-plane p-3 text-purple-500"></i>Resources</Link>
+          <Link to='/skilltest' className="mb-2  px-2 py-2 rounded-md bg-slate-600 text-white"><i className="fa-solid fa-paper-plane p-3 text-purple-500"></i>Skill Test</Link>
             <Link to='/' className="mb-2  px-2 py-2 rounded-md  bg-slate-700 text-gray-400"><i className="fa-solid fa-user p-3 text-purple-500"></i>Feed</Link>
             <Link to='/' className="mb-2  px-2 py-2 rounded-md bg-slate-700 text-gray-400"><i className="fa-solid fa-book-open-reader p-3 text-purple-500"></i>About</Link>
             <Link to='/' className="mb-2  px-2 py-2 rounded-md bg-slate-700 text-gray-400"><i className="fa-solid fa-file p-3 text-purple-500"></i>Education</Link>

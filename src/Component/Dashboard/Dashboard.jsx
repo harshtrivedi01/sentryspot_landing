@@ -6,6 +6,7 @@ import SlidingText from './Slidingtext';
 import Home_Image from './Home_Image_dashboard';
 import video from './video.mp4';
 import image1 from './certificate.png'
+import Skills from './Skill Test/Skills';
 
 const Dashboard = () => {   
   return (
@@ -33,6 +34,10 @@ const Dashboard = () => {
         </section>
         
       </main>
+
+        {/* <div>
+            <Skills/>
+        </div> */}
 
          <div className=' '>
             <h1 className=' font-bold text-3xl text-white text-center py-5'>Verify Your Skills </h1>

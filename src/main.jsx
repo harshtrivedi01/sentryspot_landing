@@ -12,6 +12,8 @@ import { Toaster } from 'react-hot-toast'
 import Layout2 from './Layout2.jsx'
 import Dashboard from './Component/Dashboard.jsx'
 import AIResume from './Component/Dashboard/AIResume.jsx'
+import Skills from './Component/Dashboard/Skill Test/Skills.jsx'
+import Testpaper from './Component/Dashboard/Skill Test/Testpaper.jsx'
 const route =createBrowserRouter([
   {
     path:"/",
@@ -42,6 +44,14 @@ const route =createBrowserRouter([
       {
         path:"resume",
     element:<AIResume/>
+      },
+      {
+        path:"skilltest",
+    element:<Skills/>
+      },
+      {
+        path:"testpaper",
+        element:<Testpaper/>
       }
      ]
   }
