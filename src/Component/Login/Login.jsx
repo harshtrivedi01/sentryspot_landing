@@ -177,8 +177,9 @@ function Login() {
         if (response.status === 200) {
           toast.success("Logged-in successfully!");
           localStorage.setItem("token", response.data.data.token);
-          console.log("token: ", response.data.data.token) // Storing the token
-          navigate('/');
+          console.log("token: ", response.data.data.token);
+          navigate('/dashboard');
+          // navigate('https://dashboard-six-neon-28.vercel.app/');
         } else {
           toast.error("Failed to log in.");
         }
@@ -237,11 +238,11 @@ function Login() {
           <button type="submit" className="w-full bg-yellow-500 text-black px-4 py-2 rounded-md">
             Login
           </button>
-          <Link to='https://dashboard-six-neon-28.vercel.app/' target='_blank'>
+          {/* <Link to='https://dashboard-six-neon-28.vercel.app/' target='_blank'>
             <div className="w-full font-bold text-center text-black px-4 py-2 rounded-md">
               View Dashboard
             </div>
-          </Link>
+          </Link> */}
         </form>
       </div>
       <Modal isOpen={isThirdstepOpen} onClose={() => setThirdstepOpen(false)}>
