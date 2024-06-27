@@ -9,7 +9,7 @@ function AIResume() {
        <div className=' flex flex-col justify-center items-center align-middle py-52'>
         <div className=' flex items-center md:gap-20'>
           <h1 className=' font-bold text-4xl py-8  '>Resume Builder</h1>
-          <Link to='/resumebuilder' target='_blank'>
+          <Link to='/resumebuilder' >
         <div className=' flex justify-center mt-2'>
         <button className=' px-3 py-3 font-bold rounded-xl bg-slate-300 text-black'>Build your Resume Now</button>
         </div>
