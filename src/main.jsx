@@ -14,6 +14,10 @@ import Dashboard from './Component/Dashboard.jsx'
 import AIResume from './Component/Dashboard/AIResume.jsx'
 import Skills from './Component/Dashboard/Skill Test/Skills.jsx'
 import Testpaper from './Component/Dashboard/Skill Test/Testpaper.jsx'
+import Layout3 from './Layout3.jsx'
+import Form from "./Component/ResumeBuilder/Forms.jsx"
+import Selectionresume from "./Component/ResumeBuilder/Selectionresume.jsx"
+import Uploadresume from "./Component/ResumeBuilder/Uploadresume.jsx"
 const route =createBrowserRouter([
   {
     path:"/",
@@ -30,7 +34,8 @@ const route =createBrowserRouter([
       {
         path:"login",
         element:<Login/>
-      }
+      },
+      
     ]
   },
 
@@ -54,11 +59,29 @@ const route =createBrowserRouter([
         element:<Testpaper/>
 
       }
-      // {
-      //   path:"testpaper",
-      //   element:<Testpaper/>
-      // }
-     ]
+     ],
+     
+  },
+  {
+    element:<Layout3/>,
+    children:[
+      {
+        path:"form",
+        element:<Form/>
+      },
+      {
+        path:"resumebuilder",
+        element:<Selectionresume />
+      },
+      {
+        path:"/",
+         element:<Selectionresume />
+      },
+      {
+        path:"/uploadresume",
+        element:<Uploadresume />
+      }
+    ]
   }
 ]);
 
