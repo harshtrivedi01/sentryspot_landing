@@ -50,9 +50,14 @@ const route =createBrowserRouter([
     element:<Skills/>
       },
       {
-        path:"testpaper",
+        path:"/testpaper/:skillId/:skillName",
         element:<Testpaper/>
+
       }
+      // {
+      //   path:"testpaper",
+      //   element:<Testpaper/>
+      // }
      ]
   }
 ]);

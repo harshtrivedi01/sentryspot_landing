@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Skills = () => {
   const [skills, setSkills] = useState([]);
@@ -11,7 +11,6 @@ const Skills = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    console.log(token);
 
     if (!token) {
       setTokenError('Please log in first.');
@@ -36,17 +35,19 @@ const Skills = () => {
         console.error("There was an error fetching the skills data!", error.response ? error.response.data : error.message);
         if (error.response && error.response.status === 401) {
           setTokenError('Unauthorized access. Please log in again.');
-        //   localStorage.removeItem('token');
-        //   navigate('/login');
         } else {
           setError(error);
         }
         setLoading(false);
       });
-  }, [navigate]);
+  }, []);
+
+  const handleTakeTest = (skillId, skillName) => {
+    navigate(`/testpaper/${skillId}/${encodeURIComponent(skillName)}`);
+  };
 
   if (loading) {
-    return <div className=' py-32 font-semibold px-7'>Loading...</div>;
+    return <div className='py-32 font-semibold px-7'>Loading...</div>;
   }
 
   if (tokenError) {
@@ -69,9 +70,12 @@ const Skills = () => {
             <p className='text-left text-white py-1'>Wrong Answers: {skill.wrong_answer}</p>
             <p className='text-left text-white py-1'>Percentage: {skill.Percentage}</p>
             <div className='flex justify-center py-6'>
-              <Link to='/testpaper'>
-                <button className="px-2 py-2 rounded-xl shadow-xl bg-gray-400 text-black font-semibold">Take Test</button>
-              </Link>
+              <button
+                onClick={() => handleTakeTest(skill.id, skill.name)}
+                className="px-2 py-2 rounded-xl shadow-xl bg-gray-400 text-black font-semibold"
+              >
+                Take Test
+              </button>
             </div>
           </div>
         ))}

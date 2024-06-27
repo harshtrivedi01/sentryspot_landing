@@ -1,8 +1,13 @@
 import React from 'react';
 
 const QuestionDetail = ({ question, onNext, onPrevious, disablePrevious, disableNext }) => {
+  console.log('Rendering QuestionDetail:', question);
+
+  if (!question) {
+    return <div>Loading...</div>;
+  }
   return (
-    <div className="flex-1 py-24 bg-slate-200 px-5  ">
+    <div className="flex-1 py-24 bg-slate-200 px-5">
       <h1 className="text-2xl mb-4">{question.question}</h1>
       <ul className="mb-4">
         {question.options.map((option, index) => (
@@ -32,4 +37,6 @@ const QuestionDetail = ({ question, onNext, onPrevious, disablePrevious, disable
   );
 };
 
+
 export default QuestionDetail;
+
