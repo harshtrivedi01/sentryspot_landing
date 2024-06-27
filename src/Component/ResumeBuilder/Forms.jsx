@@ -1,7 +1,4 @@
-// Import useState and useEffect hooks
 import React, { useState, useEffect, useRef } from 'react';
-
-// Import other components and dependencies
 import { useNavigate } from "react-router-dom";
 import Details from './inputFields/details';
 import Experience from './inputFields/Experince';
@@ -28,7 +25,6 @@ import TemplateComponent from './forms/templateComponent';
 
 const predefinedColors = {
   Template1: '#F5F5F5',
-  
   Template3: '#F0FFF0',
   Template4: '#FFDAB9',
   Template5: 'lightgray',
@@ -113,19 +109,15 @@ function Form() {
     
   });
 
-  // Define the screen components mapping
   const screenComponents = {
     Details: <Experiencescreen />,
-    Experience: <Educationscreen />, // Example for a different screen
+    Experience: <Educationscreen />,
     Education: <SkillScreen />,
-    Skills: <Summaryscreen />,
-    
-    
+    Skills: <Summaryscreen />,   
   };
 
-  // Handle the next button click
   const handleNext = () => {
-    const nextScreen = sectionsList[currentStep + 1]; // Get the name of the next screen
+    const nextScreen = sectionsList[currentStep + 1];
     if (currentStep < sectionsList.length - 1) {
       setShowComponent(true);
       setTimeout(() => {
@@ -136,10 +128,7 @@ function Form() {
       setIsPreviewing(true);
     }
   };
-  
 
-
-// Define the isDetailsComplete function
 const isDetailsComplete = () => {
   const detailsFields = formData.details[0];
   return (
@@ -153,9 +142,7 @@ const isDetailsComplete = () => {
   );
 };
 const isDetailsComplete2 = () => {
-  // Check if experiences array exists and is not empty
   if (formData.experiences && formData.experiences.length > 0) {
-    // Check if the first experience object has all required fields filled
     const experienceFields = formData.experiences[0];
     return (
       experienceFields.company.trim() !== '' &&
@@ -164,13 +151,11 @@ const isDetailsComplete2 = () => {
       experienceFields.companydescription.trim() !== '' 
     );
   }
-  return false; // Return false if experiences array is empty or undefined
+  return false;
 };
 
 const isDetailsComplete3 = () => {
-  // Check if experiences array exists and is not empty
   if (formData.education && formData.education.length > 0) {
-    // Check if the first experience object has all required fields filled
     const education = formData.education[0];
     return (
       education.schoolname.trim() !== '' &&
@@ -179,48 +164,40 @@ const isDetailsComplete3 = () => {
       education.coursename.trim() !== '' 
     );
   }
-  return false; // Return false if experiences array is empty or undefined
+  return false;
 };
 
 const isDetailsComplete4 = () => {
-  // Check if experiences array exists and is not empty
   if (formData.skill && formData.skill.length > 0) {
-    // Check if the first experience object has all required fields filled
     const skill = formData.skill[0];
     return (
       skill.skillname.trim() !== '' &&
       skill.skilldetails.trim() !== '' 
     );
   }
-  return false; // Return false if experiences array is empty or undefined
+  return false; 
 };
 const isDetailsComplete5 = () => {
-  // Check if experiences array exists and is not empty
   if (formData.section && formData.section.length > 0) {
-    // Check if the first experience object has all required fields filled
     const section = formData.section[0];
     return (
       section.sectiontitle.trim() !== '' &&
       section.sectiondescription.trim() !== ''  
     );
   }
-  return false; // Return false if experiences array is empty or undefined
+  return false; 
 };
 
 const isDetailsComplete6 = () => {
-  // Check if experiences array exists and is not empty
   if (formData.summary && formData.summary.length > 0) {
-    // Check if the first experience object has all required fields filled
     const summary = formData.summary[0];
     return (
       
       summary.summarydescription.trim() !== ''  
     );
   }
-  return false; // Return false if experiences array is empty or undefined
+  return false; 
 };
-
-
 
 useEffect(() => {
   // Check if all required details fields are filled whenever the current step changes
@@ -244,15 +221,13 @@ useEffect(() => {
 const handleInputChange = (e, index, section) => {
   const { name, value } = e.target;
 
-  // If the input field is companydescription and a double newline is entered,
-  // replace it with a single newline character
-  const updatedValue = name === 'companydescription' ? value.replace(/\n\n/g, '\n') : value;
+  const updatedFormData = { ...formData };
 
-  const updatedSection = formData[section].map((item, i) =>
-    i === index ? { ...item, [name]: updatedValue } : item
+  updatedFormData[section] = formData[section].map((item, i) =>
+    i === index ? { ...item, [name]: value } : item
   );
-  setFormData({ ...formData, [section]: updatedSection });
-  setIsSaving(true);
+
+  setFormData(updatedFormData);
 };
 
 useEffect(() => {
@@ -279,10 +254,6 @@ const handleKeyPress = (e, index, section) => {
     handleInputChange(e, index, section, { companydescription: updatedDescription });
   }
 };
-
-
-
-
 
 const handlePrevious = () => {
   if (currentStep > 0) {
@@ -373,9 +344,7 @@ const deleteSectionAdd = (index) => {
   setFormData({ ...formData, sectionadd: updatedSectionAdd });
 };
 
-
-
-console.log(formData)
+console.log(formData);
 useEffect(() => {
   // Clear the input value after image upload
   const imageInput = document.getElementById('profilePicture');
@@ -570,3 +539,5 @@ return (
 }
 
 export default Form;
+
+
