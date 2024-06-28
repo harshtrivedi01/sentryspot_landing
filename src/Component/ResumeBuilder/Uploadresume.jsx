@@ -124,7 +124,7 @@ function Uploadresume() {
     }
 
     const formData = new FormData();
-    formData.append('file', file);
+    formData.append('files', file);
 
     setLoading(true);
     try {
@@ -139,7 +139,7 @@ function Uploadresume() {
           toast.info(`Upload progress: ${percentCompleted}%`);
         }
       });
-
+      console.log("response data", response.data.data[0].resume_parse_data)
       toast.success("File uploaded successfully");
       setLoading(false);
       navigate('/form')
