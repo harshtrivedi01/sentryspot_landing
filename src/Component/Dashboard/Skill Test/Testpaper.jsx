@@ -79,13 +79,22 @@ function Testpaper() {
   return (
     <div className="flex h-screen w-full">
       <QuestionList questions={questions} onQuestionClick={handleQuestionClick} />
-      <QuestionDetail
+      {/* <QuestionDetail
         question={questions[currentQuestionIndex]}
         onNext={handleNext}
         onPrevious={handlePrevious}
         disablePrevious={currentQuestionIndex === 0}
         disableNext={currentQuestionIndex === questions.length - 1}
-      />
+      /> */}
+       <QuestionDetail
+      question={questions[currentQuestionIndex]}
+      onNext={handleNext}
+      onPrevious={handlePrevious}
+      disablePrevious={currentQuestionIndex === 0}
+      disableNext={currentQuestionIndex === questions.length - 1}
+      currentQuestionIndex={currentQuestionIndex}
+      totalQuestions={questions.length}
+    />
     </div>
   );
 }
