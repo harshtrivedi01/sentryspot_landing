@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Formheader from '../forms/Formheader';
 
-function Details({ details = [], handleInputChange, image, setImage }) {
+function Details({ details = [], handleInputChange, image, setImage, firstname ,address,phone,email,profession}) {
   const [showGithub, setShowGithub] = useState(false);
   const [showProjects, setShowProjects] = useState(false);
   const [showLanguage, setShowLanguage] = useState(false);
@@ -137,7 +137,7 @@ console.log(image);
                       <input
                         type="text"
                         name="name"
-                        value={del.name}
+                        value={del.name ||firstname || ""}
                         onChange={(e) => handleInputChange(e, index, 'details')}
                         placeholder="e.g. Ben, e.g. Dexter"
                         className="w-full p-2 mb-4 border border-black rounded-lg "
@@ -150,7 +150,7 @@ console.log(image);
                       <input
                         type="text"
                         name="Profession"
-                        value={del.Profession}
+                        value={del.Profession || profession}
                         onChange={(e) => handleInputChange(e, index, 'details')}
                         placeholder="e.g. Software Engineer"
                         className="w-full p-2 mb-4 border border-black rounded-lg "
@@ -166,7 +166,7 @@ console.log(image);
                     <input
                       type="text"
                       name="address"
-                      value={del.address}
+                      value={address||del.address}
                       onChange={(e) => handleInputChange(e, index, 'details')}
                       placeholder="e.g. City, e.g. Country"
                       className="w-full p-2 mb-4 border border-black rounded-lg"
@@ -177,13 +177,14 @@ console.log(image);
                       Phone
                     </label>
                     <input
-                                          type="text"
-                                          name="phoneNumber"
-                                          value={del.phoneNumber}
-                                          onChange={(e) => handleInputChange(e, index, 'details')}
-                                          placeholder="e.g. +91 22 1234 5677"
-                                          className="w-full p-2 mb-4 border border-black rounded-lg"
-                                        />
+  type="text"
+  name="phoneNumber"
+  value={del.phoneNumber || phone}
+  onChange={(e) => handleInputChange(e, index, 'details')}
+  placeholder="e.g. +91 22 1234 5677"
+  className="w-full p-2 mb-4 border border-black rounded-lg"
+/>
+
                                       </div>
                                     </div>
                                     <div className="flex gap-6">
@@ -194,7 +195,7 @@ console.log(image);
                                         <input
                                           type="email"
                                           name="email"
-                                          value={del.email}
+                                          value={email || del.email}
                                           onChange={(e) => handleInputChange(e, index, 'details')}
                                           placeholder="e.g. dexter.ben"
                                           className="w-full p-2 mb-4 border border-black rounded-lg"

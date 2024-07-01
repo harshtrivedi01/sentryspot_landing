@@ -1,103 +1,182 @@
 import React, { useState, useEffect } from 'react';
-import QuestionList from './QuestionList';
-import QuestionDetail from './QuestionDetail';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Testpaper() {
+  const { skillId, skillName } = useParams();
+  const navigate = useNavigate();
+
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const { skillId, skillName } = useParams();
+  const [showResults, setShowResults] = useState(false);
+  const [results, setResults] = useState({});
+  const [skillAssessmentId, setSkillAssessmentId] = useState(null);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
 
     if (!token) {
-      setError(new Error('User not found'));
-      setLoading(false);
+      navigate('/login');
       return;
     }
 
-    fetch(`https://api.abroadium.com/api/jobseeker/skill-assessment?skill_id=${skillId}&skill_name=${encodeURIComponent(skillName)}`, {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': ` ${token}`,
-      },
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log('Fetched data:', data);
-        if (data && data.data && data.data.questions) {
-          setQuestions(data.data.questions); 
-        } else {
-          throw new Error('Questions not found in data');
-        }
+    const fetchQuestions = async () => {
+      try {
+        const response = await axios.get(
+          `https://api.abroadium.com/api/jobseeker/skill-assessment?skill_id=${parseInt(skillId, 10)}&skill_name=${encodeURIComponent(skillName)}`,
+          {
+            headers: {
+              Authorization: token,
+              'Content-Type': 'application/json',
+            },
+          }
+        );
+        const { questions, skill_assessment_id } = response.data.data;
+        setQuestions(questions);
+        setSkillAssessmentId(skill_assessment_id);
         setLoading(false);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error('Error fetching questions:', error);
-        setError(error);
+        setError(error.message || 'Error fetching questions');
         setLoading(false);
-      });
-  }, [skillId, skillName]);
+      }
+    };
 
-  useEffect(() => {
-    console.log('Current question index:', currentQuestionIndex);
-    console.log('Questions:', questions);
-  }, [currentQuestionIndex, questions]);
+    fetchQuestions();
+  }, [skillId, skillName, navigate]);
 
-  const handleQuestionClick = (index) => {
-    setCurrentQuestionIndex(index);
+  const handleAnswerChange = (questionId, answer) => {
+    setQuestions((prevQuestions) =>
+      prevQuestions.map((question) =>
+        question.id === questionId ? { ...question, user_answer: answer } : question
+      )
+    );
+  };
+  
+
+  const handleSubmit = async () => {
+    const token = localStorage.getItem('token');
+    const jobSeekerId = 1; // Replace with the actual JobSeekerId if needed
+
+    if (!token) {
+      navigate('/login');
+      return;
+    }
+
+    try {
+      const response = await axios.put(
+        `https://api.abroadium.com/api/jobseeker/skill-assessment/${skillAssessmentId}`,
+        {
+          job_seeker_id: parseInt(jobSeekerId, 10), // Ensure job_seeker_id is an integer
+          skill_id: parseInt(skillId, 10),
+          skill_name: skillName,
+          questions: questions.map((question) => ({
+            ...question,
+            user_answer: question.user_answer || '',
+          })),
+        },
+        {
+          headers: {
+            Authorization: token,
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+
+      const { results } = response.data.data;
+      setResults(results);
+      setShowResults(true);
+    } catch (error) {
+      console.error('Error submitting answers:', error);
+      setError(error.message || 'Error submitting answers');
+    }
   };
 
   const handleNext = () => {
     if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1);
+      setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
     }
   };
 
   const handlePrevious = () => {
     if (currentQuestionIndex > 0) {
-      setCurrentQuestionIndex(currentQuestionIndex - 1);
+      setCurrentQuestionIndex((prevIndex) => prevIndex - 1);
     }
   };
 
   if (loading) {
-    return <div className=' font-bold mx-auto py-60 text-xl'>Loading...</div>;
+    return <div className="font-bold mx-auto py-60 text-xl">Loading...</div>;
   }
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <div>Error: {error}</div>;
   }
 
   return (
     <div className="flex h-screen w-full">
-      <QuestionList questions={questions} onQuestionClick={handleQuestionClick} />
-      {/* <QuestionDetail
-        question={questions[currentQuestionIndex]}
-        onNext={handleNext}
-        onPrevious={handlePrevious}
-        disablePrevious={currentQuestionIndex === 0}
-        disableNext={currentQuestionIndex === questions.length - 1}
-      /> */}
-       <QuestionDetail
-      question={questions[currentQuestionIndex]}
-      onNext={handleNext}
-      onPrevious={handlePrevious}
-      disablePrevious={currentQuestionIndex === 0}
-      disableNext={currentQuestionIndex === questions.length - 1}
-      currentQuestionIndex={currentQuestionIndex}
-      totalQuestions={questions.length}
-    />
+      <div className="flex-1 py-24 bg-slate-200 px-5">
+        {showResults ? (
+          <div className="w-100 bg-white d-flex justify-content-center align-items-center">
+            <div className="w-75 d-flex flex-column align-items-center" style={{ gap: '12px' }}>
+              {/* Display results here */}
+              <h3>Total Questions: {results.total_question}</h3>
+              <h3>Right Answer: {results.right_answer}</h3>
+              <h3>Wrong Answer: {results.wrong_answer}</h3>
+              <h3>Percentage: {Math.floor(results.Percentage)}%</h3>
+            </div>
+          </div>
+        ) : (
+          <>
+            <h1 className="text-2xl mb-4">{questions[currentQuestionIndex].question}</h1>
+            <ul className="mb-4">
+              {questions[currentQuestionIndex].options.map((option, index) => (
+                <li key={index} className="mb-2">
+                  <input
+                    type="radio"
+                    id={`option-${index}`}
+                    name="option"
+                    value={option}
+                    checked={questions[currentQuestionIndex].user_answer === option}
+                    onChange={() => handleAnswerChange(questions[currentQuestionIndex].id, option)}
+                    className="mr-2"
+                  />
+                  <label htmlFor={`option-${index}`}>{option}</label>
+                </li>
+              ))}
+            </ul>
+            <div className="flex justify-between">
+              <button
+                className={`p-2 bg-blue-500 rounded-md text-white ${
+                  currentQuestionIndex === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-700'
+                }`}
+                onClick={handlePrevious}
+                disabled={currentQuestionIndex === 0}
+              >
+                Previous
+              </button>
+              {currentQuestionIndex === questions.length - 1 ? (
+                <button
+                  className="p-2 bg-green-500 rounded-md text-white hover:bg-green-700"
+                  onClick={handleSubmit}
+                >
+                  Submit
+                </button>
+              ) : (
+                <button
+                  className="p-2 bg-blue-500 rounded-md text-white hover:bg-blue-700"
+                  onClick={handleNext}
+                >
+                  Next
+                </button>
+              )}
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 }
 
 export default Testpaper;
-

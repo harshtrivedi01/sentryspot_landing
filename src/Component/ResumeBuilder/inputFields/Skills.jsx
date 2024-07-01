@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Skills = ({ skills = [], handleInputChange, addSkill, deleteSkill ,selectedTemplate,setSelectedTemplate}) => {
+const Skills = ({ skills = [], handleInputChange, addSkill, deleteSkill ,skillsname,skillsname2}) => {
   return (
     <div className="mt-10 px-20 text-xs sm:text-xs md:text-xs lg:text-xs">
       
@@ -16,7 +16,7 @@ const Skills = ({ skills = [], handleInputChange, addSkill, deleteSkill ,selecte
         <input 
           type="text" 
           name="skillname" 
-         value={skill.skillname}
+         value={skill.skillname || skillsname}
               onChange={(e) => handleInputChange(e, index, 'skills')}
           placeholder="skill name " 
           className="w-full p-3 mb-4 border border-black rounded-lg"
@@ -31,7 +31,7 @@ const Skills = ({ skills = [], handleInputChange, addSkill, deleteSkill ,selecte
         <input 
           type="text" 
           name="skilldetails" 
-          value={skill.skilldetails}
+          value={skill.skilldetails || skillsname2}
               onChange={(e) => handleInputChange(e, index, 'skills')}
           placeholder="skill details " 
           className="w-full p-3 mb-4 border border-black rounded-lg"

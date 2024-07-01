@@ -98,6 +98,7 @@ function Form() {
   const [sections, setSections] = useState([]);
   const [nextButtonText, setNextButtonText] = useState('Next');
   const [image, setImage] = useState(null);
+  const [resumeData, setResumeData] = useState(null);
 
   const [screenNames, setScreenNames] = useState({
     Details: 'Details',
@@ -357,8 +358,18 @@ useEffect(() => {
   localStorage.setItem('formData', JSON.stringify(formData));
 }, [formData]);
 
-return (
-  <div className="h-screen">
+
+useEffect(() => {
+  // Retrieve resume data from localStorage
+  const storedResumeData = localStorage.getItem('resumeData');
+  if (storedResumeData) {
+    setResumeData(JSON.parse(storedResumeData));
+  }
+}, []);
+
+
+return (<div>
+   {resumeData?(<><div className="h-screen">
     {!isPreviewing ? (
       <>
       <div className="flex flex-col sm:flex-row justify-between border-2 p-1 bg-slate-300">
@@ -412,11 +423,19 @@ return (
               {showComponent && screenComponents[sectionsList[currentStep]]}
             </div>
             <div className="w-3/6 p-3 h-screen">
+          
               {/* Render Active Section */}
               {(() => {
                 switch (sectionsList[currentStep]) {
                   case 'Details':
                     return <Details
+                    firstname={resumeData.details?.firstname}
+                    lastname={resumeData.details?.lastname}
+                    address= {resumeData.details?.address}
+                    phone={resumeData.details?.phone}
+                    email={resumeData.details?.email}
+                    location={resumeData.details?.city}
+                    profession={resumeData.details?.profession}
                     image={image}
                     setImage={setImage}
                     details={formData.details}
@@ -428,6 +447,12 @@ return (
                     return (
                       <>
                         <Experience
+                       company={resumeData.employmenthistory[1]?.company}
+                       dates={resumeData.employmenthistory[0]?.dates}
+location={resumeData.employmenthistory[0]?.location}
+position={resumeData.employmenthistory[0]?.position}
+summary={resumeData.employmenthistory[0]?.responsibilities}
+start_date={resumeData.employmenthistory[0]?.start_date}
                           experiences={formData.experiences}
                           handleInputChange={handleInputChange}
                           handleKeyPress={handleKeyPress}
@@ -440,6 +465,9 @@ return (
                   case 'Education':
                     return (
                       <Education
+                      schoolname={resumeData.education?.institution}
+                      schoolplace={resumeData.education?.location}
+                      coursename={resumeData.education?.degree}
                         educations={formData.educations}
                         handleInputChange={handleInputChange}
                         addEducation={() => addField('educations')}
@@ -449,6 +477,8 @@ return (
                   case 'Skills':
                     return (
                       <Skills
+                      skillsname={resumeData.skills[0]}
+                      skillsname2={resumeData.skills[1]}
                         skills={formData.skills}
                         handleInputChange={handleInputChange}
                         addSkill={() => addField('skills')}
@@ -457,7 +487,9 @@ return (
                       />
                     );
                   case 'summary':
-                    return <Summary summary={formData.summary} handleInputChange={handleInputChange} />;
+                    return <Summary summary={formData.summary} 
+                    handleInputChange={handleInputChange}
+                    summaryname= {resumeData.professionalsummary} />;
                   case 'Language':
                     return (
                       <Language
@@ -534,7 +566,192 @@ return (
       </>
     )}
   
+  </div></>):(<>
+    <div className="h-screen">
+    {!isPreviewing ? (
+      <>
+      <div className="flex flex-col sm:flex-row justify-between border-2 p-1 bg-slate-300">
+  <button
+    onClick={handlePrevious}
+    className="bg-white text-blue-800 border-blue-800 border-2 px-6 sm:px-10 py-2 rounded-full font-bold mb-2 sm:mb-0 hidden sm:block"
+    disabled={currentStep === 0}
+  >
+    Previous
+  </button>
+  <div className="flex flex-wrap sm:flex-nowrap gap-3 items-center">
+    {/* Fonts selector (hidden on mobile) */}
+    <div className="font-semibold hidden sm:block">Fonts:</div>
+    <div className="flex gap-3 items-center hidden sm:flex">
+      <FontSelector selectedFont={selectedFont} setSelectedFont={setSelectedFont} />
+    </div>
+    
+    {/* Color selector (hidden on mobile) */}
+    <div className="font-semibold hidden sm:block">Color:</div>
+    <div className="flex gap-3 items-center hidden sm:flex">
+      <ColorButtons setBoxBgColor={setBoxBgColor} />
+    </div>
   </div>
+  <button
+    onClick={handleNext}
+    className={`${currentStepColor} bg-yellow-500 px-6 sm:px-10 py-2 rounded-full font-bold`}
+  >
+    {screenNames[sectionsList[currentStep + 1]] || 'Preview'}
+  </button>
+</div>
+
+        <div className="flex">
+        <div className="w-1/12 bg-[#333456] hidden md:block">
+            <Slider
+              sectionsList={sectionsList}
+              currentStep={currentStep}
+              setCurrentStep={setCurrentStep}
+              isDetailsComplete={isDetailsComplete}
+              Step={currentStep}
+             
+              isDetailsComplete2={isDetailsComplete2}
+              isDetailsComplete3={isDetailsComplete3}
+              isDetailsComplete4={isDetailsComplete4}
+              isDetailsComplete5={isDetailsComplete5}
+              isDetailsComplete6={isDetailsComplete6}
+            />
+          </div>
+          <div className="flex w-full sm:w-full justify-end">
+            <div className="absolute h-screen ">
+              {/* Conditionally render the screen component based on the current section */}
+              {showComponent && screenComponents[sectionsList[currentStep]]}
+            </div>
+            <div className="w-3/6 p-3 h-screen">
+          
+              {/* Render Active Section */}
+              {(() => {
+                switch (sectionsList[currentStep]) {
+                  case 'Details':
+                    return <Details
+                   
+                    image={image}
+                    setImage={setImage}
+                    details={formData.details}
+                    handleInputChange={handleInputChange}
+                 
+                  />;
+                  
+                  case 'Experience':
+                    return (
+                      <>
+                        <Experience
+                          experiences={formData.experiences}
+                          handleInputChange={handleInputChange}
+                          handleKeyPress={handleKeyPress}
+                          addExperience={() => addField('experiences')}
+                          deleteExperience={(index) => deleteField(index, 'experiences')}
+                        />
+                        
+                      </>
+                    );
+                  case 'Education':
+                    return (
+                      <Education
+                    
+                        educations={formData.educations}
+                        handleInputChange={handleInputChange}
+                        addEducation={() => addField('educations')}
+                        deleteEducation={(index) => deleteField(index, 'educations')}
+                      />
+                    );
+                  case 'Skills':
+                    return (
+                      <Skills
+                     
+                        skills={formData.skills}
+                        handleInputChange={handleInputChange}
+                        addSkill={() => addField('skills')}
+                        deleteSkill={(index) => deleteField(index, 'skills')}
+                        selectedTemplate={selectedTemplate}
+                      />
+                    );
+                  case 'summary':
+                    return <Summary summary={formData.summary} 
+                    handleInputChange={handleInputChange}
+                    summaryname= {resumeData.professionalsummary} />;
+                  case 'Language':
+                    return (
+                      <Language
+                        formData={formData.language}
+                        handleInputChange={handleInputChange}
+                        selectedTemplate={selectedTemplate}
+                      />
+                    );
+                  case 'SectionAdd':
+                    return (
+                      <SectionAdd
+                        sectionadd={formData.sectionadd}
+                        sectionadd2={formData.sectionadd2}
+                        handleInputChange={handleSectionInputChange}
+                        handleInputChange2={handleSectionInputChange2}
+                        addSectionAdd={addSectionAdd}
+                        addSectionAdd2={addSectionAdd2}
+                        addSectionAdd3={addSectionAdd3}
+                        addSectionAdd4={addSectionAdd4}
+                        deleteSectionAdd={deleteSectionAdd}
+                        selectedTemplate={selectedTemplate}
+                      />
+                    );
+                  default:
+                    return null;
+                }
+              })()}
+            </div>
+            <div className=" w-4/6 ms-10 overflow-y-auto overflow-x-auto h-full  py-10 mb-10 border-r-2">
+              <div className=' mb-5 ms-60 '><Tooltip/></div>
+              
+              <TemplateComponent
+              image={image}
+                ref={cvRef}
+                data={formData}
+                selectedTemplate={selectedTemplate}
+                setSelectedTemplate={setSelectedTemplate}
+                selectedFont={selectedFont}
+                boxBgColor={boxBgColor}
+                setBoxBgColor={setBoxBgColor}
+                predefinedText={predefinedText}
+              
+              
+              />
+              <div className='my-2 px-10 '>
+       <TemplateSelector selectedTemplate={selectedTemplate} setSelectedTemplate={setSelectedTemplate} />
+       </div>
+            </div>
+          </div>
+        </div>
+      </>
+    ) : (
+      <>
+      
+      <PreviewSection
+      image={image}
+        handlePrint={handlePrint}
+        setIsPreviewing={setIsPreviewing}
+        isSaving={isSaving}
+        selectedTemplate={selectedTemplate}
+        cvRef={cvRef}
+        formData={formData}
+        handleSectionInputChange={handleSectionInputChange}
+        addSectionAdd={addSectionAdd}
+        deleteSectionAdd={deleteSectionAdd}
+        setSelectedTemplate={setSelectedTemplate}
+        hideIsDetailsComplete={true}
+        selectedFont={selectedFont}
+         setSelectedFont={setSelectedFont}
+         setBoxBgColor={setBoxBgColor} boxBgColor={boxBgColor}
+         predefinedText={predefinedText}
+        
+      />
+      </>
+    )}
+  
+  </div> </>)}
+</div>
+ 
 );
 }
 

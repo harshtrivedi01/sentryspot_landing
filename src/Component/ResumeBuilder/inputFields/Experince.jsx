@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-const Experience = ({ experiences = [], handleInputChange, addExperience, deleteExperience,handleKeyPress }) => {
+const Experience = ({ experiences = [], handleInputChange, addExperience, deleteExperience,handleKeyPress ,
+  company,end_date,location,position,summary,dates
+}) => {
   const [isCurrentlyWorking, setIsCurrentlyWorking] = useState(false);
   const [isExperienceComplete, setIsExperienceComplete] = useState(false);
 
@@ -44,7 +46,7 @@ const Experience = ({ experiences = [], handleInputChange, addExperience, delete
                   <input 
                     type="text" 
                     name="Company" 
-                    value={exp.Company}
+                    value={exp.Company || company}
                     onChange={(e) => handleInputChange(e, index, 'experiences')}
                     placeholder="Company Name" 
                     className="w-full p-3 mb-4 border border-black rounded-lg"
@@ -57,7 +59,7 @@ const Experience = ({ experiences = [], handleInputChange, addExperience, delete
                   <input 
                     type="text" 
                     name="role" 
-                    value={exp.role}
+                    value={exp.role || position}
                     onChange={(e) => handleInputChange(e, index, 'experiences')}
                     placeholder="Role" 
                     className="w-full p-3 mb-4 border border-black rounded-lg"
@@ -74,7 +76,7 @@ const Experience = ({ experiences = [], handleInputChange, addExperience, delete
                   <input 
                     type="month" 
                     name="month1" 
-                    value={exp.month1}
+                    value={exp.month1 || dates}
                     onChange={(e) => handleInputChange(e, index, 'experiences')}
                     className="w-full p-3 mb-4 border border-black rounded-lg"
                   /> 
@@ -87,7 +89,7 @@ const Experience = ({ experiences = [], handleInputChange, addExperience, delete
                   <input 
                     type="month" 
                     name="month2" 
-                    value={exp.month2}
+                    value={exp.month2 || end_date}
                     onChange={(e) => handleInputChange(e, index, 'experiences')}
                     disabled={isCurrentlyWorking}
                     className="w-full p-3 mb-4 border border-black rounded-lg"
@@ -119,7 +121,7 @@ const Experience = ({ experiences = [], handleInputChange, addExperience, delete
         <input 
           type="text" 
           name="companyplace" 
-          value={exp.companyplace}
+          value={exp.companyplace || location}
               onChange={(e) => handleInputChange(e, index, 'experiences')}
           placeholder="e.g. Delhi, India" 
           className="w-full p-3 mb-4 border border-black rounded-lg"
@@ -133,7 +135,7 @@ const Experience = ({ experiences = [], handleInputChange, addExperience, delete
               </div>
                  <textarea 
                 name="companydescription"
-                value={exp.companydescription}
+                value={exp.companydescription ||summary}
                 onChange={(e) => handleDescriptionChange(e, index)}
                 className="w-full h-40 p-2 mb-4 border border-black rounded-lg"
               />

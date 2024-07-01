@@ -3,7 +3,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import Formheader from '../forms/Formheader';
 
-function Summary({ summary = [], handleInputChange }) {
+function Summary({ summary = [], handleInputChange,summaryname }) {
   const [showSearch, setShowSearch] = useState(false);
 
   const toggleSearch = () => {
@@ -66,7 +66,7 @@ function Summary({ summary = [], handleInputChange }) {
                 </div>
                 <ReactQuill
                   theme="snow"
-                  value={sum.summarydescription}
+                  value={sum.summarydescription || summaryname}
                   onChange={(content) => handleInputChange({ target: { value: content, name: 'summarydescription' } }, index, 'summary')}
                   className="w-full h-40 p-2 mb-4 break-all"
                 />
