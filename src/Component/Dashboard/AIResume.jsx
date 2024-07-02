@@ -1,17 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useState } from 'react';
-
+import axios from 'axios';
 function AIResume() {
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [accuracyPercentage, setAccuracyPercentage] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const [isOpen, setIsOpen] = useState(false);
   const [data, setData] = useState([]);
   const [isLoading, setLoading1] = useState(false);
   const [error, setError] = useState(null);
-
-   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [accuracyPercentage, setAccuracyPercentage] = useState(null);
-  const [loading, setLoading] = useState(false);
 
   const handleClick = async () => {
     setIsOpen(!isOpen);
@@ -36,7 +36,7 @@ function AIResume() {
         keyword: "Rate this resume content in percentage ? and checklist of scope improvements in manner of content and informations",
         file_location: "/etc/ai_job_portal/jobseeker/resume_uploads/black-and-white-standard-professional-resume-1719321080.pdf"
       };
-
+  
       const response = await axios.post(
         'https://api.abroadium.com/api/jobseeker/file-based-ai',
         requestBody,
@@ -47,16 +47,18 @@ function AIResume() {
           }
         }
       );
-
+  
       // Extract only the content_acuracy_percentage from the response
       const { content_acuracy_percentage } = response.data.data;
       setAccuracyPercentage(content_acuracy_percentage);
     } catch (error) {
       console.error('Error fetching data from API', error);
+      // Add user-friendly error handling or notifications here
     } finally {
       setLoading(false); // Set loading to false when the API call completes
     }
   };
+  
   return (
     <>
       

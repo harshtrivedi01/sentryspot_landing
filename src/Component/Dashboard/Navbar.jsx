@@ -75,7 +75,22 @@ const Navbar = () => {
                 <Link to="/" className="text-white hover:text-yellow-500 px-3 py-3 rounded-md text-lg font-semibold items-center">Plan - Free</Link>
                 <Link to="/" className="text-gray-400 hover:text-yellow-500 px-3 py-3 rounded-md text-lg font-semibold items-center">Jobs</Link>
                 
-                
+                {loading ? (
+                  <div className='text-white font-semibold px-3 py-3'>Loading...</div> // Display loading indicator
+                ) : accuracyPercentage !== null ? (
+                  <div className="api-data-container">
+                    {/* Render the content_acuracy_percentage */}
+                    <p className='text-white font-semibold px-3 py-3'>AI Score: {accuracyPercentage}</p>
+                  </div>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={resumeScore}
+                    className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold flex align-middle justify-center gap-1 items-center"
+                  >
+                    Resume Score
+                  </button>
+                )}
 
                 <Link to="/" className="text-white hover:text-yellow-500 px-3 py-3 items-center rounded-md text-lg font-semibold">Suggest</Link>
 
