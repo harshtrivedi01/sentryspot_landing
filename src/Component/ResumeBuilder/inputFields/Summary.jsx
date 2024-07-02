@@ -6,22 +6,23 @@ function Summary({ summary = [], handleInputChange, summaryname }) {
   const [showSearch, setShowSearch] = useState(false);
   const [searchInput, setSearchInput] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const [error, setError] = useState(null);
+  const [apiResult, setApiResult] = useState('');
 
   const toggleSearch = () => {
     setShowSearch(!showSearch);
     if (!showSearch) {
       setSearchInput('');
       setSearchResults([]);
+      setError(null); // Clear any previous errors
     }
   };
 
   const handleSearchInputChange = (event) => {
     setSearchInput(event.target.value);
-    // Call API for suggestions based on searchInput
-    fetchSuggestions(event.target.value);
   };
 
-  const fetchSuggestions = async (input) => {
+  const handleGetResults = async () => {
     try {
       const token = localStorage.getItem('token');
       const response = await fetch(`https://api.abroadium.com/api/jobseeker/ai-resume-summery-data`, {
@@ -33,23 +34,30 @@ function Summary({ summary = [], handleInputChange, summaryname }) {
         body: JSON.stringify({
           key: "resumesummery",
           keyword: "resumesummery in manner of description",
-          content: input,
+          content: searchInput,
           file_location: "/etc/ai_job_portal/jobseeker/resume_uploads/black-and-white-standard-professional-resume-1719321080.pdf"
         })
       });
 
       if (response.ok) {
         const data = await response.json();
-        if (data.status === "success") {
-          setSearchResults(data.data.resume_analysis.resume_summery); // Assuming data structure matches expected suggestions format
+        if (data.status === "success" && data.data.resume_analysis && data.data.resume_analysis.resume_summary) {
+          setApiResult(data.data.resume_analysis.resume_summary); // Store the summary in state
+          setError(null); // Clear any previous errors
         } else {
-          console.error('Failed to fetch suggestions');
+          console.error('No search results found');
+          setApiResult(''); // Clear previous result if no data found
+          setError('No search results found');
         }
       } else {
         console.error('Failed to fetch suggestions');
+        setApiResult(''); // Clear previous result on failure
+        setError('Failed to fetch suggestions');
       }
     } catch (error) {
       console.error('Error fetching suggestions:', error);
+      setApiResult(''); // Clear previous result on error
+      setError('Error fetching suggestions. Please try again.');
     }
   };
 
@@ -98,6 +106,7 @@ function Summary({ summary = [], handleInputChange, summaryname }) {
                       <button
                         type="button"
                         className="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
+                        onClick={handleGetResults}
                       >
                         Get Results
                       </button>
@@ -105,12 +114,13 @@ function Summary({ summary = [], handleInputChange, summaryname }) {
                   )}
                 </div>
               </div>
+              {console.log(apiResult,"result")}
               <div className="my-4 mb-10 font-normal">
                 Write 2-5 Sentences that highlight the value you can provide to a team and organization. Mention your previous role, experience & most importantly - your biggest achievements, best qualities, and skills.
               </div>
               <ReactQuill
                 theme="snow"
-                value={sum.summarydescription || summaryname}
+                value={apiResult||sum.summarydescription || summaryname } // Prioritize existing value or API result
                 onChange={(content) => handleInputChange({ target: { value: content, name: 'summarydescription' } }, index, 'summary')}
                 className="w-full h-40 p-2 mb-4 break-all"
               />
@@ -120,14 +130,19 @@ function Summary({ summary = [], handleInputChange, summaryname }) {
       ))}
       
       {/* Display search results */}
-      {showSearch && searchResults.length > 0 && (
+      {showSearch && (
         <div className="mt-4">
-          <h2 className="text-lg font-semibold">Search Results</h2>
-          <ul>
-            {searchResults.map((result, idx) => (
-              <li key={idx}>{result}</li>
-            ))}
-          </ul>
+          {error && <p className="text-red-500">{error}</p>}
+          {searchResults && searchResults.length > 0 && (
+            <>
+              <h2 className="text-lg font-semibold">Search Results</h2>
+              <ul>
+                {searchResults.map((result, idx) => (
+                  <li key={idx}>{result}</li>
+                ))}
+              </ul>
+            </>
+          )}
         </div>
       )}
     </>

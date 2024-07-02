@@ -85,7 +85,7 @@ const Skills = ({ skills = [], handleInputChange, addSkill, deleteSkill, skillsn
   };
 
   return (
-    <div className="mt-10 px-10 text-xs sm:text-xs md:text-xs lg:text-xs">
+    <div className="mt-10 px-10 text-xs sm:text-xs md:text-xs lg:text-xs ">
       {/* AI Assist Button */}
       <button className="font-bold text-lg flex items-center mb-4" onClick={() => setShowDropdown(!showDropdown)}>
         <h3>AI Assist</h3>

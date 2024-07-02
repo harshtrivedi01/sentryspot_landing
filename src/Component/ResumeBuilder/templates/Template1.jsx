@@ -69,6 +69,10 @@ const Template1 = ({
 
   const allDetailsFilled6 = summary.some(summar => summar.summarydescription.trim() !== '');
 
+  const truncate = (str, maxLength) => {
+    if (!str) return '';
+    return str.length > maxLength ? str.substring(0, maxLength) + '...' : str;
+  };
   return (
     <div
       className={`border-2  border-gray-300 p-7 ${textSizeClass} ${sectionSpacingClass} ${lineHeightClass}`}
@@ -101,37 +105,41 @@ const Template1 = ({
       <div>
         {/* User details */}
 {details.map((del, index) => (
-  <div key={index}>
-    <h3 className="text-xs sm:text-sm md:text-2xl lg:text-3xl text-cyan-600 font-bold ms- ">
-      {del.name || predefinedText.details.name}
-    </h3>
-    <p className="text-xs sm:text-sm md:text-xl lg:text-lg ms-">
-      {del.Profession || predefinedText.details.profession}
-    </p>
-
-    <ul className="flex text-xs sm:text-xs md:text-xs lg:text-xs m-2 gap-12 font-semibold">
-  <li>
-    <FaMapMarkerAlt className="inline-block align-text-top mr-1" />
-    {del.address || predefinedText.details.address}
-  </li>
-  <li >
-    <FaPhoneAlt className="inline-block align-text-top mr-1" />
-    {del.phoneNumber || predefinedText.details.phoneNumber}
-  </li>
-  <li >
-    <FaEnvelope className="inline-block align-text-top mr-1" />
-    {del.email || predefinedText.details.email}
-  </li>
-  <li >
-    <FaLinkedin className="inline-block align-text-top mr-1" />
-    <a href={del.link || '#'} target="_blank" rel="noopener noreferrer">{del.link || predefinedText.details.link}</a>
-  </li>
-  <li >
-    <FaGithub className="inline-block align-text-top mr-1" />
-    <a href={del.github || '#'} target="_blank" rel="noopener noreferrer">{del.github || predefinedText.details.github}</a>
-  </li>
-  {/* Add more icons and links as needed */}
-</ul>
+        <div key={index}>
+          <h3 className="text-xs sm:text-sm md:text-2xl lg:text-3xl text-cyan-600 font-bold ms-">
+            {truncate(del.name || predefinedText.details.name, 20 )}
+          </h3>
+          <p className="text-xs sm:text-sm md:text-xl lg:text-lg ms-">
+            {truncate(del.Profession || predefinedText.details.profession, 200)}
+          </p>
+          <ul className="flex text-xs sm:text-xs md:text-xs lg:text-xs m-2 gap-12 font-semibold">
+            <li>
+              <FaMapMarkerAlt className="inline-block align-text-top mr-1" />
+              {truncate(del.address || predefinedText.details.address, 19)}
+            </li>
+            <li>
+              <FaPhoneAlt className="inline-block align-text-top mr-1" />
+              {truncate(del.phoneNumber || predefinedText.details.phoneNumber, 10)}
+            </li>
+            <li>
+              <FaEnvelope className="inline-block align-text-top mr-1" />
+              {truncate(del.email || predefinedText.details.email, 15)}
+            </li>
+            <li>
+              <FaLinkedin className="inline-block align-text-top mr-1" />
+              <a href={del.link || '#'} target="_blank" rel="noopener noreferrer">
+                {truncate(del.link || predefinedText.details.link, 15)}
+              </a>
+            </li>
+            <li>
+              
+              <a href={del.github || '#'} target="_blank" rel="noopener noreferrer">
+                {truncate(del.github || predefinedText.details.github, 15)}
+              </a>
+            </li>
+            {/* Add more icons and links as needed */}
+          </ul>
+        
     {summary.length > 0 ? (
   summary.map((sum, index) => (
     <div key={index}><div className='font-bold'>Summary</div>

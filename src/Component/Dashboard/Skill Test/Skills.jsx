@@ -154,7 +154,7 @@ const Skills = () => {
   }
 
   return (
-    <div className="py-16 bg-gray-700">
+    <div className="py-16 bg-gray-700 w-full">
       <h1 className="text-3xl text-center md:text-5xl font-bold text-white p-3">Take Skill Assessment</h1>
       <div className="flex flex-wrap gap-7 px-5 py-5">
         {skills.map((skill, index) => (
