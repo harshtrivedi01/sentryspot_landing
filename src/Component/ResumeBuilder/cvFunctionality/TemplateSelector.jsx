@@ -14,7 +14,7 @@ const templates = [
   { id: 'Template10', name: 'Template 10', image: '../cvFunctionality/templateimages/template10.png' }
 ];
 
-const TemplateSelector = ({ selectedTemplate, setSelectedTemplate,onImageUpload  }) => {
+const TemplateSelector = ({ selectedTemplate, setSelectedTemplate,onImageUpload , }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [uploadedImage, setUploadedImage] = useState(null);
 

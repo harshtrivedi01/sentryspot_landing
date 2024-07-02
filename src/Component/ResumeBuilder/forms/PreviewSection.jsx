@@ -103,7 +103,7 @@ const PreviewSection = ({
           month2: exp.month2 || "",
           jobcity: exp.companyplace || "",
         })) || [],
-        skills: formData.skills?.map(skill => `${skill.skillname}, ${skill.skilldetails}`) || [],
+        skills: formData.skills?.map(skill => `${skill.skillname}`) || [],
         other_sections: formData.sectionadd?.map(section => ({
           sectionname: section.sectionname || "",
           sectiondescription: section.sectiondescription || "",

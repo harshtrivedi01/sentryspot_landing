@@ -91,7 +91,7 @@ function Uploadresume() {
               <button className="px-10 rounded-full py-2 text-lg text-violet-950 font-bold border border-violet-950" onClick={handleUpload}>Upload</button>
             </div>
             <div className="ms-20 mt-10">
-              <button className="px-10 rounded-full py-2 text-lg text-violet-950 font-bold border border-violet-950" onClick={() => navigate('/')}>Back</button>
+              <button className="px-10 rounded-full py-2 text-lg text-violet-950 font-bold border border-violet-950" onClick={() => navigate('/dashboard')}>Back</button>
             </div>
           </div>
           <Footer />

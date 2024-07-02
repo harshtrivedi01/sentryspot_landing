@@ -228,7 +228,7 @@ const Template1 = ({
         </div>
         <div className="flex flex-wrap gap-16">
   {skills.map((skill, index) => (
-    <span key={index} className="flex items-center text-xs sm:text-xs md:text-xs lg:text-xs mr-2 mt-2 gap-16">
+    <span key={index} className="flex items-center text-xs sm:text-xs md:text-xs lg:text-xs mr-2 mt-2 gap-">
       <p className={`${skill.skillname ? 'before:content-["●"] before:m-2 font' : ''} break-all`}>
         {skill.skillname || predefinedText.skills.skillname}
       </p>

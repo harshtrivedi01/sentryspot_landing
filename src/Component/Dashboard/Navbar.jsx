@@ -9,6 +9,26 @@ const Navbar = () => {
   const [accuracyPercentage, setAccuracyPercentage] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  const [isOpen, setIsOpen] = useState(false);
+  const [data, setData] = useState([]);
+  const [isLoading, setLoading1] = useState(false);
+  const [error, setError] = useState(null);
+
+  const handleClick = async () => {
+    setIsOpen(!isOpen);
+    if (!isOpen) {
+      setLoading1(true);
+      try {
+        const response = await axios.get('YOUR_API_ENDPOINT');
+        setData(response.data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading1(false);
+      }
+    }
+  };
+
   const resumeScore = async () => {
     try {
       setLoading(true); // Set loading to true when the API call starts
@@ -55,23 +75,12 @@ const Navbar = () => {
                 <Link to="/" className="text-white hover:text-yellow-500 px-3 py-3 rounded-md text-lg font-semibold items-center">Plan - Free</Link>
                 <Link to="/" className="text-gray-400 hover:text-yellow-500 px-3 py-3 rounded-md text-lg font-semibold items-center">Jobs</Link>
                 
-                {loading ? (
-                  <div className='text-white font-semibold px-3 py-3'>Loading...</div> // Display loading indicator
-                ) : accuracyPercentage !== null ? (
-                  <div className="api-data-container">
-                    {/* Render the content_acuracy_percentage */}
-                    <p className='text-white font-semibold px-3 py-3'>AI Score: {accuracyPercentage}</p>
-                  </div>
-                ) : (
-                  <button
-                    type="button"
-                    onClick={resumeScore}
-                    className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold flex align-middle justify-center gap-1 items-center"
-                  >
-                    Resume Score
-                  </button>
-                )}
                 
+
+                <Link to="/" className="text-white hover:text-yellow-500 px-3 py-3 items-center rounded-md text-lg font-semibold">Suggest</Link>
+
+                
+
                 <Link to="/" className="text-white hover:text-yellow-500 px-3 py-3 items-center rounded-md text-lg font-semibold"><i className="fa-solid fa-message items-center text-purple-500"></i></Link>
                 <Link to="/" target='_blank' className="text-white items-center hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold"><i className="fa-solid fa-envelope p-2 items-center text-purple-500"></i>200 Coins</Link>
                 <Link to="/" className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold"><i className="fa-solid fa-bell text-purple-500"></i></Link>

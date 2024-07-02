@@ -3,11 +3,53 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import Formheader from '../forms/Formheader';
 
-function Summary({ summary = [], handleInputChange,summaryname }) {
+function Summary({ summary = [], handleInputChange, summaryname }) {
   const [showSearch, setShowSearch] = useState(false);
+  const [searchInput, setSearchInput] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
 
   const toggleSearch = () => {
     setShowSearch(!showSearch);
+    if (!showSearch) {
+      setSearchInput('');
+      setSearchResults([]);
+    }
+  };
+
+  const handleSearchInputChange = (event) => {
+    setSearchInput(event.target.value);
+    // Call API for suggestions based on searchInput
+    fetchSuggestions(event.target.value);
+  };
+
+  const fetchSuggestions = async (input) => {
+    try { const token = localStorage.getItem('token');
+      const response = await fetch(`https://api.abroadium.com/api/jobseeker/ai-resume-summery-data`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+           Authorization: `${token}`
+        },
+        body: JSON.stringify({
+          AiKeywordRequest: {
+            Key: "resumesummery",
+            Keyword: "resumesummery in manner of description",
+            Content: "Software Developer",
+            file_location: "/etc/ai_job_portal/jobseeker/resume_uploads/black-and-white-standard-professional-resume-1719321080.pdf"
+          }
+        })
+        
+        ,
+      });
+      if (response.ok) {
+        const data = await response.json();
+        setSearchResults(data); // Assuming data structure matches expected suggestions format
+      } else {
+        console.error('Failed to fetch suggestions');
+      }
+    } catch (error) {
+      console.error('Error fetching suggestions:', error);
+    }
   };
 
   return (
@@ -18,7 +60,7 @@ function Summary({ summary = [], handleInputChange,summaryname }) {
             <div className="m-2 px-10 flex gap-3 w-3/">
               <div>
                 <div className="flex justify-between font-bold text-lg my-4">
-                  <h1 className='text-xl'>Professional Summary</h1>
+                  <h1 className="text-xl">Professional Summary</h1>
                   <div>
                     <button className="font-bold text-lg flex items-center" onClick={toggleSearch}>
                       <svg
@@ -38,6 +80,9 @@ function Summary({ summary = [], handleInputChange,summaryname }) {
                           <input
                             type="text"
                             className="block w-full pl-8 pr-4 py-2 text-sm focus:outline-none"
+                            placeholder="Search..."
+                            value={searchInput}
+                            onChange={handleSearchInputChange}
                           />
                           <svg
                             className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400"
@@ -50,7 +95,6 @@ function Summary({ summary = [], handleInputChange,summaryname }) {
                             />
                           </svg>
                         </div>
-
                         <button
                           type="button"
                           className="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
@@ -70,7 +114,6 @@ function Summary({ summary = [], handleInputChange,summaryname }) {
                   onChange={(content) => handleInputChange({ target: { value: content, name: 'summarydescription' } }, index, 'summary')}
                   className="w-full h-40 p-2 mb-4 break-all"
                 />
-                
               </div>
             </div>
           </div>

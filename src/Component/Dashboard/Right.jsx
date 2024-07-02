@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 function Right() {
   return (
     <>
-       <div className=" hidden md:flex md:flex-col md:w-[20%]  md:px-4 md:py-36" id='bgnavbar'>
+       <div className=" hidden md:flex md:flex-col md:w-[20%]  md:px-4 md:py-36 float-end" id='bgnavbar'>
         
         <div className='  '>
           <div className=' flex flex-col'>

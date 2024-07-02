@@ -33,7 +33,7 @@ const Home_Image_dashboard = () => {
                         <img 
                             src={image} 
                             alt={`Slide ${index + 1}`} 
-                            className=" md:h-auto md:w-96 transition-transform transform hover:scale-105" 
+                            className=" md:h-[280px] md:w-96 transition-transform transform hover:scale-105" 
                         />
                     </div>
                 ))}

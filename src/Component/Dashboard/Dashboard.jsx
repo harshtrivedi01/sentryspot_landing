@@ -7,8 +7,54 @@ import Home_Image from './Home_Image_dashboard';
 import video from './video.mp4';
 import image1 from './certificate.png'
 import Skills from './Skill Test/Skills';
+import axios from 'axios';
+import { useEffect,useState } from 'react';
 
 const Dashboard = () => {   
+    const [skills, setSkills] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const [tokenError, setTokenError] = useState(null);
+   
+
+    const result = location.state?.result;
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+    
+        if (!token) {
+          setTokenError('Please log in first.');
+          setLoading(false);
+          return;
+        }
+    
+        axios
+          .get('https://api.abroadium.com/api/jobseeker/user-skills', {
+            headers: {
+              Authorization: `${token}`,
+            },
+          })
+          .then((response) => {
+            if (Array.isArray(response.data.data)) {
+              setSkills(response.data.data);
+            } else {
+              throw new Error('API response is not an array');
+            }
+            setLoading(false);
+          })
+          .catch((error) => {
+            console.error(
+              'There was an error fetching the skills data!',
+              error.response ? error.response.data : error.message
+            );
+            if (error.response && error.response.status === 401) {
+              setTokenError('Unauthorized access. Please log in again.');
+            } else {
+              setError(error);
+            }
+            setLoading(false);
+          });
+      }, []);
+
   return (
     <div className=" min-h-screen min-w-screen bg-gray-900  py-12 text-white" id='bghome-dash'>   
       <main className=" p-4 md:px-10">
@@ -16,19 +62,19 @@ const Dashboard = () => {
         <SlidingText/>  
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 rounded-xl bg-gray-800">
             <div className=" p-5 rounded">
-                <div className=' text-center text-xl font-semibold'>Resumes</div>
+                <div className=' text-center text-xl font-semibold my-1'>Resumes</div>
                 <Home_Image/>
               {/* <img src="https://clearanceresume.ai/static/media/1.75ff0ba8c05a1fb690b3.png" alt="Resume 1" /> */}
             </div>
             <div className=" p-5 rounded">
-            <div className=' text-center text-xl font-semibold'>Introduction</div>
+            <div className=' text-center text-xl font-semibold my-2'>Introduction</div>
               <video src={video} alt="Resume 2" autoPlay loop 
                 muted 
-                playsInline className=' h-[370px]' />
+                playsInline className=' h-[300px] ' />
             </div>
             <div className=" p-5 rounded">
-            <div className=' text-center text-xl font-semibold'>Certification</div>
-              <img src={image1} alt="Resume 3" className=' h-[370px]' />
+            <div className=' text-center text-xl font-semibold mb-4 mt-2'>Certification</div>
+              <img src={image1} alt="Resume 3" className=' h-[282px]' />
             </div>
           </div>
         </section>
@@ -42,14 +88,18 @@ const Dashboard = () => {
          <div className=' '>
             <h1 className=' font-bold text-3xl text-white text-center py-5'>Verify Your Skills </h1>
             <div className=' text-white flex flex-wrap justify-evenly py-5'>
-                <div className='  shadow-lg bg-gray-600 px-3 py-2 rounded-lg font-bold'> C++</div>
-                <div className='  shadow-lg bg-gray-600 px-3 py-2 rounded-lg font-bold'> React</div>
-                <div className='  shadow-lg bg-gray-600 px-3 py-2 rounded-lg font-bold'> Java</div>
-                <div className='  shadow-lg bg-gray-600 px-3 py-2 rounded-lg font-bold'> Angular</div>
-                <div className='  shadow-lg bg-gray-600 px-3 py-2 rounded-lg font-bold'> Javascript</div>
-                <div className='  shadow-lg bg-gray-600 px-3 py-2 rounded-lg font-bold'> Tailwind/Bootstrap</div>
-                <div className='  shadow-lg bg-gray-600 px-3 py-2 rounded-lg font-bold'> Javascript</div>
-                <div className='  shadow-lg bg-gray-600 px-3 py-2 rounded-lg font-bold'> Tailwind/Bootstrap</div>
+            {skills.map((skill, index) => (
+          <div key={index} className="shadow-lg bg-gray-600 px-3 py-2 rounded-lg font-bold">
+            <h3 className="text-xl text-white font-semibold py-3">{skill.name}</h3>
+            {skill.Percentage > 70 && (
+              <div className="text-left text-green-500 font-semibold py-1">
+                Verified Badge: Scored Above 70%
+              </div>
+            )}
+            
+          </div>
+        ))}
+                
             </div>
          </div>
 
