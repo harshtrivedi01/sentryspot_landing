@@ -477,8 +477,8 @@ start_date={resumeData.employmenthistory[0]?.start_date}
                   case 'Skills':
                     return (
                       <Skills
-                      skillsname={resumeData.skills[0]}
-                      skillsname2={resumeData.skills[1]}
+                      skillsfromapi={resumeData.skills}
+                      
                         skills={formData.skills}
                         handleInputChange={handleInputChange}
                         addSkill={() => addField('skills')}
@@ -531,7 +531,8 @@ start_date={resumeData.employmenthistory[0]?.start_date}
                 boxBgColor={boxBgColor}
                 setBoxBgColor={setBoxBgColor}
                 predefinedText={predefinedText}
-              
+                resumeSkills={resumeData.skills}  // Pass resume skills data
+                skillsfromapi={resumeData.skills}
               
               />
               <div className='my-2 px-10 '>
@@ -561,6 +562,7 @@ start_date={resumeData.employmenthistory[0]?.start_date}
          setSelectedFont={setSelectedFont}
          setBoxBgColor={setBoxBgColor} boxBgColor={boxBgColor}
          predefinedText={predefinedText}
+         skillsfromapi={resumeData.skills}
         
       />
       </>

@@ -18,7 +18,8 @@ const PreviewSection = ({
   selectedFont,
   setSelectedFont,
   boxBgColor,
-  setBoxBgColor
+  setBoxBgColor,
+  skillsfromapi
 }) => {
   const [textSize, setTextSize] = useState(2);
   const [sectionSpacing, setSectionSpacing] = useState(2);
@@ -26,7 +27,7 @@ const PreviewSection = ({
   const [lineSpacing, setLineSpacing] = useState(1.5);
   const [isPreviewScreen, setIsPreviewScreen] = useState(true);
   const [accuracyPercentage, setAccuracyPercentage] = useState(null);
-
+console.log(skillsfromapi,'api')
   
   const resumeScore = async () => {
     try {
@@ -58,8 +59,10 @@ const PreviewSection = ({
   const updateResume = async () => {
     const token = localStorage.getItem('token');
     const url = 'https://api.abroadium.com/api/jobseeker/resume-update';
-    console.log('API URL:', url); // Debugging
-
+  
+    // Ensure skillsfromapi is initialized as an empty array if it's null or undefined
+    const skillsFromApiArray = Array.isArray(skillsfromapi) ? skillsfromapi : [];
+  
     const payload = {
       templateData: {
         templatename: selectedTemplate || "Template1",
@@ -87,7 +90,8 @@ const PreviewSection = ({
           wantedjobtitle: formData.wantedjobtitle || "",
         },
         professionalsummary: formData.summary[0]?.summarydescription || "",
-       
+        // Combine skillsfromapi and formData.skills arrays
+        skills: [...skillsFromApiArray, ...(formData.skills?.map(skill => skill.skillname) || [])] || [],
         education: formData.educations?.map(edu => ({
           degree: edu.coursename || "",
           city1: edu.schoolplace || "",
@@ -103,7 +107,6 @@ const PreviewSection = ({
           month2: exp.month2 || "",
           jobcity: exp.companyplace || "",
         })) || [],
-        skills: formData.skills?.map(skill => `${skill.skillname}`) || [],
         other_sections: formData.sectionadd?.map(section => ({
           sectionname: section.sectionname || "",
           sectiondescription: section.sectiondescription || "",
@@ -111,15 +114,14 @@ const PreviewSection = ({
         })) || [],
       },
     };
-
+  
     console.log('Payload:', JSON.stringify(payload, null, 2)); // Debugging
-
+  
     try {
       const response = await axios.put(url, payload, {
         headers: {
           'Content-Type': 'application/json',
-          // Add your authorization header if needed
-           'Authorization': token
+          'Authorization': token
         }
       });
       console.log('Resume updated successfully:', response.data);
@@ -133,6 +135,7 @@ const PreviewSection = ({
       }
     }
   };
+  
 
   return (
     <div className='h- justify-center '>
@@ -162,6 +165,7 @@ const PreviewSection = ({
             boxBgColor={boxBgColor}
             isPreviewScreen={isPreviewScreen}
             predefinedText={predefinedText}
+            skillsfromapi={skillsfromapi}
           />
           {/* Render Additional Sections Input Fields */}
         </div>

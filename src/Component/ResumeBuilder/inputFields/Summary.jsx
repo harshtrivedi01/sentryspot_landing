@@ -32,8 +32,8 @@ function Summary({ summary = [], handleInputChange, summaryname }) {
           Authorization: `${token}`
         },
         body: JSON.stringify({
-          key: "resumesummery",
-          keyword: "resumesummery in manner of description",
+          key: "professional_summary",
+          keyword: "professional_summary in manner of description",
           content: searchInput,
           file_location: "/etc/ai_job_portal/jobseeker/resume_uploads/black-and-white-standard-professional-resume-1719321080.pdf"
         })
@@ -41,8 +41,8 @@ function Summary({ summary = [], handleInputChange, summaryname }) {
 
       if (response.ok) {
         const data = await response.json();
-        if (data.status === "success" && data.data.resume_analysis && data.data.resume_analysis.resume_summary) {
-          setApiResult(data.data.resume_analysis.resume_summary); // Store the summary in state
+        if (data.status === "success" && data.data.resume_analysis && data.data.resume_analysis.professional_summary) {
+          setApiResult(data.data.resume_analysis.professional_summary); // Store the summary in state
           setError(null); // Clear any previous errors
         } else {
           console.error('No search results found');
@@ -114,7 +114,7 @@ function Summary({ summary = [], handleInputChange, summaryname }) {
                   )}
                 </div>
               </div>
-              {console.log(apiResult,"result")}
+           
               <div className="my-4 mb-10 font-normal">
                 Write 2-5 Sentences that highlight the value you can provide to a team and organization. Mention your previous role, experience & most importantly - your biggest achievements, best qualities, and skills.
               </div>

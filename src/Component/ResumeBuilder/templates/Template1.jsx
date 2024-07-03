@@ -11,6 +11,7 @@ const Template1 = ({
   isPreviewScreen,
   isTemplate1Previewing,
   predefinedText = {},
+  skillsfromapi
 }) => {
 
 
@@ -112,18 +113,18 @@ const Template1 = ({
           <p className="text-xs sm:text-sm md:text-xl lg:text-lg ms-">
             {truncate(del.Profession || predefinedText.details.profession, 200)}
           </p>
-          <ul className="flex text-xs sm:text-xs md:text-xs lg:text-xs m-2 gap-12 font-semibold">
+          <ul className="flex text-xs sm:text-xs md:text-xs lg:text-xs m-2 gap-4 font-semibold">
             <li>
               <FaMapMarkerAlt className="inline-block align-text-top mr-1" />
-              {truncate(del.address || predefinedText.details.address, 19)}
+              {truncate(del.address || predefinedText.details.address, 25)}
             </li>
             <li>
               <FaPhoneAlt className="inline-block align-text-top mr-1" />
-              {truncate(del.phoneNumber || predefinedText.details.phoneNumber, 10)}
+              {truncate(del.phoneNumber || predefinedText.details.phoneNumber, 15)}
             </li>
             <li>
               <FaEnvelope className="inline-block align-text-top mr-1" />
-              {truncate(del.email || predefinedText.details.email, 15)}
+              {truncate(del.email || predefinedText.details.email, 25)}
             </li>
             <li>
               <FaLinkedin className="inline-block align-text-top mr-1" />
@@ -178,30 +179,23 @@ const Template1 = ({
         <h6 className="text-xs sm:text-sm md:text-sm lg:text-sm">{exp.role ||  predefinedText.experiences.role }</h6>
         <p className="text-xs sm:text-xs md:text-xs lg:text-xs">{exp.companyplace ||  predefinedText.experiences.companyplace}</p>
       </div>
-      <ul className={`${exp.companydescription ? ' text-xs sm:text-xs md:text-xs lg:text-xs' : ''} w-2/2 break-all`}>
-        {exp.companydescription ? (
-          // If company description is provided, split by new lines and render each line as a list item
-          exp.companydescription.split(/\r?\n/).map((line, i) => (
-            <li
-              key={i}
-              className={`${paragraphSpacingClass} ${
-                line.trim() ? 'before:content-["•"] before:mr-1' : ''
-              } text-xs sm:text-xs md:text-xs lg:text-xs m-2 w-2/2 break-all`}
-              style={{ marginBottom: '4px' }} // Adjust margin bottom as needed
-            >
-              {line}
-            </li>
-          ))
-        ) : (
-          // Otherwise, render predefinedText.experiences.companydescription
-          <li
-            className={`${paragraphSpacingClass} text-xs sm:text-xs md:text-xs lg:text-xs m-2 w-2/2 break-all`}
-            style={{ marginBottom: '4px' }} // Adjust margin bottom as needed
-          >
-            {predefinedText.experiences.companydescription}
-          </li>
-        )}
-      </ul>
+      <ul className={`${exp.companydescription ? 'text-xs sm:text-xs md:text-xs lg:text-xs' : ''} w-full break-all`}>
+  {exp.companydescription ? (
+    // If company description is provided, split by new lines and render each line as a list item
+    exp.companydescription.split(/\r?\n/).map((line, i) => (
+      <li
+        key={i}
+        className={`${line.trim() ? 'before:content-[""] before:mr-1' : ''} text-xs sm:text-xs md:text-xs lg:text-xs m-2 w-full break-all`}
+        style={{ marginBottom: '4px' }} // Adjust margin bottom as needed
+        dangerouslySetInnerHTML={{ __html: line ? `•${line}` : '' }}
+      />
+    ))
+  ) : (
+    // Render a placeholder or message if company description is not provided
+    <li className="text-gray-400 italic">No description provided</li>
+  )}
+</ul>
+
       <br />
     </div>
   ))}
@@ -234,7 +228,7 @@ const Template1 = ({
           <h5 className="text-cyan-600 font-bold">SKILLS</h5>
           <div className="flex-grow border-t border-gray-300 align-super"></div>
         </div>
-        <div className="flex flex-wrap gap-16">
+        <div className="flex flex-wrap gap-2 text-start text-xs sm:text-xs md:text-xs lg:text-xs">
   {skills.map((skill, index) => (
     <span key={index} className="flex items-center text-xs sm:text-xs md:text-xs lg:text-xs mr-2 mt-2 gap-">
       <p className={`${skill.skillname ? 'before:content-["●"] before:m-2 font' : ''} break-all`}>
@@ -244,7 +238,16 @@ const Template1 = ({
         {skill.skilldetails || predefinedText.skills.skilldetails}
       </p>
     </span>
-  ))}
+  ))}{skillsfromapi && skillsfromapi.length > 0 && (
+    <p className="text-start ">
+      {skillsfromapi.map((skill, index) => (
+        <span key={index}>
+          {skill}
+          {index !== skillsfromapi.length - 1 && ' ● '}
+        </span>
+      ))}
+    </p>
+  )}
 </div>
 
         

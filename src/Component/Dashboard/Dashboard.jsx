@@ -84,24 +84,24 @@ const Dashboard = () => {
         {/* <div>
             <Skills/>
         </div> */}
-
-         <div className=' '>
-            <h1 className=' font-bold text-3xl text-white text-center py-5'>Verify Your Skills </h1>
-            <div className=' text-white flex flex-wrap justify-evenly py-5'>
-            {skills.map((skill, index) => (
-          <div key={index} className="shadow-lg bg-gray-600 px-3 py-2 rounded-lg font-bold">
-            <h3 className="text-xl text-white font-semibold py-3">{skill.name}</h3>
-            {skill.Percentage > 70 && (
-              <div className="text-left text-green-500 font-semibold py-1">
-                Verified Badge: Scored Above 70%
-              </div>
-            )}
-            
+<div className="p-2 align-middle">
+  <h1 className="font-bold text-3xl text-white text-center p-5">Verify Your Skills</h1>
+  <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 items-center justify-center">
+    {skills.map((skill, index) => (
+      <div key={index} className="shadow-lg bg-gray-600 px-2 py-3 rounded-lg text-white text-center">
+        <h3 className="text-center text font-semibold py-1">{skill.name}</h3>
+        {skill.Percentage > 70 && (
+          <div className="text-green-500 font-semibold py-1">
+            Verified: Scored Above 70%
           </div>
-        ))}
-                
-            </div>
-         </div>
+        )}
+      </div>
+    ))}
+  </div>
+</div>
+
+
+
 
 
 

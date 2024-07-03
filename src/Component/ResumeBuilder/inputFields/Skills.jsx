@@ -1,20 +1,29 @@
-import React, { useState } from 'react';
-import axios from 'axios'; // Import Axios for HTTP requests
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import PropTypes from 'prop-types';
 
-const Skills = ({ skills = [], handleInputChange, addSkill, deleteSkill, skillsname, skillsname2 }) => {
+const Skills = ({ skills, handleInputChange, addSkill, deleteSkill, skillsfromapi }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [suggestions, setSuggestions] = useState([]);
+  const [apiSkills, setApiSkills] = useState([]);
 
-  // Function to fetch suggestions from API based on user input
+  useEffect(() => {
+    console.log('skillsfromapi:', skillsfromapi);
+    if (Array.isArray(skillsfromapi)) {
+      setApiSkills(skillsfromapi.map(skill => ({ skillname: skill, skilldetails: '' })));
+    } else {
+      console.error('skillsfromapi is not an array');
+    }
+  }, [skillsfromapi]);
+
   const fetchSuggestions = async (query) => {
     const token = localStorage.getItem('token');
     try {
       const requestBody = {
-        Key: 'ai_keyword_request_key', 
-        keyword: "Cecklist of skills in manner of content and informations ",// Replace with the actual key required by the API
-        Content: query, // Use the user input as the content for the suggestion search
-        // Add other required fields based on API documentation if necessary
+        Key: 'ai_keyword_request_key',
+        keyword: "Checklist of skills in manner of content and information",
+        Content: query,
       };
 
       const response = await axios.post(
@@ -38,64 +47,66 @@ const Skills = ({ skills = [], handleInputChange, addSkill, deleteSkill, skillsn
     }
   };
 
-  // Function to handle input change in search box
   const handleSearchInputChange = (e) => {
     const { value } = e.target;
     setSearchQuery(value);
 
-    // Fetch suggestions when user types at least 2 characters
     if (value.length >= 2) {
       fetchSuggestions(value);
-      setShowDropdown(true); // Show dropdown when suggestions are fetched
+      setShowDropdown(true);
     } else {
-      setSuggestions([]); // Clear suggestions if input is less than 2 characters
-      setShowDropdown(false); // Hide dropdown
+      setSuggestions([]);
+      setShowDropdown(false);
     }
   };
 
-  // Function to handle selecting a suggestion
   const handleSuggestionSelect = (suggestion) => {
-    // Add the selected suggestion to the skillname input field
     handleInputChange({ target: { name: 'skillname', value: suggestion } }, 0, 'skills');
-
-    setShowDropdown(false); // Hide dropdown after selection
+    setShowDropdown(false);
   };
+  
 
-  // Function to handle clicking the search button
   const handleSearchButtonClick = () => {
     if (searchQuery.trim() !== '') {
       fetchSuggestions(searchQuery);
-      setShowDropdown(true); // Show dropdown when suggestions are fetched
+      setShowDropdown(true);
     }
   };
 
-  // Function to handle input change for skills
   const handleSkillInputChange = (e, index, field) => {
     const { name, value } = e.target;
     const newSkills = [...skills];
     newSkills[index] = { ...newSkills[index], [name]: value };
 
-    // Check if both skillname and skilldetails are filled
     if (name === 'skillname' && value && newSkills[index].skilldetails) {
-      // Add new field logic here
-      // Example: newSkills[index].newField = `${newSkills[index].skillname} - ${newSkills[index].skilldetails}`;
+      newSkills[index].newField = `${newSkills[index].skillname} - ${newSkills[index].skilldetails}`;
     }
 
     handleInputChange({ target: { name, value } }, index, field);
   };
 
+  const handleApiSkillInputChange = (e, index) => {
+    const { name, value } = e.target;
+    const newApiSkills = [...apiSkills];
+    newApiSkills[index] = { ...newApiSkills[index], [name]: value };
+    setApiSkills(newApiSkills);
+  };
+
+  const handleDeleteApiSkill = (index) => {
+    const newApiSkills = [...apiSkills];
+    newApiSkills.splice(index, 1);
+    setApiSkills(newApiSkills);
+  };
+
   return (
-    <div className="mt-10 px-10 text-xs sm:text-xs md:text-xs lg:text-xs ">
-      {/* AI Assist Button */}
+    <div className="mt-10 px-10 text-xs sm:text-xs md:text-xs lg:text-xs">
       <button className="font-bold text-lg flex items-center mb-4" onClick={() => setShowDropdown(!showDropdown)}>
         <h3>AI Assist</h3>
-        {/* SVG Icon for dropdown indicator */}
         <svg className="h-5 w-5 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
           <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
         </svg>
       </button>
 
-      {/* Search Input and Button */}
       <div className="mb-4">
         <div className="flex items-center">
           <input
@@ -107,14 +118,13 @@ const Skills = ({ skills = [], handleInputChange, addSkill, deleteSkill, skillsn
             className="w-full p-3 mb-4 mt-4 border border-black rounded-lg"
           />
           <button
-            className="ml-2 bg-violet-950 text-white font-bold  px-4 py-3 rounded-lg"
+            className="ml-2 bg-violet-950 text-white font-bold px-4 py-3 rounded-lg"
             onClick={handleSearchButtonClick}
           >
             Search
           </button>
         </div>
 
-        {/* Suggestions as Badges */}
         {showDropdown && suggestions.length > 0 && (
           <div className="mt-2 flex flex-wrap">
             {suggestions.map((suggestion, index) => (
@@ -130,7 +140,35 @@ const Skills = ({ skills = [], handleInputChange, addSkill, deleteSkill, skillsn
         )}
       </div>
 
-      {/* Skills List */}
+      <div className="mt-4">
+        <h4 className="text-lg font-bold">Skills from Uploaded </h4>
+        {apiSkills.length > 0 ? (
+          apiSkills.map((skill, index) => (
+            <div key={index} className="flex gap-6 mt-4">
+              <div className="w-3/4">
+                <label htmlFor={`skillname-api-${index}`} className="block text-sm font-medium text-gray-700 mb-2">
+                  Skill Name
+                </label>
+                <input
+                  type="text"
+                  id={`skillname-api-${index}`}
+                  name="skillname"
+                  value={skill.skillname}
+                  onChange={(e) => handleApiSkillInputChange(e, index)}
+                  className="w-full p-3 mb-4 border border-black rounded-lg"
+                />
+              </div>
+              
+              <button type="button" onClick={() => handleDeleteApiSkill(index)} className="mt-2 text-red-500">
+                Delete Skill
+              </button>
+            </div>
+          ))
+        ) : (
+          <p></p>
+        )}
+      </div>
+
       {skills.map((skill, index) => (
         <div key={index} className="mt-4">
           <div className="flex gap-6">
@@ -142,7 +180,7 @@ const Skills = ({ skills = [], handleInputChange, addSkill, deleteSkill, skillsn
                 type="text"
                 id={`skillname-${index}`}
                 name="skillname"
-                value={skill.skillname || skillsname}
+                value={skill.skillname}
                 onChange={(e) => handleSkillInputChange(e, index, 'skills')}
                 placeholder="Skill Name"
                 className="w-full p-3 mb-4 border border-black rounded-lg"
@@ -157,7 +195,7 @@ const Skills = ({ skills = [], handleInputChange, addSkill, deleteSkill, skillsn
                 type="text"
                 id={`skilldetails-${index}`}
                 name="skilldetails"
-                value={skill.skilldetails || skillsname2}
+                value={skill.skilldetails}
                 onChange={(e) => handleSkillInputChange(e, index, 'skills')}
                 placeholder="Skill Details"
                 className="w-full p-3 mb-4 border border-black rounded-lg"
@@ -171,7 +209,6 @@ const Skills = ({ skills = [], handleInputChange, addSkill, deleteSkill, skillsn
         </div>
       ))}
 
-      {/* Add Skill Button */}
       <button className="font-bold text-lg flex items-center mt-4" onClick={addSkill}>
         <h3>Add Item</h3>
         <svg className="h-5 w-5 text-white bg-black rounded-full m-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -182,6 +219,24 @@ const Skills = ({ skills = [], handleInputChange, addSkill, deleteSkill, skillsn
       </button>
     </div>
   );
+};
+
+Skills.propTypes = {
+  skills: PropTypes.arrayOf(
+    PropTypes.shape({
+      skillname: PropTypes.string,
+      skilldetails: PropTypes.string,
+    })
+  ),
+  handleInputChange: PropTypes.func.isRequired,
+  addSkill: PropTypes.func.isRequired,
+  deleteSkill: PropTypes.func.isRequired,
+  skillsfromapi: PropTypes.arrayOf(PropTypes.string),
+};
+
+Skills.defaultProps = {
+  skills: [],
+  skillsfromapi: [],
 };
 
 export default Skills;
