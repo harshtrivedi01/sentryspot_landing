@@ -10,7 +10,7 @@ import Template8 from '../templates/Template8';
 import Template9 from '../templates/Template9';
 import Template10 from '../templates/Template10';
 
-const TemplateComponent = forwardRef(({ image, data, selectedTemplate, selectedFont, textSize, setBoxBgColor, sectionSpacing, paragraphSpacing, lineSpacing, boxBgColor, isPreviewScreen, predefinedText , handleImageUpload,skillsfromapi}, ref) => {
+const TemplateComponent = forwardRef(({ image, data, selectedTemplate, selectedFont, textSize, setBoxBgColor, sectionSpacing, paragraphSpacing, lineSpacing, boxBgColor, isPreviewScreen, predefinedText , handleImageUpload,skillsfromapi ,id}, ref) => {
 console.log(image, '=====')
   
   
@@ -75,6 +75,7 @@ console.log(image, '=====')
   image={image} // Pass image state as prop
   handleImageUpload={handleImageUpload}
   skillsfromapi={skillsfromapi}
+  id={id}
 />
 
       </div>

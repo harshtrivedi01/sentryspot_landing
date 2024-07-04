@@ -99,7 +99,9 @@ function Form() {
   const [nextButtonText, setNextButtonText] = useState('Next');
   const [image, setImage] = useState(null);
   const [resumeData, setResumeData] = useState(null);
-
+  const [id, setid] = useState(null);
+  const [idFromResponse, setIdFromResponse] = useState(null); 
+  
   const [screenNames, setScreenNames] = useState({
     Details: 'Details',
     Experience: 'Next: Work Experience',
@@ -367,11 +369,20 @@ useEffect(() => {
   }
 }, []);
 
+useEffect(() => {
+  // Retrieve resume data from localStorage
+  const storedid = localStorage.getItem('id');
+  if (storedid) {
+    setid(storedid);
+  }
+}, []);
+
 
 return (<div>
    {resumeData?(<><div className="h-screen">
     {!isPreviewing ? (
       <>
+      {console.log(idFromResponse,'testfo rid')}
       <div className="flex flex-col sm:flex-row justify-between border-2 p-1 bg-slate-300">
   <button
     onClick={handlePrevious}
@@ -533,7 +544,7 @@ start_date={resumeData.employmenthistory[0]?.start_date}
                 predefinedText={predefinedText}
                 resumeSkills={resumeData.skills}  // Pass resume skills data
                 skillsfromapi={resumeData.skills}
-              
+                 id={resumeData.id}
               />
               <div className='my-2 px-10 '>
        <TemplateSelector selectedTemplate={selectedTemplate} setSelectedTemplate={setSelectedTemplate} />
@@ -563,7 +574,7 @@ start_date={resumeData.employmenthistory[0]?.start_date}
          setBoxBgColor={setBoxBgColor} boxBgColor={boxBgColor}
          predefinedText={predefinedText}
          skillsfromapi={resumeData.skills}
-        
+        id={resumeData.id}
       />
       </>
     )}
@@ -674,7 +685,7 @@ start_date={resumeData.employmenthistory[0]?.start_date}
                   case 'summary':
                     return <Summary summary={formData.summary} 
                     handleInputChange={handleInputChange}
-                    summaryname= {resumeData.professionalsummary} />;
+                    />;
                   case 'Language':
                     return (
                       <Language

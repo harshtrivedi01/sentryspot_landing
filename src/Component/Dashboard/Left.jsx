@@ -14,6 +14,13 @@ function Left() {
     <div className="hidden md:flex md:flex-col md:py-36 md:w-[23%] md:justify-start md:p-5" id="bgnavbar">
       <nav>
         <div className="flex flex-col">
+        <Link 
+            to="/dashboard" 
+            className={`mb-2 px-2 py-2 rounded-md ${activeTab === '/dashboard' ? 'bg-slate-900 text-white' : 'bg-slate-700 text-white'}`}
+            onClick={() => handleTabClick('/dashboard')}
+          >
+            <i className="fa-solid fa-book-open-reader p-3 text-purple-500"></i>Dashboard
+          </Link>
           <Link 
             to="/uploadresume" 
             className={`mb-2 px-2 py-2 rounded-md ${activeTab === '/uploadresume' ? 'bg-slate-900 text-white' : 'bg-slate-700 text-white'}`}

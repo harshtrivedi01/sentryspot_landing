@@ -18,6 +18,7 @@ import Layout3 from './Layout3.jsx'
 import Form from "./Component/ResumeBuilder/Forms.jsx"
 import Selectionresume from "./Component/ResumeBuilder/Selectionresume.jsx"
 import Uploadresume from "./Component/ResumeBuilder/Uploadresume.jsx"
+import { ResumeProvider } from './ResumeContext.jsx'
 const route =createBrowserRouter([
   {
     path:"/",
@@ -89,6 +90,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider router ={route}/>
     {/* <App /> */}
+    <ResumeProvider>
     <Toaster/>
+    
+    </ResumeProvider>
   </React.StrictMode>,
 )

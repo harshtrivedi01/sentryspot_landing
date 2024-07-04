@@ -56,9 +56,9 @@ console.log(skillsfromapi,'api')
     }
   };
 
-  const updateResume = async () => {
+  const updateResume = async (id) => {
     const token = localStorage.getItem('token');
-    const url = 'https://api.abroadium.com/api/jobseeker/resume-update';
+    const url = `https://api.abroadium.com/api/jobseeker/resume-update/${id}`;
   
     // Ensure skillsfromapi is initialized as an empty array if it's null or undefined
     const skillsFromApiArray = Array.isArray(skillsfromapi) ? skillsfromapi : [];

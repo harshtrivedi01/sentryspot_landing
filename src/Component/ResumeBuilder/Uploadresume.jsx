@@ -12,6 +12,7 @@ function Uploadresume() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [file, setFile] = useState(null);
+  const [idFromResponse, setIdFromResponse] = useState(null); // State variable to hold the id
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
@@ -22,10 +23,16 @@ function Uploadresume() {
       toast.error("Please select a file to upload");
       return;
     }
-
+  
+    // Check if the file type is PDF
+    if (file.type !== 'application/pdf') {
+      toast.error("Please upload a PDF file");
+      return;
+    }
+  
     const formData = new FormData();
     formData.append('files', file);
-
+  
     setLoading(true);
     try {
       const token = localStorage.getItem('token'); // Retrieve token from storage
@@ -39,32 +46,37 @@ function Uploadresume() {
           toast.info(`Upload progress: ${percentCompleted}%`);
         }
       });
-
-      console.log("Full API Response:", response.data);
-
+  
+      console.log("Full API Response:", response.data.data[0].id);
+  
       if (!response.data.data || !response.data.data[0] || !response.data.data[0].resume_parse_data) {
         toast.error("Resume data not found in API response");
         setLoading(false);
         return;
       }
-
+     
       const parsedData = JSON.parse(response.data.data[0].resume_parse_data);
       console.log("Parsed Resume Data:", parsedData);
-
-      // Store resume data in localStorage
+  
+      // Store resume data and id in localStorage
       localStorage.setItem('resumeData', JSON.stringify(parsedData.templateData));
-
+      localStorage.setItem('id',  response.data.data[0].id);
+  
+      // Set idFromResponse state with the id
+      setIdFromResponse(response.data.data[0].id);
+  
       toast.success("File uploaded successfully");
       setLoading(false);
-      console.log(JSON.stringify(parsedData.templateData))
-      // Navigate to resume display page
-      navigate('/form');
+  
+      // Navigate to resume display page with id as parameter
+      navigate(`/form?id=${response.data.data[0].id}`);
     } catch (error) {
       console.error("Upload error:", error);
       toast.error("File upload failed");
       setLoading(false);
     }
   };
+  
 
   return (
     <>
@@ -80,7 +92,14 @@ function Uploadresume() {
               <div className="my-10 p-16 border-dashed border-2 rounded-md border-blue-400">
                 <img src={upload} alt="" style={{ height: '50px' }} className="ms-24" />
                 <h1 className="font-bold text-xl mt-2 mb-3 text-slate-700">Drag and drop a file here</h1>
-                <input type="file" onChange={handleFileChange} className="hidden" id="file-upload" />
+                <input 
+  type="file" 
+  onChange={handleFileChange} 
+  className="hidden" 
+  id="file-upload" 
+  accept=".pdf"
+/>
+
                 <label htmlFor="file-upload" className="cursor-pointer text-white px-4 rounded-full py-1 text-xs" style={{ backgroundColor: '#022B5F' }}>Browse</label>
               </div>
             </div>
@@ -88,7 +107,7 @@ function Uploadresume() {
               <h3 className="text-xs"><strong>Files we can read: PDF</strong></h3>
             </div>
             <div className="text-center mt-10">
-              <button className="px-10 rounded-full py-2 text-lg text-violet-950 font-bold border border-violet-950" onClick={handleUpload}>Upload</button>
+              <button className="px-10 rounded-full py-2 text-lg text-violet-950 font-bold border border-violet-950" onClick={handleUpload}>Submit</button>
             </div>
             <div className="ms-20 mt-10">
               <button className="px-10 rounded-full py-2 text-lg text-violet-950 font-bold border border-violet-950" onClick={() => navigate('/dashboard')}>Back</button>

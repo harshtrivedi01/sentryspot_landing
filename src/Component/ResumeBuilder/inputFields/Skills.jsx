@@ -9,7 +9,6 @@ const Skills = ({ skills, handleInputChange, addSkill, deleteSkill, skillsfromap
   const [apiSkills, setApiSkills] = useState([]);
 
   useEffect(() => {
-    console.log('skillsfromapi:', skillsfromapi);
     if (Array.isArray(skillsfromapi)) {
       setApiSkills(skillsfromapi.map(skill => ({ skillname: skill, skilldetails: '' })));
     } else {
@@ -39,6 +38,7 @@ const Skills = ({ skills, handleInputChange, addSkill, deleteSkill, skillsfromap
       if (response.data.status === 'success') {
         const skillsList = response.data.data.resume_analysis.skills;
         setSuggestions(skillsList);
+        setShowDropdown(true); // Show dropdown after receiving suggestions
       } else {
         console.error('Error fetching suggestions:', response.data.message);
       }
@@ -48,29 +48,19 @@ const Skills = ({ skills, handleInputChange, addSkill, deleteSkill, skillsfromap
   };
 
   const handleSearchInputChange = (e) => {
-    const { value } = e.target;
-    setSearchQuery(value);
+    setSearchQuery(e.target.value);
+    setShowDropdown(false); // Hide dropdown when typing
+  };
 
-    if (value.length >= 2) {
-      fetchSuggestions(value);
-      setShowDropdown(true);
-    } else {
-      setSuggestions([]);
-      setShowDropdown(false);
+  const handleSearchButtonClick = () => {
+    if (searchQuery.trim() !== '') {
+      fetchSuggestions(searchQuery); // Fetch suggestions when search button is clicked
     }
   };
 
   const handleSuggestionSelect = (suggestion) => {
     handleInputChange({ target: { name: 'skillname', value: suggestion } }, 0, 'skills');
     setShowDropdown(false);
-  };
-  
-
-  const handleSearchButtonClick = () => {
-    if (searchQuery.trim() !== '') {
-      fetchSuggestions(searchQuery);
-      setShowDropdown(true);
-    }
   };
 
   const handleSkillInputChange = (e, index, field) => {

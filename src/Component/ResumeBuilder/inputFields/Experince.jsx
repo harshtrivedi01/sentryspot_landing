@@ -45,7 +45,7 @@ const Experience = ({
     const value = e.target.value;
     setSearchValue(value);
   
-    if (value.length > 2) {
+    if (e.key === 'Enter' && value.length > 2) { // Check if Enter key is pressed
       setIsLoading(true);
       try {
         const token = localStorage.getItem('token');
@@ -79,6 +79,7 @@ const Experience = ({
       setSearchResults([]);
     }
   };
+  
   
   const handleDescriptionChange = (value, index) => {
     handleInputChange({ target: { name: 'companydescription', value } }, index, 'experiences');
@@ -218,6 +219,7 @@ const Experience = ({
                           placeholder="Search..."
                           value={searchValue}
                           onChange={handleSearchChange}
+                          onKeyDown={handleSearchChange}
                         />
                         {!isLoading && !error && searchResults.length > 0 && (
                           <ul className="mt-2">
