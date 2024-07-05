@@ -101,7 +101,7 @@ function Form() {
   const [resumeData, setResumeData] = useState(null);
   const [id, setid] = useState(null);
   const [idFromResponse, setIdFromResponse] = useState(null); 
-  
+
   const [screenNames, setScreenNames] = useState({
     Details: 'Details',
     Experience: 'Next: Work Experience',
@@ -371,18 +371,19 @@ useEffect(() => {
 
 useEffect(() => {
   // Retrieve resume data from localStorage
-  const storedid = localStorage.getItem('id');
-  if (storedid) {
-    setid(storedid);
+  const storedId = localStorage.getItem('resumeId');
+  if (storedId) {
+    setid(storedId); // Assuming setid is your state setter function
   }
+
+  console.log(id, 'test for id'); // Log the current value of id
+
 }, []);
-
-
 return (<div>
    {resumeData?(<><div className="h-screen">
     {!isPreviewing ? (
       <>
-      {console.log(idFromResponse,'testfo rid')}
+      {console.log(id,'testfo rid')}
       <div className="flex flex-col sm:flex-row justify-between border-2 p-1 bg-slate-300">
   <button
     onClick={handlePrevious}
@@ -574,7 +575,7 @@ start_date={resumeData.employmenthistory[0]?.start_date}
          setBoxBgColor={setBoxBgColor} boxBgColor={boxBgColor}
          predefinedText={predefinedText}
          skillsfromapi={resumeData.skills}
-        id={resumeData.id}
+        id={id}
       />
       </>
     )}
@@ -583,6 +584,7 @@ start_date={resumeData.employmenthistory[0]?.start_date}
     <div className="h-screen">
     {!isPreviewing ? (
       <>
+        {console.log(id,'testfo dsdsrid')}
       <div className="flex flex-col sm:flex-row justify-between border-2 p-1 bg-slate-300">
   <button
     onClick={handlePrevious}

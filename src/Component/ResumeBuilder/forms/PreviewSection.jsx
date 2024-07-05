@@ -19,7 +19,8 @@ const PreviewSection = ({
   setSelectedFont,
   boxBgColor,
   setBoxBgColor,
-  skillsfromapi
+  skillsfromapi,
+  id
 }) => {
   const [textSize, setTextSize] = useState(2);
   const [sectionSpacing, setSectionSpacing] = useState(2);
@@ -56,7 +57,7 @@ console.log(skillsfromapi,'api')
     }
   };
 
-  const updateResume = async (id) => {
+  const updateResume = async () => {
     const token = localStorage.getItem('token');
     const url = `https://api.abroadium.com/api/jobseeker/resume-update/${id}`;
   
@@ -139,6 +140,7 @@ console.log(skillsfromapi,'api')
 
   return (
     <div className='h- justify-center '>
+      {console.log(id,"3232")}
       <div className='flex justify-end border-2 p-1 bg-slate-300 '>
         <button
           onClick={() => setIsPreviewing(false)}

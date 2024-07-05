@@ -60,7 +60,7 @@ function Uploadresume() {
   
       // Store resume data and id in localStorage
       localStorage.setItem('resumeData', JSON.stringify(parsedData.templateData));
-      localStorage.setItem('id',  response.data.data[0].id);
+      localStorage.setItem('resumeId', response.data.data[0].id);
   
       // Set idFromResponse state with the id
       setIdFromResponse(response.data.data[0].id);
