@@ -27,7 +27,7 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import './SlidingText.css';
 
 const images = [
-  {title:"Abroadium’s Futuristic & AI Enabled Dashboard"},
+  {title:"Sentry Spot Futuristic & AI Enabled Dashboard"},
   {title:"We are live with our AI Resume Building Tool"},
   {title:"Resumes crafted by Industry Experts"},
   {title:"Verified International Jobs, Companies, Feed & more"},
@@ -75,7 +75,7 @@ const ImageSlider = () => {
           className="absolute top-1/2 right-2 md:right-28 transform -translate-y-1/2 text-blue-700 cursor-pointer z-10"
           onClick={nextSlide}
         /> */}
-        <div className="slider-container-dash ">
+        <div className="slider-container-dash text-blue-950">
           {images.map((image, index) => (
             <div
               key={index}

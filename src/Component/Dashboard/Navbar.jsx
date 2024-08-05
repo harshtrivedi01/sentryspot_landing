@@ -98,30 +98,30 @@ const Navbar = () => {
             </div>
             <div className="flex items-center">
               <div className="hidden sm:flex">
-                <Link to="/" className="text-white hover:text-yellow-500 px-3 py-3 rounded-md text-lg font-semibold items-center"><i className="fa-solid fa-house"></i></Link>
-                <Link to="/" className="text-white hover:text-yellow-500 px-3 py-3 rounded-md text-lg font-semibold items-center">Plan - Free</Link>
-                <Link to="/" className="text-gray-400 hover:text-yellow-500 px-3 py-3 rounded-md text-lg font-semibold items-center">Jobs</Link>
+                <Link to="/" className="text-blue-900 hover:text-yellow-500 px-3 py-3 rounded-md text-lg font-semibold items-center"><i className="fa-solid fa-house"></i></Link>
+                <Link to="/" className="text-blue-900 hover:text-yellow-500 px-3 py-3 rounded-md text-lg font-semibold items-center">Plan - Free</Link>
+                <Link to="/" className="text-blue-900 hover:text-yellow-500 px-3 py-3 rounded-md text-lg font-semibold items-center">Jobs</Link>
                 
                 {loading ? (
-                  <div className='text-white font-semibold px-3 py-3'>Loading...</div>
+                  <div className='text-blue-900 font-semibold px-3 py-3'>Loading...</div>
                 ) : accuracyPercentage !== null ? (
                   <div className="api-data-container">
-                    <p className='text-white font-semibold px-3 py-3'>AI Score: {accuracyPercentage}</p>
+                    <p className='text-blue-900 font-semibold px-3 py-3'>AI Score: {accuracyPercentage}</p>
                   </div>
                 ) : (
                   <button
                     type="button"
                     onClick={resumeScore}
-                    className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold flex align-middle justify-center gap-1 items-center"
+                    className="text-blue-900 hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold flex align-middle justify-center gap-1 items-center"
                   >
                     Resume Score
                   </button>
                 )}
 {console.log(suggestions)}
-                <button className="text-white hover:text-yellow-500 px-3 py-3 items-center rounded-md text-lg font-semibold" onClick={handleClick}>Suggest</button>
+                <button className="text-blue-900 hover:text-yellow-500 px-3 py-3 items-center rounded-md text-lg font-semibold" onClick={handleClick}>Suggest</button>
                 {isOpen && (
                   <div className="absolute right-56 top-10 bg-gray-600 mt-2 py-2 w-64 shadow-lg rounded-md">
-                    <p className="block px-4 py-2 text-white text-sm ">
+                    <p className="block px-4 py-2 text-blue-900 text-sm ">
                       {isLoading ? 'Loading...' : (
                         suggestions.map((suggestion, index) => (
                           <div key={index}>
@@ -129,7 +129,7 @@ const Navbar = () => {
                            {suggestion}
                            
                            <button
-                             className="text-white float-end text-xs px-2 py-1 mt- bg-violet-700 hover:bg-blue-600 rounded-md flex items-center gap-1"
+                             className="text-blue-900 float-end text-xs px-2 py-1 mt- bg-violet-700 hover:bg-blue-600 rounded-md flex items-center gap-1"
                              onClick={() => {
                                navigator.clipboard.writeText(suggestion);
                                alert('Suggestion copied to clipboard!');
@@ -146,10 +146,10 @@ const Navbar = () => {
                   </div>
                 )}
 
-                <Link to="/" className="text-white hover:text-yellow-500 px-3 py-3 items-center rounded-md text-lg font-semibold"><i className="fa-solid fa-message items-center text-purple-500"></i></Link>
-                <Link to="/" target='_blank' className="text-white items-center hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold"><i className="fa-solid fa-envelope p-2 items-center text-purple-500"></i>200 Coins</Link>
-                <Link to="/" className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold"><i className="fa-solid fa-bell text-purple-500"></i></Link>
-                <Link to="/" className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold"><i className="fa-solid fa-user text-purple-500"></i></Link>
+                <Link to="/" className="text-blue-900 hover:text-yellow-500 px-3 py-3 items-center rounded-md text-lg font-semibold"><i className="fa-solid fa-message items-center text-blue-900"></i></Link>
+                <Link to="/" target='_blank' className="text-blue-900 items-center hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold"><i className="fa-solid fa-envelope p-2 items-center text-blue-900"></i>200 Coins</Link>
+                <Link to="/" className="text-blue-900e hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold"><i className="fa-solid fa-bell text-blue-900"></i></Link>
+                <Link to="/" className="text-blue-900 hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold"><i className="fa-solid fa-user text-blue-900"></i></Link>
               </div>
               <div className="flex sm:hidden">
                 <button
@@ -166,12 +166,12 @@ const Navbar = () => {
           {isMenuOpen && (
             <div className="sm:hidden">
               <div className="px-2 pt-2 pb-3 space-y-1">
-                <Link to="/" className="text-white hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-semibold">Resume</Link>
-                <Link to="/" className="text-white hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-semibold">CV</Link>
-                <Link to="/" className="text-white hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-semibold">Cover Letter</Link>
-                <Link to="/" className="text-white hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-semibold">Advice</Link>
-                <Link to="/" className="text-white hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-semibold">Login</Link>
-                <Link to="/" className="text-white hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-semibold">Contact Us</Link>
+                <Link to="/" className="text-blue-900 hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-semibold">Resume</Link>
+                <Link to="/" className="text-blue-900 hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-semibold">CV</Link>
+                <Link to="/" className="text-blue-900 hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-semibold">Cover Letter</Link>
+                <Link to="/" className="text-blue-900 hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-semibold">Advice</Link>
+                <Link to="/" className="text-blue-900 hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-semibold">Login</Link>
+                <Link to="/" className="text-blue-900 hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-semibold">Contact Us</Link>
               </div>
             </div>
           )}

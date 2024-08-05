@@ -34,7 +34,7 @@ function Selectionresume() {
         <UploadScreen />
       ) : (
         <>
-         <div className="flex justify-between  p-2 h-14 " style={{backgroundColor: '#333456', color: '#F2931C'}}>
+         <div className="flex justify-between  p-2 h-14 bg-white border" >
           
           <img src={logo} alt=""  style={{width:'130px'}} />
             </div>

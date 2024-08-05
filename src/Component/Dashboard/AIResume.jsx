@@ -63,32 +63,32 @@ function AIResume() {
 
   return (
     <>
-      <div className='bg-gray-800 w-full px-5'>
+      <div className='bg-gray-300 w-full px-5'>
         <div className='mt-20'>
           <div className='flex items-center md:gap-10'>
-            <h1 className='font-bold text-4xl py-8 text-white'>Resume Builder</h1>
+            <h1 className='font-bold text-4xl py-8 text-blue-900'>Resume Builder</h1>
             <Link to='/resumebuilder'>
               <div className='flex justify-center mt-2'>
-                <button className='px-3 py-3 font-bold rounded-xl bg-slate-300 text-black'>Build your Resume Now</button>
+                <button className='px-3 py-3 font-bold rounded-xl bg-blue-900 text-white'>Build your Resume Now</button>
               </div>
             </Link>
           </div>
 
-          <table className='border-2 border-white w-full text-white  text-lg'>
+          <table className='border-2 border-blue-950 w-full text-blue-950  text-lg'>
             <thead>
-              <tr className='border-2 border-white'>
-                <th className='border-2 border-white px-6'>Resume</th>
-                <th className='border-2 border-white px-6'>Score</th>
-                <th className='border-2 border-white px-6'>Improve with AI</th>
+              <tr className='border-2 border-blue-950'>
+                <th className='border-2 border-blue-950 px-6'>Resume</th>
+                <th className='border-2 border-blue-950 px-6'>Score</th>
+                <th className='border-2 border-blue-950 px-6'>Improve with AI</th>
                 
-                <th className='border-2 border-white px-6'>Created</th>
-                <th className='border-2 border-white px-6'>Actions</th>
-                <th className='border-2 border-white px-6 w-40'>JD Match %</th>
+                <th className='border-2 border-blue-950 px-6'>Created</th>
+                <th className='border-2 border-blue-950 px-6'>Actions</th>
+                <th className='border-2 border-blue-950 px-6 w-40'>JD Match %</th>
               </tr>
             </thead>
             <tbody >
-              <tr className='border-2 border-white'>
-                <td className='border-2 border-white text-center w-4'>
+              <tr className='border-2 border-blue-950'>
+                <td className='border-2 border-blue-950 text-center w-4'>
                   <input
                     type='text'
                     value={editableResumeName}
@@ -96,33 +96,33 @@ function AIResume() {
                     className='bg-gray-800 text-white px-2 py-1 rounded-md w-40'
                   />
                 </td>
-                <td className='border-2 border-white px-6'>
+                <td className='border-2 border-blue-950 px-6'>
                   {loading ? (
                     <div className='text-white font-semibold px-3 py-3'>Loading...</div> // Display loading indicator
                   ) : accuracyPercentage !== null ? (
                     <div className='api-data-container'>
-                      <p className='text-white font-semibold px-3 py-3'>AI Score: {accuracyPercentage}</p>
+                      <p className='text-blue-950 font-semibold px-3 py-3'>AI Score: {accuracyPercentage}</p>
                     </div>
                   ) : (
                     <button
                       type='button'
                       onClick={resumeScore}
-                      className='text-white hover:text-violet-950 px-1 py-1 bg-yellow-500 rounded-md text-lg font-semibold flex align-middle justify-center  items-center'
+                      className='text-white hover:text-violet-950 px-1 py-1 bg-blue-950 rounded-md text-lg font-semibold flex align-middle justify-center  items-center'
                     >
                       Resume Score
                     </button>
                   )}
                 </td>
-                <td className='border-2 border-white px-6 text-center'>
+                <td className='border-2 border-blue-950 px-6 text-center'>
                   <div className='relative'>
                     <div
-                      className='text-white hover:text-yellow-500 px-2 py-2 m-2 items-center rounded-md text-lg font-bold bg-yellow-500 cursor-pointer'
+                      className='text-white hover:text-yellow-500 px-2 py-2 m-2 items-center rounded-md text-lg font-bold bg-blue-950 0 cursor-pointer'
                       onClick={handleClick}
                     >
                       AI
                     </div>
                     {isOpen && (
-                      <div className='absolute top-full mt-2 w-64 bg-white shadow-lg rounded-md p-4'>
+                      <div className='absolute top-full mt-2 w-64 bg-blue-950 shadow-lg rounded-md p-4'>
                         {isLoading ? (
                           <div>Please wait for while...</div>
                         ) : error ? (
@@ -145,13 +145,13 @@ function AIResume() {
                   </div>
                 </td>
                 
-                <td className='border-2 border-white px-6'>02/07/2024</td>
-                <td className='border-2 border-white px-6'>
+                <td className='border-2 border-blue-950 px-6'>02/07/2024</td>
+                <td className='border-2 border-blue-950 px-6'>
                   <i className='fa-solid fa-upload px-1'></i>
                   <i className='fa-solid fa-pen-to-square px-1'></i>
                   <i className='fa-solid fa-trash px-1'></i>
                 </td>
-                <td className='border-2 border-white px-6'>
+                <td className='border-2 border-blue-950 px-6'>
                   <textarea
                     value={note}
                     onChange={(e) => setNote(e.target.value)}
@@ -163,29 +163,29 @@ function AIResume() {
               
 
 
-              <tr className='border-2 border-white'>
-                <td className='border-2 border-white px-2'>
+              <tr className='border-2 border-blue-950'>
+                <td className='border-2 border-blue-950 px-2'>
                  Resume2
                 </td>
-                <td className='border-2 border-white px-6'>
+                <td className='border-2 border-blue-950 px-6'>
                 <button
                       type='button'
                       
-                      className='text-white hover:text-violet-950 px-1 py-1 bg-yellow-500 rounded-md text-lg font-semibold flex align-middle justify-center  items-center'
+                      className='text-white hover:text-violet-950 px-1 py-1 bg-blue-950 rounded-md text-lg font-semibold flex align-middle justify-center  items-center'
                     >
                       Resume Score
                     </button>
                 </td>
-                <td className='border-2 border-white px-6 text-center'>
+                <td className='border-2 border-blue-950 px-6 text-center'>
                   <div className='relative'>
                     <div
-                      className='text-white hover:text-yellow-500 px-2 py-2 m-2 items-center rounded-md text-lg font-bold bg-yellow-500 cursor-pointer'
+                      className='text-white hover:text-yellow-500 px-2 py-2 m-2 items-center rounded-md text-lg font-bold bg-blue-950 cursor-pointer'
                       onClick={handleClick}
                     >
                       AI
                     </div>
                     {isOpen && (
-                      <div className='absolute top-full mt-2 w-64 bg-white shadow-lg rounded-md p-4'>
+                      <div className='absolute top-full mt-2 w-64 bg-blue-950 shadow-lg rounded-md p-4'>
                         {isLoading ? (
                           <div>Please wait for while...</div>
                         ) : error ? (
@@ -208,13 +208,13 @@ function AIResume() {
                   </div>
                 </td>
                 
-                <td className='border-2 border-white px-6'>02/07/2024</td>
-                <td className='border-2 border-white px-6'>
+                <td className='border-2 border-blue-950 px-6'>02/07/2024</td>
+                <td className='border-2 border-blue-950 px-6'>
                   <i className='fa-solid fa-upload px-1'></i>
                   <i className='fa-solid fa-pen-to-square px-1'></i>
                   <i className='fa-solid fa-trash px-1'></i>
                 </td>
-                <td className='border-2 border-white px-6'>
+                <td className='border-2 border-blue-950 px-6'>
                 
                 </td>
               </tr>

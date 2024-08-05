@@ -8,8 +8,8 @@ const Footer = () => {
       <>
       <div className='  py-4 flex justify-center border-b-2' id='footerbg'>
         <div className=' flex flex-col md:w-[40%] justify-center  px-2 py-10 text-white gap-5 ' >
-          <div className=' text-center font-bold text-2xl'>Get Started with Abroadium.com</div>
-          <div className=' text-center text-lg'>Want to learn what Abroadium can do for you? See for yourself with a free premium content on Verified Overseas Opportunity</div>
+          <div className=' text-center font-bold text-2xl'>Get Started with Sentry Spot.com</div>
+          <div className=' text-center text-lg'>Want to learn what Sentry Spot can do for you? See for yourself with a free premium content on Verified Overseas Opportunity</div>
           <div className=' text-center'>
             <Link to='/'>
             <button className=' px-2 py-2 text-xl rounded-lg font-bold border-2 hover:shadow-xl hover:shadow-gray-800'id='footerbg' >Check it Out</button>
@@ -21,7 +21,7 @@ const Footer = () => {
             <div className="container mx-auto flex flex-col gap-7 justify-between px-6">
               <div className=' flex flex-wrap justify-between px-2 md:px-[65px]'>
                 <div className=" md:w-auto mb-6 md:mb-0">
-                    <img src={logo} className=' h-14 w-full'/>
+                    <img src={logo} className=' h-16 w-full'/>
                     <p className=' text-lg text-bold px-5'>Building Careers of Tomorrow</p>
                 </div>
                 <div className="w-full md:w-auto mb-6 md:mb-0">
@@ -35,13 +35,13 @@ const Footer = () => {
                 <br/>
                 <div className=' flex flex-wrap justify-around'>
                 <div className="w-full md:w-auto mb-6 md:mb-0">
-                    <h2 className="text-lg font-bold text-white">Abroadium</h2>
+                    <h2 className="text-lg font-bold text-white">Sentry Spot</h2>
                     <ul>
                         <li><a href="#" className="hover:text-orange-400">About Us</a></li>
                         <li><a href="#" className="hover:text-orange-400">Careers</a></li>
                         <li><a href="#" className="hover:text-orange-400">Placement Support</a></li>
-                        <li><a href="#" className="hover:text-orange-400">Abroadium Blog</a></li>
-                        <li><a href="#" className="hover:text-orange-400">Abroadium Tutorials</a></li>
+                        <li><a href="#" className="hover:text-orange-400">Sentry Spot Blog</a></li>
+                        <li><a href="#" className="hover:text-orange-400">Sentry Spot Tutorials</a></li>
                         <li><a href="#" className="hover:text-orange-400">Resources</a></li>
                     </ul>
                 </div>
@@ -79,7 +79,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="container text-base md:mx-auto text-center border-t border-white pt-6 mt-6">
-                <p className="text-white text-right">&copy; Copyright By Abroadium.com All Rights Reserved</p>
+                <p className="text-white text-right">&copy; Copyright By Sentry Spot.com All Rights Reserved</p>
             </div>
         </footer>
         </>

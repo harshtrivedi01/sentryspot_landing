@@ -24,10 +24,19 @@ function Home_Third() {
           
         <div className=' flex flex-col gap-2 justify-evenly md:flex-row  text-white rounded-xl  px-5 ' >
           
-          <div className=' flex align-middle items-center'>
-            
-            <img src={image} alt="" className=' h-[350px] w-[380px] rounded-xl shadow-lg shadow-gray-600 ' />
-          </div>
+        <div className='flex align-middle items-center'>
+  <iframe
+    width="380"
+    height="350"
+    src="https://www.youtube.com/embed/D0UnqGm_miA"
+    title="YouTube video player"
+    frameBorder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen
+    className='rounded-xl shadow-lg shadow-gray-600'
+  ></iframe>
+</div>
+
           <div className='flex flex-col font-semibold px-3 gap-5'>
           <h1 className=' text-center font-bold text-4xl py-2  text-white'>How Our AI Resume Works For You</h1>
                  <div>
@@ -85,21 +94,21 @@ function Home_Third() {
 
       <div className='flex flex-col gap-5 border-2 my-8 rounded-xl bg-white justify-center px-5 py-10 shadow-md shadow-gray-600 md:mx-auto md:w-[78%]'>
   <div className='flex flex-col items-center'>
-    <h1 className='text-5xl font-bold text-center py-6'>Explore Our Wide Range Of Trending Templates That Recruiters Loves To See
+    <h1 className='text-3xl font-bold text-center py-6 mb-10'>Explore Our Wide Range Of Trending Templates That Recruiters Loves To See
     </h1>
-    <div className=' flex gap-2'>
-    <div className=' text-lg text-left flex flex-col gap-1'>
-      <div><i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-green-500 "></i>Chosen & Crafted by Our Experts</div>
-      <div><i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-green-500 "></i>Backed by our Technology</div>
+    <div className=' flex gap-2 mb-4'>
+    <div className=' text-sm text-left flex flex-col gap-1 mx-5'>
+      <div className='font-semibold'><i className="fa-solid mb-2 fa-check border-2 px-2 py-2 rounded-full text-white bg-green-500 "></i> Chosen & Crafted by Our Experts</div>
+      <div className='font-semibold'><i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-green-500 "></i> Backed by our Technology</div>
     </div>
 
-    <div className=' text-lg text-left flex flex-col gap-1 '>      
-      <div><i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-green-500 "></i> Powered by our Robust AI </div>
-       <div><i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-green-500 "></i> Get it ready in less than 15 minutes</div>
+    <div className=' text-sm text-left flex flex-col gap-1 '>      
+    <div className='font-semibold'><i className="fa-solid fa-check border-2 mb-2 px-2 py-2 rounded-full text-white bg-green-500 "></i> Powered by our Robust AI </div>
+    <div className='font-semibold'><i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-green-500 "></i> Get it ready in less than 15 minutes</div>
     </div>
     </div>
   </div>
-  <div className='flex flex-col justify-center gap-5 items-center md:flex-row'>
+  <div className='flex flex-col justify-center gap-20 m-10 items-center md:flex-row'>
     {[
       { src: image1, alt: "Assistant Editor Resume Example", title: "Create Resume Template" },
       { src: image2, alt: "Farmer Resume Template", title: "Simple Resume Template" },

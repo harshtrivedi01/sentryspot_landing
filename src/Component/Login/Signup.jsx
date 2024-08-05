@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import logo from './Logo1.png'
+import logo from './logo.png'
 import { useNavigate } from 'react-router-dom';
 import  toast  from 'react-hot-toast';
 import axios  from 'axios';
@@ -170,12 +170,12 @@ function Signup() {
       <div className=' flex justify-end  py-2'>
         
         <div className='p-8 rounded-xl shadow-lg shadow-slate-700 w-full max-w-lg' >
-        <div className=' flex '>
-        <div><img src={logo} className=' h-10 w-20'/></div>
+        <div className=' flex justify-center mb-3'>
+        <div><img src={logo} className=' h-12 w-28'/></div>
         
         </div>
         <div className='text-2xl text-black text-center font-bold'>Let's Get Started</div>
-          <h3 className='text-xl text-black font-semibold py-5 text-center'>People across Globe are joining us to upgrade their career with our Robust AI</h3>
+          <h3 className='text-sm text-black font-semibold py-5 text-center'>People across Globe are joining us to upgrade their career with our Robust AI</h3>
           
 
           <form onSubmit={handleSignup}>
@@ -314,8 +314,8 @@ function Signup() {
                 </select>
                 {errors.qualification_id && <p className="text-red-500 text-xs">{errors.qualification_id}</p>}
               </div> */}
-            <p className=' text-base '>By registering, I am agreeing to theTerms and Conditions and Privacy Policy of this site.</p>
-            <button type='submit' className='w-full py-2 mt-2 px-4 bg-yellow-500 text-black font-semibold rounded-md'>
+            <p className=' text-xs my-3 '>By registering, I am agreeing to theTerms and Conditions and Privacy Policy of this site.</p>
+            <button type='submit' className=' mt-3 w-full py-2 mt-2 px-4 bg-blue-950 text-white font-semibold rounded-md'>
               Sign Up
             </button>
           </form>

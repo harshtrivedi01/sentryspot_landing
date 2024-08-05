@@ -59,7 +59,7 @@ const ImageSlider = () => {
               key={index}
               className={`slide ${index === currentIndex ? 'active' : ''} ${direction}`}
             >
-              <img src={image} alt={`Slide ${index}`} className="w-full h-full rounded-3xl object-cover" />
+              <img src={image} alt={`Slide ${index}`} className=" rounded-3xl border " />
             </div>
           ))}
         </div>

@@ -140,7 +140,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
-import logo from './Logo1.png';
+import logo from './logo.png';
 import Modal from "./Modal";
 import Third_step from './Third_step';
 import Signup from "./Signup";
@@ -179,7 +179,7 @@ function Login() {
           localStorage.setItem("token", response.data.data.token);
           console.log("token: ", response.data.data.token);
           navigate('/dashboard');
-          // navigate('https://dashboard-six-neon-28.vercel.app/');
+         
         } else {
           toast.error("Failed to log in.");
         }
@@ -195,8 +195,8 @@ function Login() {
   return (
     <>
       <div className="p-8 rounded-xl shadow-lg shadow-slate-700 w-full max-w-lg">
-        <div>
-          <img src={logo} className="w-20 h-10" alt="Logo" />
+        <div className="flex justify-center">
+          <img src={logo} className="w-28 h-14" alt="Logo" />
         </div>
         <div className="text-2xl text-black text-center font-bold align-middle">Welcome Back</div>
         <p className="text-black text-base mb-6">
@@ -235,7 +235,7 @@ function Login() {
           <div className="text-center py-2">
             <label className="text-black">Forgot Password?</label>
           </div>
-          <button type="submit" className="w-full bg-yellow-500 text-black px-4 py-2 rounded-md">
+          <button type="submit" className="w-full bg-blue-900 text-white px-4 py-2 rounded-md">
             Login
           </button>
           {/* <Link to='https://dashboard-six-neon-28.vercel.app/' target='_blank'>
